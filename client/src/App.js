@@ -1,8 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+
+//STYLE imports
+import styled from '@emotion/styled';
+import GlobalStyles from './GlobalStyles';
+import { ThemeProvider } from 'emotion-theming';
 
 function App() {
-  return <div className="App">fiddle</div>;
+  return <AppContainer>fiddle</AppContainer>;
 }
 
 export default App;
+
+//STYLED COMPONENTS start
+
+const AppContainer = styled.main`
+  width: 100vw;
+  height: 100vh;
+`;
+
+//STYLED COMPONENTS end
