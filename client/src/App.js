@@ -6,7 +6,13 @@ import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 
 function App() {
-  return <AppContainer>fiddle</AppContainer>;
+  return (
+    <AppContainer>
+      <ThemeProvider />
+      <GlobalStyles />
+      fiddle
+    </AppContainer>
+  );
 }
 
 export default App;
