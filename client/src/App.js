@@ -4,11 +4,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
+import defaultTheme from './utils/themes';
 
 function App() {
   return (
     <AppContainer>
-      <ThemeProvider />
+      <ThemeProvider theme={defaultTheme} />
       <GlobalStyles />
       fiddle
     </AppContainer>
