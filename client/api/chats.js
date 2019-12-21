@@ -38,12 +38,12 @@ export function addNewChat(chat) {
 }
 
 //Add New Message
-export function addNewChat(id) {
+export function addNewMessage(id, message) {
   return fetch(`/api/chats/${id}/messages`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(chat)
+    body: JSON.stringify(message)
   }).then(response => response.json());
 }
