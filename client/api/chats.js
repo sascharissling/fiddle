@@ -1,7 +1,7 @@
 //Get all chats
 export function getAllChats() {
   return fetch('/api/chats', {
-    medhod: 'GET'
+    method: 'GET'
   })
     .then(response => {
       if (response.status != 200) {
@@ -15,7 +15,7 @@ export function getAllChats() {
 //Get Chat by ID
 export function getChat(chatId) {
   return fetch(`/api/chats/${chatId}`, {
-    medhod: 'GET'
+    method: 'GET'
   })
     .then(response => {
       if (response.status != 200) {
@@ -29,7 +29,18 @@ export function getChat(chatId) {
 //Add New Chat
 export function addNewChat(chat) {
   return fetch('/api/chats', {
-    medhod: 'POST',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(chat)
+  }).then(response => response.json());
+}
+
+//Add New Message
+export function addNewChat(id) {
+  return fetch(`/api/chats/${id}/messages`, {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
