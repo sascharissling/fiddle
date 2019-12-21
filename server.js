@@ -1,18 +1,22 @@
 require('dotenv').config();
 const express = require('express');
-const { initDb } = require('./lib/database');
-const { getChats } = require('./lib/chats');
+const mongoose = require('mongoose');
+
+mongoose.connect(`mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/fiddle`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+const db = mongoose.connection;
+db.on('error', error => console.error(error));
+db.once('open', () => console.log('Connected to DB'));
 
 const app = express();
 
-app.get('/api/chats', async (request, response) => {
-  const chats = await getChats();
-  response.json(chats);
-});
+app.use(express.json());
 
-initDb(process.env.MONGO_URL, process.env.DB_NAME).then(() => {
-  console.log('DB initialized');
-  app.listen(8080, () => {
-    console.log('Server ready on http://localhost:8080');
-  });
+const chatsRouter = require('./lib/chats');
+app.use('/chats', chatsRouter);
+
+app.listen(8080, () => {
+  console.log('Server ready on http://localhost:8080');
 });
