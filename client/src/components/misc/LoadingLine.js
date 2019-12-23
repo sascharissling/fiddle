@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { changeWidth } from '../utils/animations';
+import { changeWidth } from '../../utils/animations';
 
 const Line = styled.div`
   height: 5px;
