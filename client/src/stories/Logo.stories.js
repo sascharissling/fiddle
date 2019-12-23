@@ -1,13 +1,17 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 //COMPONENTS Imports
 import FiddleLogo from '../components/FiddleLogo';
+import FiddleSmallLogo from '../components/FiddleSmallLogo';
 
 export default {
-  title: 'Fiddle Logo'
+  title: 'Fiddle Logos'
 };
 
-export function Logo() {
+export function BrandLogo() {
   return <FiddleLogo />;
+}
+
+export function SmallLogo() {
+  return <FiddleSmallLogo />;
 }
