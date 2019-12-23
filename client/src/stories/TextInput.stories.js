@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 
 //COMPONENTS Imports
 import UserNameInput from '../components/UserNameInput';
@@ -18,9 +18,7 @@ export function NameInput() {
       onSubmit={action('enter')}
       placeholder={'Username'}
       value={'value'}
-    >
-      {text('Input', 'Value')}
-    </UserNameInput>
+    />
   );
 }
 
@@ -31,8 +29,6 @@ export function ChatMessageInput() {
       onSubmit={action('enter')}
       placeholder={'Chatmessage'}
       value={'value'}
-    >
-      {text('Input', 'Value')}
-    </MessageInput>
+    />
   );
 }
