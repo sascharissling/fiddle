@@ -9,6 +9,7 @@ const HeaderBar = styled.header`
   align-items: center;
   align-content: center;
   padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export default HeaderBar;
