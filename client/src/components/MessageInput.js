@@ -14,7 +14,7 @@ const Message = styled.input`
   overflow: hidden;
 `;
 
-export default function MessageInput({ handleSubmit, handleChange, onSubmit }) {
+export default function MessageInput({ onSubmit }) {
   const [message, setMessage] = React.useState('');
 
   function handleSubmit(event) {
