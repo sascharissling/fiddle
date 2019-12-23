@@ -1,8 +1,8 @@
 import React from 'react';
 
 //COMPONENTS Imports
-import FiddleLogo from '../components/FiddleLogo';
-import FiddleSmallLogo from '../components/FiddleSmallLogo';
+import FiddleLogo from '../components/branding/FiddleLogo';
+import FiddleSmallLogo from '../components/branding/FiddleSmallLogo';
 
 export default {
   title: 'Fiddle Logos'
