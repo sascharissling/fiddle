@@ -6,6 +6,15 @@ import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import defaultTheme from './utils/themes';
 
+//STYLE start
+
+const AppContainer = styled.main`
+  width: 100vw;
+  height: 100vh;
+`;
+
+//STYLE end
+
 function App() {
   return (
     <AppContainer>
@@ -17,12 +26,3 @@ function App() {
 }
 
 export default App;
-
-//STYLED COMPONENTS start
-
-const AppContainer = styled.main`
-  width: 100vw;
-  height: 100vh;
-`;
-
-//STYLED COMPONENTS end

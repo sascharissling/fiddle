@@ -1,19 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-//STYLE start
+//Components imports
+import ProxyButton from './ProxyButton';
 
-const ProxyButton = styled.button`
-  border: none;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`;
+//STYLE start
 
 const NewChat = styled.path`
   fill: ${props => props.theme.primary};
