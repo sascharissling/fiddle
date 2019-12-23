@@ -3,7 +3,7 @@ import { configure, addDecorator } from '@storybook/react';
 import GlobalStyles from '../src/GlobalStyles';
 import { withKnobs } from '@storybook/addon-knobs';
 import { ThemeProvider } from 'emotion-theming';
-import defaultTheme from '../src/utils/defaultTheme';
+import defaultTheme from '../src/utils/themes';
 
 // add GlobalStyle for every story
 const GlobalStyleDecorator = storyFn => (
