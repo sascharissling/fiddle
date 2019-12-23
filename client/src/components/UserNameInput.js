@@ -13,6 +13,21 @@ const NameInput = styled.input`
   }
 `;
 
-export default function UserNameInput({ onChange }) {
-  return <NameInput autoFocus type="text" onChange={onChange} />;
+export default function UserNameInput({ onSubmit }) {
+  const [userName, setUserName] = React.useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onSubmit(userName);
+    setUserName('');
+  }
+  function handleChange(event) {
+    const value = event.target.value;
+    setUserName(value);
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <NameInput autoFocus type="text" value={userName} onChange={handleChange} />
+    </form>
+  );
 }
