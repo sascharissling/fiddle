@@ -12,6 +12,7 @@ const Stop1 = styled.stop`
 const Stop2 = styled.stop`
   stop-color: ${props => props.theme.primary2};
 `;
+
 //STYLED end
 
 export default function PlayButton({ onClick }) {
