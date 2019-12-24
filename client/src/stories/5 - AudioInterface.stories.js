@@ -12,6 +12,7 @@ import SendAudio from '../components/buttons/SendAudio';
 import DiscardAudio from '../components/buttons/DiscardAudio';
 import NoAudioYet from '../components/headlines/NoAudioYet';
 import FiddleDisplay from '../components/audioInterface/FiddleDisplay';
+import RecordNewFiddle from '../components/audioInterface/RecordNewFiddle';
 
 export default {
   title: 'Audio Actions',
@@ -52,4 +53,8 @@ export function Discard() {
 
 export function FiddlePlayback() {
   return <FiddleDisplay />;
+}
+
+export function RecordFiddle() {
+  return <RecordNewFiddle />;
 }
