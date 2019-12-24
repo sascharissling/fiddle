@@ -47,7 +47,7 @@ export default function FiddleLogo() {
           transform="translate(90.335 234.5)"
           fill="none"
           stroke="#000"
-          stroke-width="1"
+          strokeWidth="1"
         />
         <line
           id="Line_128"
@@ -57,7 +57,7 @@ export default function FiddleLogo() {
           transform="translate(90.335 237.5)"
           fill="none"
           stroke="#000"
-          stroke-width="1"
+          strokeWidth="1"
         />
         <line
           id="Line_127"
@@ -67,7 +67,7 @@ export default function FiddleLogo() {
           transform="translate(90.335 240.5)"
           fill="none"
           stroke="#000"
-          stroke-width="1"
+          strokeWidth="1"
         />
         <line
           id="Line_126"
@@ -77,7 +77,7 @@ export default function FiddleLogo() {
           transform="translate(90.335 243.5)"
           fill="none"
           stroke="#000"
-          stroke-width="1"
+          strokeWidth="1"
         />
         <line
           id="Line_125"
@@ -87,7 +87,7 @@ export default function FiddleLogo() {
           transform="translate(90.335 246.5)"
           fill="none"
           stroke="#000"
-          stroke-width="1"
+          strokeWidth="1"
         />
         <line
           id="Line_124"
@@ -97,7 +97,7 @@ export default function FiddleLogo() {
           transform="translate(89.335 249.5)"
           fill="none"
           stroke="#000"
-          stroke-width="1"
+          strokeWidth="1"
         />
       </g>
     </svg>

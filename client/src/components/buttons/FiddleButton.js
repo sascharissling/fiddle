@@ -38,7 +38,7 @@ export default function FiddleButton({ onClick }) {
             transform="translate(272.5 541.5)"
             fill="none"
             stroke="#f5f5f5"
-            stroke-width="1"
+            strokeWidth="1"
           />
           <g id="Group_6" data-name="Group 6" transform="translate(-1)">
             <circle
@@ -59,7 +59,7 @@ export default function FiddleButton({ onClick }) {
               transform="translate(280.5 541.5)"
               fill="none"
               stroke="#f5f5f5"
-              stroke-width="1"
+              strokeWidth="1"
             />
             <line
               id="Line_111"
@@ -68,7 +68,7 @@ export default function FiddleButton({ onClick }) {
               transform="translate(284.5 541.5)"
               fill="none"
               stroke="#f5f5f5"
-              stroke-width="1"
+              strokeWidth="1"
             />
             <line
               id="Line_112"
@@ -77,7 +77,7 @@ export default function FiddleButton({ onClick }) {
               transform="translate(288.5 541.5)"
               fill="none"
               stroke="#f5f5f5"
-              stroke-width="1"
+              strokeWidth="1"
             />
             <line
               id="Line_113"
@@ -86,7 +86,7 @@ export default function FiddleButton({ onClick }) {
               transform="translate(286.5 536.5)"
               fill="none"
               stroke="#f5f5f5"
-              stroke-width="1"
+              strokeWidth="1"
             />
             <line
               id="Line_114"
@@ -95,7 +95,7 @@ export default function FiddleButton({ onClick }) {
               transform="translate(282.5 538.5)"
               fill="none"
               stroke="#f5f5f5"
-              stroke-width="1"
+              strokeWidth="1"
             />
             <line
               id="Line_117"
@@ -104,7 +104,7 @@ export default function FiddleButton({ onClick }) {
               transform="translate(278.5 540.5)"
               fill="none"
               stroke="#f5f5f5"
-              stroke-width="1"
+              strokeWidth="1"
             />
             <line
               id="Line_115"
@@ -113,7 +113,7 @@ export default function FiddleButton({ onClick }) {
               transform="translate(290.5 540.5)"
               fill="none"
               stroke="#f5f5f5"
-              stroke-width="1"
+              strokeWidth="1"
             />
           </g>
         </g>
