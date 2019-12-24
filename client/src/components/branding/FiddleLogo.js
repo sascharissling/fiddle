@@ -1,4 +1,15 @@
 import React from 'react';
+import styled from '@emotion/styled';
+
+//STYLE start
+const Stop1 = styled.stop`
+  stop-color: ${props => props.theme.primary};
+`;
+
+const Stop2 = styled.stop`
+  stop-color: ${props => props.theme.primary2};
+`;
+//STYLE end
 
 export default function FiddleLogo() {
   return (
@@ -16,8 +27,8 @@ export default function FiddleLogo() {
           y2="1"
           gradientUnits="objectBoundingBox"
         >
-          <stop offset="0" stop-color="#EA4F87" />
-          <stop offset="1" stop-color="#f37a6a" />
+          <Stop1 offset="0" />
+          <Stop2 offset="1" />
         </linearGradient>
       </defs>
       <g id="Group_34" data-name="Group 34" transform="translate(-89.15 -221.65)">
