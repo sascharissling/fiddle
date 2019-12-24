@@ -10,15 +10,20 @@ import StopButton from '../components/buttons/StopButton';
 import PauseButton from '../components/buttons/PauseButton';
 import SendAudio from '../components/buttons/SendAudio';
 import DiscardAudio from '../components/buttons/DiscardAudio';
+import NoAudioYet from '../components/headlines/NoAudioYet';
+import FiddleDisplay from '../components/audioInterface/FiddleDisplay';
 
 export default {
   title: 'Audio Actions',
   decorators: [withKnobs]
 };
 
-//Button leads to where a new audio file can be recorded
 export function GoFiddle() {
   return <FiddleButton onClick={action('clicked')} />;
+}
+
+export function BeforeRecording() {
+  return <NoAudioYet />;
 }
 
 export function Record() {
@@ -43,4 +48,8 @@ export function Send() {
 
 export function Discard() {
   return <DiscardAudio onClick={action('clicked')} />;
+}
+
+export function FiddlePlayback() {
+  return <FiddleDisplay />;
 }
