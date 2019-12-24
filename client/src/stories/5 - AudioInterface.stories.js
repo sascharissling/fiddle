@@ -8,6 +8,8 @@ import RecordButton from '../components/buttons/RecordButton';
 import PlayButton from '../components/buttons/PlayButton';
 import StopButton from '../components/buttons/StopButton';
 import PauseButton from '../components/buttons/PauseButton';
+import SendAudio from '../components/buttons/SendAudio';
+import DiscardAudio from '../components/buttons/DiscardAudio';
 
 export default {
   title: 'Audio Actions',
@@ -33,4 +35,12 @@ export function Pause() {
 
 export function Stop() {
   return <StopButton onClick={action('clicked')} />;
+}
+
+export function Send() {
+  return <SendAudio onClick={action('clicked')} />;
+}
+
+export function Discard() {
+  return <DiscardAudio onClick={action('clicked')} />;
 }
