@@ -13,6 +13,8 @@ import DiscardAudio from '../components/buttons/DiscardAudio';
 import NoAudioYet from '../components/headlines/NoAudioYet';
 import FiddleDisplay from '../components/audioInterface/FiddleDisplay';
 import RecordNewFiddle from '../components/audioInterface/RecordNewFiddle';
+import OverdubFiddle from '../components/audioInterface/OverdubFiddle';
+import ConsolidatedFiddle from '../components/audioInterface/ConsolidatedFiddle';
 
 export default {
   title: 'Audio Actions',
@@ -57,4 +59,12 @@ export function FiddlePlayback() {
 
 export function RecordFiddle() {
   return <RecordNewFiddle />;
+}
+
+export function Overdub() {
+  return <OverdubFiddle />;
+}
+
+export function Consolidated() {
+  return <ConsolidatedFiddle />;
 }
