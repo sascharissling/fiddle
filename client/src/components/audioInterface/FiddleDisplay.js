@@ -6,7 +6,9 @@ import WaveSurfer from 'wavesurfer.js';
 const Waveform = styled.div`
   width: 90vw;
   height: 350px;
+  position: absolute;
   flex-grow: 1;
+  z-index: 0;
 `;
 //STYLE end
 
@@ -27,7 +29,7 @@ export default function FiddleDisplay() {
         autoCenter: false,
         responsive: true,
         width: 100,
-        barHeight: 10,
+        barHeight: 9,
         height: 350,
         interact: true,
         maxCanvasWidth: 2000,

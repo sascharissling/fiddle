@@ -3,15 +3,21 @@ import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
 import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
 
+//COMPONENTS imports
+import FiddleDisplay from './FiddleDisplay';
+
 //STYLE start
 const Waveform = styled.div`
   width: 90vw;
-  height: 350px;
+  height: 360px;
+  position: relative;
+  z-index: 1;
   flex-grow: 1;
+  border-radius: 15px;
 `;
 //STYLE end
 
-export default function RecordNewFiddle() {
+export default function OverdubFiddle() {
   const waveformRef = React.useRef();
 
   React.useEffect(() => {
@@ -24,7 +30,7 @@ export default function RecordNewFiddle() {
         cursorWidth: 2,
         waveColor: activeWaveColor,
         hideScrollbar: true,
-        autoCenter: false,
+        autoCenter: true,
         responsive: true,
         interact: false,
         width: 100,
@@ -45,5 +51,10 @@ export default function RecordNewFiddle() {
       }, 5000);
     }
   }, []);
-  return <Waveform ref={waveformRef} />;
+  return (
+    <>
+      <FiddleDisplay />
+      <Waveform ref={waveformRef} />
+    </>
+  );
 }
