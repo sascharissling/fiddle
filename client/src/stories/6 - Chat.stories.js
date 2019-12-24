@@ -8,6 +8,7 @@ import IncomingMessage from '../components/messages/IncomingMessage';
 import OutgoingMessage from '../components/messages/OutgoingMessage';
 import IncomingAudio from '../components/messages/IncomingAudio';
 import OutgoingAudio from '../components/messages/OutgoingAudio';
+import ChatListItem from '../components/layout/ChatListItem';
 
 export default {
   title: 'Chat Objects',
@@ -15,6 +16,17 @@ export default {
 };
 
 //Button leads to where a new audio file can be recorded
+export function ChatList() {
+  return (
+    <ChatListItem
+      onClick={action('clicked')}
+      partnerName={'Friend'}
+      lastMessage={'This is it I think'}
+      lastMessageDate={'00:12'}
+    />
+  );
+}
+
 export function GoFiddle() {
   return <FiddleButton onClick={action('clicked')} />;
 }
