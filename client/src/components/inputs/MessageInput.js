@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const MessageInput = styled.input`
+const Input = styled.input`
   color: ${props => props.theme.tertiary};
   background: transparent;
   border: 1px solid ${props => props.theme.secondary};
@@ -30,7 +30,7 @@ export default function MessageInput({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <MessageInput autoFocus type="text" value={message} onChange={handleChange} />
+      <Input autoFocus type="text" value={message} onChange={handleChange} />
     </form>
   );
 }
