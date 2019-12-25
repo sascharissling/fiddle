@@ -21,7 +21,13 @@ export default function FiddleLogo() {
       viewBox="0 0 138.344 33.409"
     >
       <defs>
-        <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1">
+        <linearGradient
+          id="linear-gradient"
+          x1="0.5"
+          x2="0.5"
+          y2="1"
+          gradientUnits="objectBoundingBox"
+        >
           <Stop1 offset="0" />
           <Stop2 offset="1" />
         </linearGradient>

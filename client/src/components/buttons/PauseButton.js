@@ -19,7 +19,13 @@ export default function PauseButton({ onClick }) {
     <ProxyButton onClick={onClick}>
       <svg xmlns="http://www.w3.org/2000/svg" width="19.2" height="22.4" viewBox="0 0 19.2 22.4">
         <defs>
-          <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1">
+          <linearGradient
+            id="linear-gradient"
+            x1="0.5"
+            x2="0.5"
+            y2="1"
+            gradientUnits="objectBoundingBox"
+          >
             <Stop1 offset="0" />
             <Stop2 offset="1" />
           </linearGradient>

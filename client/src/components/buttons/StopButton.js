@@ -17,7 +17,13 @@ const Stop2 = styled.stop`
 export default function StopButton({ onClick }) {
   return (
     <ProxyButton onClick={onClick}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        gradientUnits="objectBoundingBox"
+      >
         <defs>
           <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1">
             <Stop1 offset="0" />

@@ -20,7 +20,13 @@ export default function PlayButton({ onClick }) {
     <ProxyButton onClick={onClick}>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28">
         <defs>
-          <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1">
+          <linearGradient
+            id="linear-gradient"
+            x1="0.5"
+            x2="0.5"
+            y2="1"
+            gradientUnits="objectBoundingBox"
+          >
             <Stop1 offset="0" />
             <Stop2 offset="1" />
           </linearGradient>
