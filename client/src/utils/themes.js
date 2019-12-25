@@ -1,5 +1,6 @@
 const defaultTheme = {
   primary: '#EA4F87',
+  primary2: '#f37a6a',
   secondary: '#707070',
   tertiary: '#f5f5f5',
   background: '#000000',
