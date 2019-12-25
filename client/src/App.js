@@ -1,4 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+//COMPONENTS imports
+import WelcomeScreen from './components/pages/WelcomeScreen';
 
 //STYLE imports
 import styled from '@emotion/styled';
@@ -20,7 +24,11 @@ function App() {
     <AppContainer>
       <ThemeProvider theme={defaultTheme} />
       <GlobalStyles />
-      fiddle
+      <Router>
+        <Route path="/" exact>
+          <WelcomeScreen />
+        </Route>
+      </Router>
     </AppContainer>
   );
 }
