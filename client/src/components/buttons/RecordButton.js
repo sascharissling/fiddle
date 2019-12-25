@@ -19,21 +19,13 @@ export default function RecordButton({ onClick }) {
     <ProxyButton onClick={onClick}>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <defs>
-          <linearGradient
-            id="linear-gradient"
-            x1="0.5"
-            x2="0.5"
-            y2="1"
-            gradientUnits="objectBoundingBox"
-          >
+          <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1">
             <Stop1 offset="0" />
             <Stop2 offset="1" />
           </linearGradient>
         </defs>
-        <g id="Group_6" data-name="Group 6" transform="translate(-274 -532)">
+        <g transform="translate(-274 -532)">
           <circle
-            id="Ellipse_5"
-            data-name="Ellipse 5"
             cx="12"
             cy="12"
             r="12"
