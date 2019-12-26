@@ -23,16 +23,13 @@ const AppContainer = styled.main`
 function App() {
   return (
     <AppContainer>
-      <Router>
-        <ThemeProvider theme={defaultTheme} />
+      <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
-        <Route path="/" exact>
-          <WelcomeScreen />
-        </Route>
-        <Route path="/login" exact>
-          <UserLogin />
-        </Route>
-      </Router>
+        <Router>
+          <Route path="/" exact component={WelcomeScreen} />
+          <Route path="/login" component={UserLogin} />
+        </Router>
+      </ThemeProvider>
     </AppContainer>
   );
 }
