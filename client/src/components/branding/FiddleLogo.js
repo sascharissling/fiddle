@@ -16,8 +16,8 @@ export default function FiddleLogo() {
           y2="1"
           gradientUnits="objectBoundingBox"
         >
-          <stop offset="0" stop-color="#EA4F87" />
-          <stop offset="1" stop-color="#f37a6a" />
+          <stop offset="0" stopColor="#EA4F87" />
+          <stop offset="1" stopColor="#f37a6a" />
         </linearGradient>
       </defs>
       <g transform="translate(-89.15 -221.65)">

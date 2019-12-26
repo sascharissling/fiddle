@@ -15,8 +15,8 @@ export default function StopButton({ onClick }) {
       >
         <defs>
           <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1">
-            <stop offset="0" stop-color="#EA4F87" />
-            <stop offset="1" stop-color="#f37a6a" />
+            <stop offset="0" stopColor="#EA4F87" />
+            <stop offset="1" stopColor="#f37a6a" />
           </linearGradient>
         </defs>
         <rect width="24" height="24" fill="url(#linear-gradient)" />
