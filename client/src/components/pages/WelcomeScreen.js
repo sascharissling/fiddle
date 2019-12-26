@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Redirect } from 'react-router-dom';
 
 //VISUALS imports
 import FiddleLogo from '../branding/FiddleLogo';
@@ -17,9 +18,29 @@ const WelcomePage = styled.div`
 //STYLE end
 
 export default function WelcomeScreen() {
+  const [redirect, setRedirect] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setRedirect(true);
+    }, 2000);
+  }, []);
+
   return (
-    <WelcomePage>
-      <FiddleLogo />
-    </WelcomePage>
+    <>
+      {!redirect && (
+        <WelcomePage>
+          <FiddleLogo />
+        </WelcomePage>
+      )}
+
+      {redirect && (
+        <Redirect to={'/login'}>
+          <WelcomePage>
+            <FiddleLogo />
+          </WelcomePage>
+        </Redirect>
+      )}
+    </>
   );
 }
