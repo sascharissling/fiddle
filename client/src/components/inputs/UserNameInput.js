@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Redirect } from 'react-router-dom';
+
+//STYLE start
 
 const NameInput = styled.input`
   background: transparent;
@@ -13,21 +16,33 @@ const NameInput = styled.input`
   }
 `;
 
-export default function UserNameInput({ onSubmit }) {
+//STYLE end
+
+function upperCaseFirstChar(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export default function UserNameInput() {
   const [userName, setUserName] = React.useState('');
+  const [definedUsername, setDefinedUsername] = React.useState(false);
+
+  function handleChange(event) {
+    const upperCasedUserName = upperCaseFirstChar(event.target.value);
+    setUserName(upperCasedUserName);
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
-    onSubmit(userName);
-    setUserName('');
+    localStorage.setItem('userName', `${userName}`);
+    setDefinedUsername(true);
   }
-  function handleChange(event) {
-    const value = event.target.value;
-    setUserName(value);
-  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <NameInput autoFocus type="text" value={userName} onChange={handleChange} />
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <NameInput autoFocus type="text" value={userName} onChange={handleChange} />
+      </form>
+      {definedUsername && <Redirect to={`/loading?userName=${localStorage.getItem('userName')}`} />}
+    </>
   );
 }

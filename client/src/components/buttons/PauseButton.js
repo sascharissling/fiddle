@@ -1,27 +1,22 @@
 import React from 'react';
-import styled from '@emotion/styled';
 
 //Components imports
 import ProxyButton from './ProxyButton';
-
-//STYLED start
-const Stop1 = styled.stop`
-  stop-color: ${props => props.theme.primary};
-`;
-
-const Stop2 = styled.stop`
-  stop-color: ${props => props.theme.primary2};
-`;
-//STYLED end
 
 export default function PauseButton({ onClick }) {
   return (
     <ProxyButton onClick={onClick}>
       <svg xmlns="http://www.w3.org/2000/svg" width="19.2" height="22.4" viewBox="0 0 19.2 22.4">
         <defs>
-          <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1">
-            <Stop1 offset="0" />
-            <Stop2 offset="1" />
+          <linearGradient
+            id="linear-gradient"
+            x1="0.5"
+            x2="0.5"
+            y2="1"
+            gradientUnits="objectBoundingBox"
+          >
+            <stop offset="0" stopColor="#EA4F87" />
+            <stop offset="1" stopColor="#f37a6a" />
           </linearGradient>
         </defs>
         <path

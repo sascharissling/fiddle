@@ -1,4 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+//PAGES imports
+import WelcomeScreen from './components/pages/WelcomeScreen';
+import UserLogin from './components/pages/UserLogin';
+import LoadingScreen from './components/pages/LoadingScreen';
 
 //STYLE imports
 import styled from '@emotion/styled';
@@ -18,9 +24,14 @@ const AppContainer = styled.main`
 function App() {
   return (
     <AppContainer>
-      <ThemeProvider theme={defaultTheme} />
-      <GlobalStyles />
-      fiddle
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles />
+        <Router>
+          <Route path="/" exact component={WelcomeScreen} />
+          <Route path="/login" component={UserLogin} />
+          <Route path="/loading" component={LoadingScreen} />
+        </Router>
+      </ThemeProvider>
     </AppContainer>
   );
 }
