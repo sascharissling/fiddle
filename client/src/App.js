@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 //COMPONENTS imports
 import WelcomeScreen from './components/pages/WelcomeScreen';
+import UserLogin from './components/pages/UserLogin';
 
 //STYLE imports
 import styled from '@emotion/styled';
@@ -22,11 +23,14 @@ const AppContainer = styled.main`
 function App() {
   return (
     <AppContainer>
-      <ThemeProvider theme={defaultTheme} />
-      <GlobalStyles />
       <Router>
+        <ThemeProvider theme={defaultTheme} />
+        <GlobalStyles />
         <Route path="/" exact>
           <WelcomeScreen />
+        </Route>
+        <Route path="/login" exact>
+          <UserLogin />
         </Route>
       </Router>
     </AppContainer>

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+//STYLE start
+
 const NameInput = styled.input`
   background: transparent;
   border: none;
@@ -12,6 +14,8 @@ const NameInput = styled.input`
     outline: none;
   }
 `;
+
+//STYLE end
 
 export default function UserNameInput({ onSubmit }) {
   const [userName, setUserName] = React.useState('');
