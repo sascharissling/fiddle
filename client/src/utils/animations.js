@@ -2,24 +2,13 @@ import { keyframes } from '@emotion/core';
 
 export const changeWidth = keyframes`
 from {
-  width: 20px;
+  width: 5px;
 }
 to {
-  width: 150px;
+  width: 135px;
 }
 `;
 
-// export const hoverRight = keyframes`
-//   0% {
-//     padding-left: 0px;
-//   }
-//   50% {
-//     padding-left: 2px;
-//   }
-//   100%{
-//     padding-left: 0px;
-//   }
-// `;
 export const buttonFeedback = keyframes`
   0% {
     zoom: 1;

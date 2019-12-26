@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-//COMPONENTS imports
+//PAGES imports
 import WelcomeScreen from './components/pages/WelcomeScreen';
 import UserLogin from './components/pages/UserLogin';
+import LoadingScreen from './components/pages/LoadingScreen';
 
 //STYLE imports
 import styled from '@emotion/styled';
@@ -28,6 +29,7 @@ function App() {
         <Router>
           <Route path="/" exact component={WelcomeScreen} />
           <Route path="/login" component={UserLogin} />
+          <Route path="/loading" component={LoadingScreen} />
         </Router>
       </ThemeProvider>
     </AppContainer>

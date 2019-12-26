@@ -43,9 +43,7 @@ export default function UserNameInput() {
       <form onSubmit={handleSubmit}>
         <NameInput autoFocus type="text" value={userName} onChange={handleChange} />
       </form>
-      {definedUsername && (
-        <Redirect to={`/chatlist?userName=${localStorage.getItem('userName')}`} />
-      )}
+      {definedUsername && <Redirect to={`/loading?userName=${localStorage.getItem('userName')}`} />}
     </>
   );
 }
