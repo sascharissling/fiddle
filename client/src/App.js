@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //PAGES imports
 import WelcomeScreen from './components/pages/WelcomeScreen';
 import UserLogin from './components/pages/UserLogin';
 import LoadingScreen from './components/pages/LoadingScreen';
+import ChatList from './components/pages/ChatList';
 
 //STYLE imports
 import styled from '@emotion/styled';
@@ -27,9 +28,12 @@ function App() {
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
         <Router>
-          <Route path="/" exact component={WelcomeScreen} />
-          <Route path="/login" component={UserLogin} />
-          <Route path="/loading" component={LoadingScreen} />
+          <Switch>
+            <Route path="/" exact component={WelcomeScreen} />
+            <Route path="/login" component={UserLogin} />
+            <Route path="/loading" component={LoadingScreen} />
+            <Route path="/chatlist" component={ChatList} />
+          </Switch>
         </Router>
       </ThemeProvider>
     </AppContainer>

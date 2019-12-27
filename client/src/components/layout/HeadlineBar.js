@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const HeaderBar = styled.header`
+const HeadlineBar = styled.div`
   width: 100vw;
   height: 45px;
   display: flex;
@@ -8,8 +8,9 @@ const HeaderBar = styled.header`
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  margin-bottom: 15px;
   padding-left: 20px;
   padding-right: 20px;
 `;
 
-export default HeaderBar;
+export default HeadlineBar;
