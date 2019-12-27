@@ -70,7 +70,7 @@ export default function ChatList() {
     return time;
   }
 
-  var avatars = [DefaultUser0, DefaultUser1, DefaultUser2];
+  const avatars = [DefaultUser0, DefaultUser1, DefaultUser2];
   function randomUserAvatar(avatars) {
     return avatars[Math.floor(Math.random() * avatars.length)];
   }
