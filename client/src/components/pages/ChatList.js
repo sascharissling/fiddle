@@ -16,6 +16,11 @@ const ChatListPage = styled.main`
   display: flex;
   flex-flow: column nowrap;
 `;
+const Chats = styled.div`
+  flex-grow: 1;
+  margin: 0px 20px 0px 20px;
+  overflow: auto;
+`;
 //STYLE end
 
 export default function ChatList() {
@@ -23,8 +28,11 @@ export default function ChatList() {
   const userName = localStorage.getItem('userName');
 
   async function getUserChats() {
-    const data = await fetch(`/api/userChats/${userName}`, {
-      method: 'GET'
+    const data = await fetch(`http://localhost:8080/chats/userChats/${userName}`, {
+      method: 'GET',
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:3000'
+      }
     });
     const items = await data.json();
     setUserChats(items);
@@ -47,7 +55,9 @@ export default function ChatList() {
       <HeadlineBar>
         <PageHeadline headline={'Chats'} />
       </HeadlineBar>
-      <ChatListItem />
+      <Chats>
+        <ChatListItem />
+      </Chats>
     </ChatListPage>
   );
 }
