@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   height: 40px;
+  margin-bottom: 7px;
   cursor: pointer;
 `;
 
@@ -40,10 +41,16 @@ const LastMessageDate = styled.p`
 
 //STYLE end
 
-export default function ChatListItem({ onClick, lastMessage, partnerName, lastMessageDate }) {
+export default function ChatListItem({
+  userImgSrc,
+  onClick,
+  lastMessage,
+  partnerName,
+  lastMessageDate
+}) {
   return (
     <Wrapper onClick={onClick}>
-      <DefaultUserAvatar0 />
+      <img src={userImgSrc} alt={'default user'} />
       <ChatDetails>
         <PartnerName>{partnerName}</PartnerName>
         <LastMessage>{lastMessage}</LastMessage>
