@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 
 const chatsRouter = require('./lib/chats');
-app.use('/chats', chatsRouter);
+app.use('/api', chatsRouter);
 
 app.listen(8080, () => {
   console.log('Server ready on http://localhost:8080');

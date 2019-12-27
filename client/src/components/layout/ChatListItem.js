@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-//COMPONENTS imports
-import DefaultUserAvatar0 from '../icons/DefaultUserAvatar0';
-
 //STYLE start
-
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -13,6 +9,7 @@ const Wrapper = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   height: 40px;
+  margin-bottom: 7px;
   cursor: pointer;
 `;
 
@@ -37,13 +34,18 @@ const LastMessageDate = styled.p`
   font-size: 12px;
   margin: 0;
 `;
-
 //STYLE end
 
-export default function ChatListItem({ onClick, lastMessage, partnerName, lastMessageDate }) {
+export default function ChatListItem({
+  userImgSrc,
+  onClick,
+  lastMessage,
+  partnerName,
+  lastMessageDate
+}) {
   return (
     <Wrapper onClick={onClick}>
-      <DefaultUserAvatar0 />
+      <img src={userImgSrc} alt={'default user'} />
       <ChatDetails>
         <PartnerName>{partnerName}</PartnerName>
         <LastMessage>{lastMessage}</LastMessage>

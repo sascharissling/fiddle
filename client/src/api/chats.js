@@ -4,7 +4,7 @@ export function getAllChats() {
     method: 'GET'
   })
     .then(response => {
-      if (response.status != 200) {
+      if (response.status !== 200) {
         throw new Error(response.statusText);
       }
       return response;
@@ -18,7 +18,21 @@ export function getChat(chatId) {
     method: 'GET'
   })
     .then(response => {
-      if (response.status != 200) {
+      if (response.status !== 200) {
+        throw new Error(response.statusText);
+      }
+      return response;
+    })
+    .then(response => response.json());
+}
+
+//Get Chats by User
+export function getUserChats(userName) {
+  return fetch(`/api/userChats/${userName}`, {
+    method: 'GET'
+  })
+    .then(response => {
+      if (response.status !== 200) {
         throw new Error(response.statusText);
       }
       return response;
