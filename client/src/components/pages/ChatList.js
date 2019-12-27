@@ -28,11 +28,8 @@ export default function ChatList() {
   const userName = localStorage.getItem('userName');
 
   async function getUserChats() {
-    const data = await fetch(`http://localhost:8080/chats/userChats/${userName}`, {
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': 'http://localhost:3000'
-      }
+    const data = await fetch(`/api/userChats/${userName}`, {
+      method: 'GET'
     });
     const items = await data.json();
     setUserChats(items);
