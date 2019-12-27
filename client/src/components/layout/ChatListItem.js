@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-//COMPONENTS imports
-import DefaultUserAvatar0 from '../icons/DefaultUserAvatar0';
-
 //STYLE start
-
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -38,7 +34,6 @@ const LastMessageDate = styled.p`
   font-size: 12px;
   margin: 0;
 `;
-
 //STYLE end
 
 export default function ChatListItem({
