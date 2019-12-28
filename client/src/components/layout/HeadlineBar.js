@@ -8,7 +8,6 @@ const HeadlineBar = styled.div`
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  margin-bottom: 15px;
   padding-left: 20px;
   padding-right: 20px;
 `;
