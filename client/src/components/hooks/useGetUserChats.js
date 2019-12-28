@@ -8,8 +8,7 @@ export default function useGetUserChats(userName) {
     getUserChats(userName).then(fetchedUserChats => {
       setUserChats(fetchedUserChats);
     });
-    // eslint-disable-next-line
-  }, []);
+  }, [userName]);
 
   return userChats;
 }

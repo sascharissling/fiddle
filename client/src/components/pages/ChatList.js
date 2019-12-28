@@ -80,7 +80,7 @@ export default function ChatList() {
               key={chat._id}
               userImgSrc={randomUserAvatar(avatars)}
               partnerName={pickPartnerName(userName, chat.user1, chat.user2)}
-              lastMessage={pickLastArrayItem(chat.messages).body}
+              lastMessage={pickLastArrayItem(chat.messages).body.slice(0, 25) + '   ...'}
               lastMessageDate={turnToLocaleTimeString(pickLastArrayItem(chat.messages).date).slice(
                 11,
                 16
