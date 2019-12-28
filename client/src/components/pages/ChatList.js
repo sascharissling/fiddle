@@ -61,10 +61,10 @@ export default function ChatList() {
       </HeadlineBar>
       <Chats>
         {userChats.map(chat => (
-          <ChatLink key={chat._id} to={`/chat/${chat._id}`}>
+          <ChatLink key={chat._id} to={`/chat/${chat._id}/?userName=${userName}`}>
             <ChatListItem
-              userImgSrc={avatars[Math.floor(Math.random() * avatars.length)]}
               partnerName={pickPartnerName(userName, chat.user1, chat.user2)}
+              userImgSrc={avatars[Math.floor(Math.random() * avatars.length)]}
               lastMessage={chat.messages[chat.messages.length - 1].body.slice(0, 25) + '   ...'}
               lastMessageDate={chat.messages[chat.messages.length - 1].date.slice(11, 16)}
             />
