@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import useGetUserChats from '../hooks/useGetUserChats';
 
 //COMPONENTS imports
 import ChatListItem from '../layout/ChatListItem';
@@ -35,22 +36,8 @@ const ChatLink = styled(Link)`
 //STYLE end
 
 export default function ChatList() {
-  const [userChats, setUserChats] = React.useState([]);
   const userName = localStorage.getItem('userName');
-
-  async function getUserChats() {
-    const data = await fetch(`/api/userChats/${userName}`, {
-      method: 'GET'
-    });
-    const items = await data.json();
-    setUserChats(items);
-  }
-  console.log(userChats);
-
-  React.useEffect(() => {
-    getUserChats();
-    // eslint-disable-next-line
-  }, []);
+  const userChats = useGetUserChats(userName);
 
   function pickLastArrayItem(array) {
     const item = array[array.length - 1];
