@@ -6,6 +6,7 @@ import WelcomeScreen from './components/pages/WelcomeScreen';
 import UserLogin from './components/pages/UserLogin';
 import LoadingScreen from './components/pages/LoadingScreen';
 import ChatList from './components/pages/ChatList';
+import Chat from './components/pages/Chat';
 
 //STYLE imports
 import styled from '@emotion/styled';
@@ -33,6 +34,7 @@ function App() {
             <Route path="/login" component={UserLogin} />
             <Route path="/loading" component={LoadingScreen} />
             <Route path="/chatlist" component={ChatList} />
+            <Route path="/chat/:id" component={Chat} />
           </Switch>
         </Router>
       </ThemeProvider>
