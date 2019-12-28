@@ -94,7 +94,7 @@ export default function Chat(props) {
           ) {
             return <IncomingAudio key={message._id} />;
           } else {
-            return <></>;
+            return null;
           }
         })}
       </ChatHistory>
