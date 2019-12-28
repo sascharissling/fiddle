@@ -71,33 +71,35 @@ export default function Chat(props) {
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'text'
           ) {
-            return <OutgoingMessage key={message.id} outgoingText={message.body} />;
+            return <OutgoingMessage key={message._id} outgoingText={message.body} />;
           }
           if (
             message.author ===
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'text'
           ) {
-            return <IncomingMessage key={message.id} incomingText={message.body} />;
+            return <IncomingMessage key={message._id} incomingText={message.body} />;
           }
           if (
             message.author !==
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <OutgoingAudio key={message.id} />;
+            return <OutgoingAudio key={message._id} />;
           }
           if (
             message.author ===
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <IncomingAudio key={message.id} />;
+            return <IncomingAudio key={message._id} />;
+          } else {
+            return <></>;
           }
         })}
       </ChatHistory>
       <FooterBar>
-        <MessageInput />
+        <MessageInput chatId={chatId} author={localStorage.getItem('userName')} />
         <FiddleButton />
       </FooterBar>
     </ChatPage>

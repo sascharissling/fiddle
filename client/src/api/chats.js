@@ -39,3 +39,18 @@ export function getChatMessages(_id) {
     })
     .then(response => response.json());
 }
+
+//Send chat message
+export function sendChatMessage(body, author, type, _id) {
+  return fetch(`/api/${_id}/messages`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      body,
+      author,
+      type
+    })
+  });
+}
