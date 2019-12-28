@@ -1,15 +1,14 @@
 import styled from '@emotion/styled';
 
-const HeadlineBar = styled.div`
-  width: 100vw;
-  height: 45px;
-  display: flex;
+const FooterBar = styled.footer`
   background: ${props => props.theme.background};
+  display: flex;
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  padding-left: 20px;
-  padding-right: 20px;
+  width: 100vw;
+  padding: 10px 15px 10px 15px;
 `;
 
-export default HeadlineBar;
+export default FooterBar;

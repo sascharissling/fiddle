@@ -6,7 +6,6 @@ import MessageWrapper from './MessageWrapperIn';
 
 //STYLE start
 const IncomingTextMessage = styled.div`
-  min-width: 100px;
   max-width: 200px;
   background: transparent;
   font-size: 12px;

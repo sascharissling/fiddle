@@ -38,11 +38,7 @@ const ChatLink = styled(Link)`
 export default function ChatList() {
   const userName = localStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
-
-  function pickLastArrayItem(array) {
-    const item = array[array.length - 1];
-    return item;
-  }
+  const avatars = [DefaultUser0, DefaultUser1, DefaultUser2];
 
   function pickPartnerName(userName, user1, user2) {
     if (userName === user1) {
@@ -50,16 +46,6 @@ export default function ChatList() {
     } else {
       return user1;
     }
-  }
-
-  function turnToLocaleTimeString(date) {
-    const time = date.toString();
-    return time;
-  }
-
-  const avatars = [DefaultUser0, DefaultUser1, DefaultUser2];
-  function randomUserAvatar(avatars) {
-    return avatars[Math.floor(Math.random() * avatars.length)];
   }
 
   return (
@@ -75,16 +61,12 @@ export default function ChatList() {
       </HeadlineBar>
       <Chats>
         {userChats.map(chat => (
-          <ChatLink key={chat._id} to={`/chat/${chat._id}`}>
+          <ChatLink key={chat._id} to={`/chat/${chat._id}/?userName=${userName}`}>
             <ChatListItem
-              key={chat._id}
-              userImgSrc={randomUserAvatar(avatars)}
               partnerName={pickPartnerName(userName, chat.user1, chat.user2)}
-              lastMessage={pickLastArrayItem(chat.messages).body.slice(0, 25) + '   ...'}
-              lastMessageDate={turnToLocaleTimeString(pickLastArrayItem(chat.messages).date).slice(
-                11,
-                16
-              )}
+              userImgSrc={avatars[Math.floor(Math.random() * avatars.length)]}
+              lastMessage={chat.messages[chat.messages.length - 1].body.slice(0, 25) + '   ...'}
+              lastMessageDate={chat.messages[chat.messages.length - 1].date.slice(11, 16)}
             />
           </ChatLink>
         ))}

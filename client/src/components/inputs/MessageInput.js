@@ -6,12 +6,16 @@ const Input = styled.input`
   background: transparent;
   border: 1px solid ${props => props.theme.secondary};
   border-radius: 15px;
-  flex-grow: 1;
   margin-right: 10px;
   padding: 7px;
   font-size: 14px;
   height: auto;
   overflow: hidden;
+  width: 100%;
+`;
+
+const MessageForm = styled.form`
+  width: 90%;
 `;
 
 export default function MessageInput({ onSubmit }) {
@@ -29,8 +33,8 @@ export default function MessageInput({ onSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <MessageForm onSubmit={handleSubmit}>
       <Input autoFocus type="text" value={message} onChange={handleChange} />
-    </form>
+    </MessageForm>
   );
 }

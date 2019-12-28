@@ -13,7 +13,7 @@ const IncomingAudioMessage = styled.div`
   color: ${props => props.theme.tertiary};
   border-radius: 15px;
   border: 0.5px solid ${props => props.theme.secondary};
-  margin: 5px 20px 5px 0px;
+  margin: 5px 0px 5px 20px;
   padding: 8px;
   width: 200px;
   cursor: pointer;
@@ -30,6 +30,7 @@ export default function IncomingAudio({ onClick }) {
         container: waveformRef.current,
         barWidth: 1,
         waveColor: activeWaveColor,
+        cursorColor: activeWaveColor,
         hideScrollbar: true,
         interact: false,
         autoCenter: true,

@@ -31,6 +31,7 @@ export default function OutgoingAudio({ onClick }) {
         barWidth: 1,
         interact: false,
         waveColor: activeWaveColor,
+        cursorColor: activeWaveColor,
         hideScrollbar: true,
         autoCenter: true,
         barHeight: 15,
