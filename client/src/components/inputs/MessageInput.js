@@ -26,6 +26,7 @@ export default function MessageInput({ chatId }) {
   const author = localStorage.getItem('userName');
 
   async function handleSubmit(event) {
+    event.preventDefault();
     sendChatMessage(body, author, type, chatId);
     setMessage('');
   }
