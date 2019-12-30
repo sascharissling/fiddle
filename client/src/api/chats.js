@@ -27,7 +27,7 @@ export function getChatInformation(_id) {
 }
 
 //Get chat messages by Mongo-_id
-export function getChatMessages(_id) {
+export async function getChatMessages(_id) {
   return fetch(`/api/${_id}/messages`, {
     method: 'GET'
   })

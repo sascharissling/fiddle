@@ -5,9 +5,12 @@ export default function useGetChatMessages(_id) {
   const [chatMessages, setChatMessages] = React.useState([]);
 
   React.useEffect(() => {
-    getChatMessages(_id).then(fetchedChatMessages => {
-      setChatMessages(fetchedChatMessages);
-    });
+    const interval = setInterval(() => {
+      getChatMessages(_id).then(fetchedChatMessages => {
+        setChatMessages(fetchedChatMessages);
+      });
+    }, 2000);
+    return () => clearInterval(interval);
   }, [_id]);
 
   return chatMessages;
