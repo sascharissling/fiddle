@@ -16,7 +16,7 @@ const LoginPage = styled.div`
   align-items: center;
 `;
 
-const WhoAreYou = styled.h3`
+const PageHeadline = styled.h3`
   text-align: left;
   font-size: 20px;
   font-weight: 300;
@@ -29,7 +29,7 @@ export default function UserLogin() {
   return (
     <LoginPage>
       <div>
-        <WhoAreYou>Who are you?</WhoAreYou>
+        <PageHeadline>Who are you?</PageHeadline>
         <UserNameInput />
       </div>
     </LoginPage>

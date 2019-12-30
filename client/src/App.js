@@ -7,6 +7,7 @@ import UserLogin from './components/pages/UserLogin';
 import LoadingScreen from './components/pages/LoadingScreen';
 import ChatList from './components/pages/ChatList';
 import Chat from './components/pages/Chat';
+import NewChat from './components/pages/NewChat';
 
 //STYLE imports
 import styled from '@emotion/styled';
@@ -35,6 +36,7 @@ function App() {
             <Route path="/loading" component={LoadingScreen} />
             <Route path="/chatlist" component={ChatList} />
             <Route path="/chat/:id" component={Chat} />
+            <Route path="/newChat" component={NewChat} />
           </Switch>
         </Router>
       </ThemeProvider>
