@@ -19,7 +19,7 @@ const NewChatPage = styled.div`
   align-items: center;
 `;
 
-const WhoDoYouWantToCreateWith = styled.h3`
+const PageHeadline = styled.h3`
   text-align: left;
   max-width: 220px;
   font-size: 20px;
@@ -47,7 +47,7 @@ export default function NewChat() {
         </Link>
       </HeaderBar>
       <ChoosePartner>
-        <WhoDoYouWantToCreateWith>Who do you want to create with?</WhoDoYouWantToCreateWith>
+        <PageHeadline>Who do you want to create with?</PageHeadline>
         <PartnerNameInput />
       </ChoosePartner>
     </NewChatPage>
