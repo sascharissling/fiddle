@@ -40,6 +40,21 @@ export async function getChatMessages(_id) {
     .then(response => response.json());
 }
 
+//Create new chat
+export function initiateNewChat(user1, user2, messages) {
+  return fetch('/api', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user1,
+      user2,
+      messages
+    })
+  });
+}
+
 //Send chat message
 export function sendChatMessage(body, author, type, _id) {
   return fetch(`/api/${_id}/messages`, {

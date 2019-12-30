@@ -54,7 +54,9 @@ export default function ChatList() {
         <Link to={'/login'}>
           <BackButton />
         </Link>
-        <NewChatButton />
+        <Link to={`/newChat/?userName=${localStorage.getItem('userName')}`}>
+          <NewChatButton />
+        </Link>
       </HeaderBar>
       <HeadlineBar>
         <PageHeadline headline={'Chats'} />
