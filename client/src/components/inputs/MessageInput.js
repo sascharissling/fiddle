@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { sendChatMessage } from '../../api/chats';
 
 const Input = styled.input`
   color: ${props => props.theme.tertiary};
   background: transparent;
   border: 1px solid ${props => props.theme.secondary};
   border-radius: 15px;
-  margin-right: 10px;
   padding: 7px;
   font-size: 14px;
   height: auto;
@@ -15,15 +15,19 @@ const Input = styled.input`
 `;
 
 const MessageForm = styled.form`
-  width: 90%;
+  flex-grow: 1;
+  margin-right: 10px;
 `;
 
-export default function MessageInput({ onSubmit }) {
+export default function MessageInput({ chatId }) {
   const [message, setMessage] = React.useState('');
+  const type = 'text';
+  const body = message;
+  const author = localStorage.getItem('userName');
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    onSubmit(message);
+    sendChatMessage(body, author, type, chatId);
     setMessage('');
   }
 
@@ -34,7 +38,7 @@ export default function MessageInput({ onSubmit }) {
 
   return (
     <MessageForm onSubmit={handleSubmit}>
-      <Input autoFocus type="text" value={message} onChange={handleChange} />
+      <Input autoFocus author={author} type="text" value={message} onChange={handleChange} />
     </MessageForm>
   );
 }

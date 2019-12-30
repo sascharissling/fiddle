@@ -27,7 +27,7 @@ export function getChatInformation(_id) {
 }
 
 //Get chat messages by Mongo-_id
-export function getChatMessages(_id) {
+export async function getChatMessages(_id) {
   return fetch(`/api/${_id}/messages`, {
     method: 'GET'
   })
@@ -38,4 +38,19 @@ export function getChatMessages(_id) {
       return response;
     })
     .then(response => response.json());
+}
+
+//Send chat message
+export function sendChatMessage(body, author, type, _id) {
+  return fetch(`/api/${_id}/messages`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      body,
+      author,
+      type
+    })
+  });
 }

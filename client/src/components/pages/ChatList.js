@@ -61,7 +61,7 @@ export default function ChatList() {
       </HeadlineBar>
       <Chats>
         {userChats.map(chat => (
-          <ChatLink key={chat._id} to={`/chat/${chat._id}/?userName=${userName}`}>
+          <ChatLink key={chat._id} to={`/chat/${chat._id}`}>
             <ChatListItem
               partnerName={pickPartnerName(userName, chat.user1, chat.user2)}
               userImgSrc={avatars[Math.floor(Math.random() * avatars.length)]}

@@ -30,8 +30,9 @@ const ChatHistory = styled(ScrollToBottom)`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
-  overflow: auto;
+  overflow: hidden;
   flex-grow: 1;
+  flex-basis: 0;
 `;
 
 //STYLE end
@@ -41,8 +42,6 @@ export default function Chat(props) {
   const userName = localStorage.getItem('userName');
   const chatInformation = useGetChatInformation(chatId);
   const messages = useGetChatMessages(chatId);
-  console.log(chatInformation);
-  console.log(messages);
 
   function pickPartnerName(userName, user1, user2) {
     if (userName === user1) {
@@ -71,33 +70,35 @@ export default function Chat(props) {
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'text'
           ) {
-            return <OutgoingMessage key={message.id} outgoingText={message.body} />;
+            return <OutgoingMessage key={message._id} outgoingText={message.body} />;
           }
           if (
             message.author ===
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'text'
           ) {
-            return <IncomingMessage key={message.id} incomingText={message.body} />;
+            return <IncomingMessage key={message._id} incomingText={message.body} />;
           }
           if (
             message.author !==
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <OutgoingAudio key={message.id} />;
+            return <OutgoingAudio key={message._id} />;
           }
           if (
             message.author ===
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <IncomingAudio key={message.id} />;
+            return <IncomingAudio key={message._id} />;
+          } else {
+            return null;
           }
         })}
       </ChatHistory>
       <FooterBar>
-        <MessageInput />
+        <MessageInput chatId={chatId} author={localStorage.getItem('userName')} />
         <FiddleButton />
       </FooterBar>
     </ChatPage>

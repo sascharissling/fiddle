@@ -4,7 +4,6 @@ import WaveSurfer from 'wavesurfer.js';
 
 //COMPONENTS imports
 import MessageWrapperOut from './MessageWrapperOut';
-import ProxyButton from '../buttons/ProxyButton';
 
 //STYLE start
 const OutgoingAudioMessage = styled.div`
@@ -29,24 +28,25 @@ export default function OutgoingAudio({ onClick }) {
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
         barWidth: 1,
-        interact: false,
+        cursorWidth: 0,
         waveColor: activeWaveColor,
-        cursorColor: activeWaveColor,
         hideScrollbar: true,
+        interact: false,
         autoCenter: true,
         barHeight: 15,
         height: 15,
         responsive: true
       });
       wavesurfer.load('/assets/audio1.wav');
+      wavesurfer.on('ready', function() {
+        wavesurfer.unAll();
+      });
     }
   }, []);
 
   return (
-    <MessageWrapperOut>
-      <ProxyButton onClick={onClick}>
-        <OutgoingAudioMessage ref={waveformRef}></OutgoingAudioMessage>
-      </ProxyButton>
+    <MessageWrapperOut onClick={onClick}>
+      <OutgoingAudioMessage ref={waveformRef}></OutgoingAudioMessage>
     </MessageWrapperOut>
   );
 }

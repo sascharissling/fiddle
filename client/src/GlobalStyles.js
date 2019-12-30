@@ -11,6 +11,10 @@ export default function GlobalStyles() {
           box-sizing: border-box;
         }
 
+        ::-webkit-scrollbar {
+          width: 0px;
+        }
+
         body {
           margin: 0;
           font-family: 'Montserrat', sans-serif;
