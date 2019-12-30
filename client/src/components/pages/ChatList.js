@@ -38,6 +38,7 @@ const ChatLink = styled(Link)`
 export default function ChatList() {
   const userName = localStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
+  const reversedChats = userChats.reverse();
   const avatars = [DefaultUser0, DefaultUser1, DefaultUser2];
 
   function pickPartnerName(userName, user1, user2) {
@@ -62,7 +63,7 @@ export default function ChatList() {
         <PageHeadline headline={'Chats'} />
       </HeadlineBar>
       <Chats>
-        {userChats.map(chat => (
+        {reversedChats.map(chat => (
           <ChatLink key={chat._id} to={`/chat/${chat._id}`}>
             <ChatListItem
               partnerName={pickPartnerName(userName, chat.user1, chat.user2)}
