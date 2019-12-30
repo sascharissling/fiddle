@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Redirect } from 'react-router-dom';
-import { initiateNewChat } from '../../api/chats';
+import { initiateNewChat, getChatId } from '../../api/chats';
 
 //STYLE start
 
@@ -25,14 +25,14 @@ function upperCaseFirstChar(string) {
 
 export default function PartnerNameInput() {
   const [partnerName, setPartnerName] = React.useState('');
+  const [chatId, setChatId] = React.useState('');
   const [definedPartnerName, setDefinedPartnerName] = React.useState(false);
-
   const user1 = localStorage.getItem('userName');
   const user2 = partnerName;
   const messages = [
     {
       type: 'text',
-      body: '👋',
+      body: "Hey, let's create!👋",
       author: user1
     }
   ];
@@ -42,10 +42,14 @@ export default function PartnerNameInput() {
     setPartnerName(upperCasedPartnerName);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    initiateNewChat(user1, user2, messages);
-    setDefinedPartnerName(true);
+    await initiateNewChat(user1, user2, messages);
+    const chatId = await getChatId(user1, user2);
+    setChatId(chatId);
+    setTimeout(() => {
+      setDefinedPartnerName(true);
+    }, 3000);
   }
 
   return (
@@ -53,9 +57,7 @@ export default function PartnerNameInput() {
       <form onSubmit={handleSubmit}>
         <NameInput autoFocus utype="text" value={partnerName} onChange={handleChange} />
       </form>
-      {definedPartnerName && (
-        <Redirect to={`/chatlist?userName=${localStorage.getItem('userName')}`} />
-      )}
+      {definedPartnerName && <Redirect to={`/chat/${chatId}`} />}
     </>
   );
 }

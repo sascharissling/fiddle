@@ -48,7 +48,6 @@ export default function NewChat() {
       </HeaderBar>
       <ChoosePartner>
         <WhoDoYouWantToCreateWith>Who do you want to create with?</WhoDoYouWantToCreateWith>
-
         <PartnerNameInput />
       </ChoosePartner>
     </NewChatPage>

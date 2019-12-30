@@ -27,6 +27,7 @@ const Chats = styled.div`
   flex-grow: 1;
   margin: 0px 20px 0px 20px;
   overflow: auto;
+  flex-basis: 0;
 `;
 
 const ChatLink = styled(Link)`
