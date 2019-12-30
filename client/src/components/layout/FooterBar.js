@@ -9,6 +9,7 @@ const FooterBar = styled.footer`
   align-content: center;
   width: 100vw;
   padding: 10px 15px 10px 15px;
+  flex-basis: 1;
 `;
 
 export default FooterBar;

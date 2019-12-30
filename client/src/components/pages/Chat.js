@@ -30,8 +30,9 @@ const ChatHistory = styled(ScrollToBottom)`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
-  overflow: auto;
+  overflow: hidden;
   flex-grow: 1;
+  flex-basis: 0;
 `;
 
 //STYLE end
@@ -41,8 +42,6 @@ export default function Chat(props) {
   const userName = localStorage.getItem('userName');
   const chatInformation = useGetChatInformation(chatId);
   const messages = useGetChatMessages(chatId);
-  console.log(chatInformation);
-  console.log(messages);
 
   function pickPartnerName(userName, user1, user2) {
     if (userName === user1) {

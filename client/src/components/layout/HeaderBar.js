@@ -10,6 +10,7 @@ const HeaderBar = styled.header`
   align-content: center;
   padding-left: 20px;
   padding-right: 20px;
+  flex-basis: 1;
 `;
 
 export default HeaderBar;

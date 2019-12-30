@@ -4,7 +4,6 @@ import WaveSurfer from 'wavesurfer.js';
 
 //COMPONENTS imports
 import MessageWrapperIn from './MessageWrapperIn';
-import ProxyButton from '../buttons/ProxyButton';
 
 //STYLE start
 const IncomingAudioMessage = styled.div`
