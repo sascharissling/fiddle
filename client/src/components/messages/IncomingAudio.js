@@ -21,16 +21,16 @@ const IncomingAudioMessage = styled.div`
 //STYLE end
 
 export default function IncomingAudio({ onClick }) {
+  const activeWaveColor = '#f5f5f5';
   const waveformRef = React.useRef();
 
   React.useEffect(() => {
     if (waveformRef.current) {
-      const activeWaveColor = '#f5f5f5';
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
         barWidth: 1,
+        cursorWidth: 0,
         waveColor: activeWaveColor,
-        cursorColor: activeWaveColor,
         hideScrollbar: true,
         interact: false,
         autoCenter: true,
@@ -39,14 +39,15 @@ export default function IncomingAudio({ onClick }) {
         responsive: true
       });
       wavesurfer.load('/assets/audio1.wav');
+      wavesurfer.on('ready', function() {
+        wavesurfer.unAll();
+      });
     }
   }, []);
 
   return (
-    <MessageWrapperIn>
-      <ProxyButton onClick={onClick}>
-        <IncomingAudioMessage ref={waveformRef}></IncomingAudioMessage>
-      </ProxyButton>
+    <MessageWrapperIn onClick={onClick}>
+      <IncomingAudioMessage ref={waveformRef}></IncomingAudioMessage>
     </MessageWrapperIn>
   );
 }
