@@ -40,9 +40,6 @@ export default function RecordNewFiddle() {
         console.warn('Device error: ' + code);
       });
       wavesurfer.microphone.start();
-      setTimeout(function() {
-        wavesurfer.microphone.stopDevice();
-      }, 5000);
     }
   }, []);
   return <Waveform ref={waveformRef} />;

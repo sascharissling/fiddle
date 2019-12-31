@@ -99,7 +99,9 @@ export default function Chat(props) {
       </ChatHistory>
       <FooterBar>
         <MessageInput chatId={chatId} author={localStorage.getItem('userName')} />
-        <FiddleButton />
+        <Link to={`/recordNewAudio/${chatId}/userName=${localStorage.getItem('userName')}`}>
+          <FiddleButton />
+        </Link>
       </FooterBar>
     </ChatPage>
   );
