@@ -13,7 +13,7 @@ export function getUserChats(userName) {
 }
 
 //Get chat information by _id
-export function getChatInformation(_id) {
+export async function getChatInformation(_id) {
   return fetch(`/api/${_id}`, {
     method: 'GET'
   })

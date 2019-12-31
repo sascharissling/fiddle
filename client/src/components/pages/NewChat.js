@@ -17,6 +17,7 @@ const NewChatPage = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
+  flex-basis: 0;
 `;
 
 const PageHeadline = styled.h3`

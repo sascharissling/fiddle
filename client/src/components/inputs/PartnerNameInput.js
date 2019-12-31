@@ -32,7 +32,7 @@ export default function PartnerNameInput() {
   const messages = [
     {
       type: 'text',
-      body: "Hey, let's create!👋",
+      body: `Hey let's create 👋`,
       author: user1
     }
   ];
@@ -44,12 +44,17 @@ export default function PartnerNameInput() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await initiateNewChat(user1, user2, messages);
-    const chatId = await getChatId(user1, user2);
-    setChatId(chatId);
-    setTimeout(() => {
+    const isChat = await getChatId(user1, user2);
+    if (isChat) {
+      setChatId(isChat);
       setDefinedPartnerName(true);
-    }, 3000);
+    }
+    if (!isChat) {
+      await initiateNewChat(user1, user2, messages);
+      const chatId = await getChatId(user1, user2);
+      setChatId(chatId);
+      setDefinedPartnerName(true);
+    }
   }
 
   return (
