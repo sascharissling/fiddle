@@ -9,6 +9,15 @@ to {
 }
 `;
 
+export const changeWidthLong = keyframes`
+from {
+  width: 0vw;
+}
+to {
+  width: 85vw;
+}
+`;
+
 export const buttonFeedback = keyframes`
   0% {
     zoom: 1;
