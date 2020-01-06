@@ -2,19 +2,21 @@ import React from 'react';
 import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
 
+//COMPONENTS imports
+import PlayButton from '../buttons/PlayButton';
+import PauseButton from '../buttons/PauseButton';
+
 //STYLE start
 const Waveform = styled.div`
   width: 90vw;
   height: 350px;
-  position: absolute;
-  flex-grow: 1;
-  z-index: 0;
 `;
 //STYLE end
 
-export default function FiddleDisplay() {
+export default function FiddleDisplay({ audioFileUrl }) {
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [waveSurfer, setWaveSurfer] = React.useState();
   const waveformRef = React.useRef();
-
   React.useEffect(() => {
     if (waveformRef.current) {
       const activeWaveColor = '#f5f5f5';
@@ -32,14 +34,28 @@ export default function FiddleDisplay() {
         barHeight: 9,
         height: 350,
         interact: true,
-        maxCanvasWidth: 2000,
-        fillParent: true
+        maxCanvasWidth: 2000
       });
-      wavesurfer.load('blob:http://localhost:3000/0ee5e430-1a3d-43bb-a174-98cee93d8177');
-      wavesurfer.on('ready', function() {
-        wavesurfer.play();
-      });
+      wavesurfer.load(`${audioFileUrl}`);
+      setWaveSurfer(wavesurfer);
     }
-  }, []);
-  return <Waveform ref={waveformRef} />;
+  }, [audioFileUrl]);
+
+  function handlePlay() {
+    waveSurfer.playPause();
+    setIsPlaying(true);
+  }
+
+  function handlePause() {
+    waveSurfer.playPause();
+    setIsPlaying(false);
+  }
+
+  return (
+    <>
+      <Waveform ref={waveformRef} />
+      {!isPlaying && <PlayButton onClick={handlePlay} />}
+      {isPlaying && <PauseButton onClick={handlePause} />}
+    </>
+  );
 }
