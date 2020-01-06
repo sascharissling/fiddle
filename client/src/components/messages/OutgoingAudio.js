@@ -37,12 +37,12 @@ export default function OutgoingAudio({ onClick, audioFileUrl }) {
         height: 15,
         responsive: true
       });
-      wavesurfer.load(`${audioFileUrl}`);
+      wavesurfer.load(audioFileUrl);
       wavesurfer.on('ready', function() {
         wavesurfer.unAll();
       });
     }
-  }, []);
+  }, [audioFileUrl]);
 
   return (
     <MessageWrapperOut onClick={onClick}>
