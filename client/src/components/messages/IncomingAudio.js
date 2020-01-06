@@ -19,7 +19,7 @@ const IncomingAudioMessage = styled.div`
 `;
 //STYLE end
 
-export default function IncomingAudio({ onClick }) {
+export default function IncomingAudio({ onClick, audioFileUrl }) {
   const activeWaveColor = '#f5f5f5';
   const waveformRef = React.useRef();
 
@@ -37,7 +37,7 @@ export default function IncomingAudio({ onClick }) {
         height: 15,
         responsive: true
       });
-      wavesurfer.load('/assets/audio1.wav');
+      wavesurfer.load(`${audioFileUrl}`);
       wavesurfer.on('ready', function() {
         wavesurfer.unAll();
       });

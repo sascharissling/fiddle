@@ -86,14 +86,14 @@ export default function Chat(props) {
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <OutgoingAudio key={message._id} />;
+            return <OutgoingAudio key={message._id} audioFileUrl={message.body} />;
           }
           if (
             message.author ===
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <IncomingAudio key={message._id} />;
+            return <IncomingAudio key={message._id} audioFileUrl={message.body} />;
           } else {
             return null;
           }
