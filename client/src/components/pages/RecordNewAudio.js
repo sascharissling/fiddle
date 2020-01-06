@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { sendChatMessage, uploadAudio } from '../../api/chats';
+import { ReactMic } from 'react-mic';
 
 //COMPONENTS imports
 import HeaderBar from '../layout/HeaderBar';
@@ -20,12 +22,51 @@ const RecordPage = styled.div`
   flex-flow: column nowrap;
 `;
 
+const Mic = styled(ReactMic)`
+  opacity: 0;
+  height: 0;
+  width: 0;
+`;
+
 //STYLE end
 
 export default function RecordNewAudio(props) {
   const chatId = props.match.params.id;
   const [noAudioYet, setNoAudioYet] = React.useState(true);
   const [isRecording, setIsRecording] = React.useState(false);
+  const [newAudioFile, setNewAudioFile] = React.useState({});
+  const [audioFileUrl, setAudioFileUrl] = React.useState('');
+
+  // Send Chatmessage
+  const type = 'audio';
+  const body = newAudioFile;
+  const author = localStorage.getItem('userName');
+
+  function startRecording() {
+    setNoAudioYet(false);
+    setIsRecording(true);
+  }
+  function stopRecording(recordedBlob) {
+    setIsRecording(false);
+    console.log('this is the new blob' + recordedBlob);
+  }
+
+  function handleData(recordedBlob) {
+    console.log('chunk of real-time data is: ', recordedBlob);
+  }
+
+  function handleStop(recordedBlob) {
+    console.log('recordedBlob is: ', recordedBlob);
+    const fileName = chatId + '-' + Date.now() + '-' + author;
+
+    const a = document.createElement('a');
+    a.download = `${fileName}.wav`;
+    a.href = window.URL.createObjectURL(recordedBlob);
+    a.click();
+  }
+  async function handleSubmit() {
+    sendChatMessage(body, author, type, chatId);
+  }
 
   return (
     <RecordPage>
@@ -38,20 +79,26 @@ export default function RecordNewAudio(props) {
         {noAudioYet && (
           <>
             <NoAudioYet />
-            <RecordButton
-              onClick={() => {
-                setNoAudioYet(false);
-                setIsRecording(true);
-              }}
-            />
           </>
         )}
         {!noAudioYet && (
           <>
+            <Mic
+              record={isRecording}
+              onStop={handleStop}
+              onData={handleData}
+              strokeColor="#000000"
+              backgroundColor="white"
+              mimeType="audio/webm"
+            />
             <RecordNewFiddle />
-            <StopButton onClick={() => setIsRecording(false)} />
           </>
         )}
+        {isRecording && <StopButton onClick={stopRecording} />}
+        {!isRecording && <RecordButton onClick={startRecording} />}
+        <button onClick={handleSubmit} type="button">
+          Send To Db
+        </button>
       </AudioInterfaceWrapper>
     </RecordPage>
   );

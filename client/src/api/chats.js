@@ -83,3 +83,13 @@ export function sendChatMessage(body, author, type, _id) {
     })
   });
 }
+
+//Upload Audio To Cloudinary
+
+export function uploadAudio(audioFile) {
+  return fetch('https://api.cloudinary.com/v1_1/fiddle/upload', {
+    method: 'POST',
+    upload_preset: 'no2ghzre',
+    file: audioFile
+  });
+}

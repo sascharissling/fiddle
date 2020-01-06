@@ -7,7 +7,6 @@ import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.mi
 const Waveform = styled.div`
   width: 90vw;
   height: 350px;
-  flex-grow: 1;
 `;
 //STYLE end
 
@@ -21,7 +20,7 @@ export default function RecordNewFiddle() {
         container: waveformRef.current,
         barWidth: 5,
         barHeight: 9,
-        cursorWidth: 2,
+        cursorWidth: 0,
         waveColor: activeWaveColor,
         hideScrollbar: true,
         autoCenter: false,

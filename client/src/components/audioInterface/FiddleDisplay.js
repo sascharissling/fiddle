@@ -35,7 +35,7 @@ export default function FiddleDisplay() {
         maxCanvasWidth: 2000,
         fillParent: true
       });
-      wavesurfer.load('/assets/audio1.wav');
+      wavesurfer.load('blob:http://localhost:3000/0ee5e430-1a3d-43bb-a174-98cee93d8177');
       wavesurfer.on('ready', function() {
         wavesurfer.play();
       });

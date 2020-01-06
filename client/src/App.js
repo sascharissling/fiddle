@@ -9,6 +9,7 @@ import ChatList from './components/pages/ChatList';
 import Chat from './components/pages/Chat';
 import NewChat from './components/pages/NewChat';
 import RecordNewAudio from './components/pages/RecordNewAudio';
+import PlayAudio from './components/pages/PlayAudio';
 
 //STYLE imports
 import styled from '@emotion/styled';
@@ -39,6 +40,7 @@ function App() {
             <Route path="/chat/:id" component={Chat} />
             <Route path="/newChat" component={NewChat} />
             <Route path="/recordNewAudio/:id/:userName" component={RecordNewAudio} />
+            <Route path="/playAudio" component={PlayAudio} />
           </Switch>
         </Router>
       </ThemeProvider>
