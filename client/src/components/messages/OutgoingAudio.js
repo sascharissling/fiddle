@@ -19,7 +19,7 @@ const OutgoingAudioMessage = styled.div`
 `;
 //STYLE end
 
-export default function OutgoingAudio({ onClick }) {
+export default function OutgoingAudio({ onClick, audioFileUrl }) {
   const activeWaveColor = '#f5f5f5';
   const waveformRef = React.useRef();
 
@@ -33,16 +33,16 @@ export default function OutgoingAudio({ onClick }) {
         hideScrollbar: true,
         interact: false,
         autoCenter: true,
-        barHeight: 15,
+        barHeight: 100,
         height: 15,
         responsive: true
       });
-      wavesurfer.load('/assets/audio1.wav');
+      wavesurfer.load(audioFileUrl);
       wavesurfer.on('ready', function() {
         wavesurfer.unAll();
       });
     }
-  }, []);
+  }, [audioFileUrl]);
 
   return (
     <MessageWrapperOut onClick={onClick}>

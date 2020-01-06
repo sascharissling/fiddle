@@ -17,6 +17,7 @@ import IncomingMessage from '../messages/IncomingMessage';
 import IncomingAudio from '../messages/IncomingAudio';
 import OutgoingMessage from '../messages/OutgoingMessage';
 import OutgoingAudio from '../messages/OutgoingAudio';
+import LoadingLineLong from '../misc/LoadingLineLong';
 
 //STYLE start
 const ChatPage = styled.div`
@@ -62,6 +63,7 @@ export default function Chat(props) {
         <PageHeadline
           headline={pickPartnerName(userName, chatInformation.user1, chatInformation.user2)}
         />
+        <LoadingLineLong />
       </HeadlineBar>
       <ChatHistory>
         {messages.map(message => {
@@ -84,14 +86,14 @@ export default function Chat(props) {
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <OutgoingAudio key={message._id} />;
+            return <OutgoingAudio key={message._id} audioFileUrl={message.body} />;
           }
           if (
             message.author ===
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <IncomingAudio key={message._id} />;
+            return <IncomingAudio key={message._id} audioFileUrl={message.body} />;
           } else {
             return null;
           }
@@ -99,7 +101,9 @@ export default function Chat(props) {
       </ChatHistory>
       <FooterBar>
         <MessageInput chatId={chatId} author={localStorage.getItem('userName')} />
-        <FiddleButton />
+        <Link to={`/recordNewAudio/${chatId}/userName=${localStorage.getItem('userName')}`}>
+          <FiddleButton />
+        </Link>
       </FooterBar>
     </ChatPage>
   );
