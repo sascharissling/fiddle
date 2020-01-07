@@ -95,14 +95,3 @@ export function uploadAudio(audioFile, author, chatId, recordingDate) {
     body: fd
   });
 }
-
-//Delete Audio From Cloudinary
-export function deleteAudio(author, chatId, recordingDate) {
-  const fd = new FormData();
-  fd.append('upload_preset', 'q77lopqd');
-  fd.append('public_id', `${chatId}-${recordingDate}-${author}`);
-  return fetch('https://api.cloudinary.com/v1_1/fiddle/upload', {
-    method: 'DELETE',
-    body: fd
-  });
-}
