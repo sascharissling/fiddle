@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 //COMPONENTS imports
 import FiddleDisplay from '../audioInterface/FiddleDisplay';
@@ -20,9 +21,10 @@ const PlayAudioPage = styled.div`
 //STYLE end
 
 export default function PlayAudio(props) {
+  const chatId = props.match.params.id;
   const fileName = props.match.params.fileName;
   const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
-  const chatId = props.match.params.id;
+
   return (
     <PlayAudioPage>
       <HeaderBar>
@@ -36,3 +38,7 @@ export default function PlayAudio(props) {
     </PlayAudioPage>
   );
 }
+
+PlayAudio.propTypes = {
+  match: PropTypes.string
+};

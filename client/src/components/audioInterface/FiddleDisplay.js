@@ -11,6 +11,7 @@ import PauseButton from '../buttons/PauseButton';
 const Waveform = styled.div`
   width: 90vw;
   height: 350px;
+  margin-bottom: 20px;
 `;
 //STYLE end
 
