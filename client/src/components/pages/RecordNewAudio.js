@@ -14,6 +14,8 @@ import RecordButton from '../buttons/RecordButton';
 import StopButton from '../buttons/StopButton';
 import FiddleDisplay from '../audioInterface/FiddleDisplay';
 import LoadingLineLong from '../misc/LoadingLineLong';
+import SendAudio from '../buttons/SendAudio';
+import DiscardAudio from '../buttons/DiscardAudio';
 
 //STYLE start
 
@@ -28,18 +30,6 @@ const Mic = styled(ReactMic)`
   opacity: 0;
   height: 0;
   width: 0;
-`;
-
-const SendAudioButton = styled.button`
-  color: ${props => props.theme.tertiary};
-  font-size: 14px;
-  font-weight: bold;
-`;
-
-const DeleteAudioButton = styled.button`
-  color: ${props => props.theme.secondary};
-  font-size: 14px;
-  font-weight: bold;
 `;
 
 const FileHandling = styled.div`
@@ -145,8 +135,8 @@ export default function RecordNewAudio(props) {
           <AudioInterfaceWrapper>
             <FiddleDisplay audioFileUrl={audioFileUrl} />
             <FileHandling>
-              <SendAudioButton onClick={handleSend}>send</SendAudioButton>
-              <DeleteAudioButton onClick={handleDelete}>delete</DeleteAudioButton>
+              <SendAudio onClick={handleSend} />
+              <DiscardAudio onClick={handleDelete} />
             </FileHandling>
           </AudioInterfaceWrapper>
         </>
