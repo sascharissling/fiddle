@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
+import PropTypes from 'prop-types';
 
 //STYLE start
 const AudioMessage = styled.div`
@@ -32,7 +33,6 @@ export default function ChatWaveFormDisplay({ audioFileUrl }) {
         fillParent: true,
         autoCenter: true,
         barHeight: 100,
-        autoCenter: true,
         height: 15,
         responsive: true
       });
@@ -45,3 +45,7 @@ export default function ChatWaveFormDisplay({ audioFileUrl }) {
 
   return <AudioMessage ref={waveformRef}></AudioMessage>;
 }
+
+ChatWaveFormDisplay.propTypes = {
+  audioFileUrl: PropTypes.string
+};

@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link, Redirect } from 'react-router-dom';
 import { sendChatMessage, uploadAudio, deleteAudio } from '../../api/chats';
 import { ReactMic } from 'react-mic';
+import PropTypes from 'prop-types';
 
 //COMPONENTS imports
 import HeaderBar from '../layout/HeaderBar';
@@ -158,3 +159,7 @@ export default function RecordNewAudio(props) {
     </RecordPage>
   );
 }
+
+RecordNewAudio.propTypes = {
+  match: PropTypes.string
+};
