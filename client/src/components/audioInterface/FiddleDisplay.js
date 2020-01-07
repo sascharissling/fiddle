@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
+import PropTypes from 'prop-types';
 
 //COMPONENTS imports
 import PlayButton from '../buttons/PlayButton';
@@ -10,6 +11,7 @@ import PauseButton from '../buttons/PauseButton';
 const Waveform = styled.div`
   width: 90vw;
   height: 350px;
+  margin-bottom: 20px;
 `;
 //STYLE end
 
@@ -63,3 +65,7 @@ export default function FiddleDisplay({ audioFileUrl }) {
     </>
   );
 }
+
+FiddleDisplay.propTypes = {
+  audioFileUrl: PropTypes.string
+};

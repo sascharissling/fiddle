@@ -7,21 +7,28 @@ import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.mi
 const Waveform = styled.div`
   width: 90vw;
   height: 350px;
+  margin-bottom: 20px;
 `;
 //STYLE end
 
 export default function RecordNewFiddle() {
   const waveformRef = React.useRef();
 
+  const linGrad = document
+    .createElement('canvas')
+    .getContext('2d')
+    .createLinearGradient(0, 0, 0, 700);
+  linGrad.addColorStop(0, '#EA4F87');
+  linGrad.addColorStop(1, '#F37A6A');
+
   React.useEffect(() => {
     if (waveformRef.current) {
-      const activeWaveColor = '#EA4F87';
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
         barWidth: 5,
         barHeight: 9,
         cursorWidth: 0,
-        waveColor: activeWaveColor,
+        waveColor: linGrad,
         hideScrollbar: true,
         autoCenter: false,
         responsive: true,
@@ -40,6 +47,6 @@ export default function RecordNewFiddle() {
       });
       wavesurfer.microphone.start();
     }
-  }, []);
+  }, [linGrad]);
   return <Waveform ref={waveformRef} />;
 }

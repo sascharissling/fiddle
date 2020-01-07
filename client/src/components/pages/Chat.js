@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useGetChatMessages from '../hooks/useGetChatMessages';
 import useGetChatInformation from '../hooks/useGetChatInformation';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import PropTypes from 'prop-types';
 
 //COMPONENTS imports
 import BackButton from '../buttons/BackButton';
@@ -116,3 +117,7 @@ export default function Chat(props) {
     </ChatPage>
   );
 }
+
+Chat.propTypes = {
+  match: PropTypes.string
+};
