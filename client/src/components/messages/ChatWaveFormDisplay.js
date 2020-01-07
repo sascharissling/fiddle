@@ -32,6 +32,8 @@ export default function ChatWaveFormDisplay({ audioFileUrl }) {
         fillParent: true,
         autoCenter: true,
         barHeight: 100,
+        autoCenter: true,
+        barHeight: 15,
         height: 15,
         responsive: true
       });

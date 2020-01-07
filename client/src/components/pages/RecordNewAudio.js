@@ -142,13 +142,16 @@ export default function RecordNewAudio(props) {
         <>
           <AudioInterfaceWrapper>
             <FiddleDisplay audioFileUrl={audioFileUrl} />
-            <FileHandling>
+            <FileHandling>t
               <div>
                 <DiscardAudio onClick={handleDelete} />
               </div>
               <div>
                 <SendAudio onClick={handleSend} />
               </div>
+              <SendAudio onClick={handleSend} />
+              <DiscardAudio onClick={handleDelete} />
+
             </FileHandling>
           </AudioInterfaceWrapper>
         </>
