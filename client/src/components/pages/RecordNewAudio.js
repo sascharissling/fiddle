@@ -38,6 +38,7 @@ const FileHandling = styled.div`
   justify-content: space-around;
   align-items: center;
   align-content: center;
+  margin-top: 30px;
   width: 100vw;
   div {
     display: flex;
@@ -142,16 +143,13 @@ export default function RecordNewAudio(props) {
         <>
           <AudioInterfaceWrapper>
             <FiddleDisplay audioFileUrl={audioFileUrl} />
-            <FileHandling>t
+            <FileHandling>
               <div>
                 <DiscardAudio onClick={handleDelete} />
               </div>
               <div>
                 <SendAudio onClick={handleSend} />
               </div>
-              <SendAudio onClick={handleSend} />
-              <DiscardAudio onClick={handleDelete} />
-
             </FileHandling>
           </AudioInterfaceWrapper>
         </>

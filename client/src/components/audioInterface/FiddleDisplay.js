@@ -36,18 +36,22 @@ export default function FiddleDisplay({ audioFileUrl }) {
         interact: true,
         maxCanvasWidth: 2000
       });
-      wavesurfer.load(`${audioFileUrl}`);
+      wavesurfer.load(audioFileUrl);
+      wavesurfer.on('finish', function() {
+        wavesurfer.stop();
+        setIsPlaying(false);
+      });
       setWaveSurfer(wavesurfer);
     }
   }, [audioFileUrl]);
 
   function handlePlay() {
-    waveSurfer.playPause();
+    waveSurfer.play();
     setIsPlaying(true);
   }
 
   function handlePause() {
-    waveSurfer.playPause();
+    waveSurfer.pause();
     setIsPlaying(false);
   }
 
