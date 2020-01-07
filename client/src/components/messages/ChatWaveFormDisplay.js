@@ -9,7 +9,7 @@ const AudioMessage = styled.div`
   color: ${props => props.theme.tertiary};
   border-radius: 15px;
   border: 0.5px solid ${props => props.theme.secondary};
-  margin: 5px 0px 5px 20px;
+  margin: 5px 0px 5px 0px;
   padding: 8px;
   width: 200px;
   cursor: pointer;
