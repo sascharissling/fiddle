@@ -10,6 +10,7 @@ const Send = styled.h3`
   padding: 0;
   margin: 0;
   font-size: 18px;
+  text-align: center;
   color: ${props => props.theme.tertiary};
   &:hover {
     color: ${props => props.theme.primary};
