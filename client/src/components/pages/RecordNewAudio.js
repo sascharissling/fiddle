@@ -35,7 +35,15 @@ const Mic = styled(ReactMic)`
 const FileHandling = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  width: 100vw;
+  div {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+  }
 `;
 //STYLE end
 
@@ -134,9 +142,16 @@ export default function RecordNewAudio(props) {
         <>
           <AudioInterfaceWrapper>
             <FiddleDisplay audioFileUrl={audioFileUrl} />
-            <FileHandling>
+            <FileHandling>t
+              <div>
+                <DiscardAudio onClick={handleDelete} />
+              </div>
+              <div>
+                <SendAudio onClick={handleSend} />
+              </div>
               <SendAudio onClick={handleSend} />
               <DiscardAudio onClick={handleDelete} />
+
             </FileHandling>
           </AudioInterfaceWrapper>
         </>
