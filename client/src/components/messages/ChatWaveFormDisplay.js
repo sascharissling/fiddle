@@ -29,8 +29,9 @@ export default function ChatWaveFormDisplay({ audioFileUrl }) {
         waveColor: activeWaveColor,
         hideScrollbar: true,
         interact: false,
+        fillParent: true,
         autoCenter: true,
-        barHeight: 15,
+        barHeight: 100,
         height: 15,
         responsive: true
       });
