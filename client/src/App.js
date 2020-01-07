@@ -40,7 +40,7 @@ function App() {
             <Route path="/chat/:id" component={Chat} />
             <Route path="/newChat" component={NewChat} />
             <Route path="/recordNewAudio/:id/:userName" component={RecordNewAudio} />
-            <Route path="/playAudio" component={PlayAudio} />
+            <Route path="/playAudio/:id/:fileName" exact component={PlayAudio} />
           </Switch>
         </Router>
       </ThemeProvider>

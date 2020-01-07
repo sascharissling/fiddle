@@ -86,14 +86,22 @@ export default function Chat(props) {
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <OutgoingAudio key={message._id} audioFileUrl={message.body} />;
+            return (
+              <Link key={message._id} to={`/playAudio/${chatId}/${message.body.slice(47)}`}>
+                <OutgoingAudio audioFileUrl={message.body} />
+              </Link>
+            );
           }
           if (
             message.author ===
               pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
             message.type === 'audio'
           ) {
-            return <IncomingAudio key={message._id} audioFileUrl={message.body} />;
+            return (
+              <Link key={message._id} to={`/playAudio/${chatId}/${message.body.slice(47)}`}>
+                <IncomingAudio audioFileUrl={message.body} />
+              </Link>
+            );
           } else {
             return null;
           }
