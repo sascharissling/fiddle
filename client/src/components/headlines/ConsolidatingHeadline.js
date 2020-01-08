@@ -9,6 +9,6 @@ const Consolidating = styled.h3`
 `;
 //STYLE end
 
-export default function ConsolidatingHeadline({ userName }) {
+export default function ConsolidatingHeadline() {
   return <Consolidating>Consolidating</Consolidating>;
 }

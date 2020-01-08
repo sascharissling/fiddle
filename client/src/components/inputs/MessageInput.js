@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { sendChatMessage } from '../../api/chats';
+import PropTypes from 'prop-types';
 
 const Input = styled.input`
   color: ${props => props.theme.tertiary};
@@ -42,3 +43,7 @@ export default function MessageInput({ chatId }) {
     </MessageForm>
   );
 }
+
+MessageInput.propTypes = {
+  chatId: PropTypes.string
+};

@@ -73,5 +73,5 @@ export default function Consolidation(props) {
 }
 
 Consolidation.propTypes = {
-  match: PropTypes.string
+  match: PropTypes.object
 };

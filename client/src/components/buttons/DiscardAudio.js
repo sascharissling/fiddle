@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 //Components imports
 import ProxyButton from './ProxyButton';
@@ -26,3 +27,7 @@ export default function DiscardAudio({ onClick }) {
     </ProxyButton>
   );
 }
+
+DiscardAudio.propTypes = {
+  onClick: PropTypes.func
+};

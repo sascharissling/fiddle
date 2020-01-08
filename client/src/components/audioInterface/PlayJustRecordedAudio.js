@@ -22,6 +22,8 @@ export default function PlayJustRecordedAudio({ chatId, audioFileUrl, handleDele
 
 PlayJustRecordedAudio.propTypes = {
   audioFileUrl: PropTypes.string,
-  match: PropTypes.string,
+  match: PropTypes.object,
+  handleDelete: PropTypes.func,
+  handleSend: PropTypes.func,
   chatId: PropTypes.string
 };

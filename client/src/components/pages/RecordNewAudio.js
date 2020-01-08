@@ -80,5 +80,5 @@ export default function RecordNewAudio(props) {
 }
 
 RecordNewAudio.propTypes = {
-  match: PropTypes.string
+  match: PropTypes.object
 };

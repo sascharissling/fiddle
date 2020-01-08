@@ -59,5 +59,5 @@ export default function PlayConsolidatedAudio(props) {
 }
 
 PlayConsolidatedAudio.propTypes = {
-  match: PropTypes.string
+  match: PropTypes.object
 };

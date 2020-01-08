@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 //STYLE start
 const Wrapper = styled.div`
@@ -55,3 +56,11 @@ export default function ChatListItem({
     </Wrapper>
   );
 }
+
+ChatListItem.propTypes = {
+  onClick: PropTypes.func,
+  userImgSrc: PropTypes.string,
+  lastMessage: PropTypes.string,
+  partnerName: PropTypes.string,
+  lastMessageDate: PropTypes.string
+};

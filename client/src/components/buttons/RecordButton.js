@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //Components imports
 import ProxyButton from './ProxyButton';
@@ -32,3 +33,7 @@ export default function RecordButton({ onClick }) {
     </ProxyButton>
   );
 }
+
+RecordButton.propTypes = {
+  onClick: PropTypes.func
+};

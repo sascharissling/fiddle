@@ -40,5 +40,5 @@ export default function OverdubAudio(props) {
 }
 
 OverdubAudio.propTypes = {
-  match: PropTypes.string
+  match: PropTypes.object
 };

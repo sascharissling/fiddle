@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 //COMPONENTS imports
 import MessageWrapper from './MessageWrapperIn';
@@ -24,3 +25,6 @@ export default function IncomingMessage({ incomingText }) {
     </MessageWrapper>
   );
 }
+IncomingMessage.propTypes = {
+  incomingText: PropTypes.string
+};

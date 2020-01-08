@@ -42,5 +42,5 @@ export default function PlayAudio(props) {
 }
 
 PlayAudio.propTypes = {
-  match: PropTypes.string
+  match: PropTypes.object
 };
