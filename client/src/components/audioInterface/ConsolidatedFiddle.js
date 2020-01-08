@@ -1,19 +1,40 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
+import PropTypes from 'prop-types';
+
+//COMPONENTS imports
+import PlayButton from '../buttons/PlayButton';
+import PauseButton from '../buttons/PauseButton';
 
 //STYLE start
-const Waveform = styled.div`
-  align-items: center;
-  width: 90vw;
-  height: 350px;
+const ConsolidatedContainer = styled.div`
   background: ${props => props.theme.themeGradient};
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
   border-radius: 15px;
   padding: 10px;
+  width: 90vw;
+  margin-bottom: 20px;
 `;
+const Waveform = styled.div`
+  height: 350px;
+  align-items: center;
+`;
+
+const PlayRecord = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+`;
+
 //STYLE end
 
-export default function ConsolidatedFiddle() {
+export default function ConsolidatedFiddle({ audioFileUrl }) {
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [waveSurfer, setWaveSurfer] = React.useState();
   const waveformRef = React.useRef();
 
   React.useEffect(() => {
@@ -30,17 +51,44 @@ export default function ConsolidatedFiddle() {
         autoCenter: true,
         responsive: true,
         width: 100,
+        height: 350,
         barHeight: 9,
-        height: 340,
         interact: true,
-        maxCanvasWidth: 2000,
-        fillParent: true
+        maxCanvasWidth: 2000
       });
-      wavesurfer.load('/assets/audio2.wav');
-      wavesurfer.on('ready', function() {
-        wavesurfer.play();
+      wavesurfer.load(audioFileUrl);
+      wavesurfer.on('finish', function() {
+        wavesurfer.stop();
+        setIsPlaying(false);
       });
+      setWaveSurfer(wavesurfer);
     }
-  }, []);
-  return <Waveform ref={waveformRef} />;
+  }, [audioFileUrl]);
+  function handlePlay() {
+    waveSurfer.play();
+    setIsPlaying(true);
+  }
+
+  function handlePause() {
+    waveSurfer.pause();
+    setIsPlaying(false);
+  }
+  return (
+    <>
+      <ConsolidatedContainer>
+        <Waveform ref={waveformRef} />
+      </ConsolidatedContainer>
+      {!isPlaying && (
+        <PlayRecord>
+          <PlayButton onClick={handlePlay} />
+        </PlayRecord>
+      )}
+      {isPlaying && <PauseButton onClick={handlePause} />}
+    </>
+  );
 }
+
+ConsolidatedFiddle.propTypes = {
+  audioFileUrl: PropTypes.string,
+  onClick: PropTypes.func
+};
