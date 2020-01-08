@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 //COMPONENTS imports
@@ -21,6 +21,7 @@ const PlayAudioPage = styled.div`
 //STYLE end
 
 export default function PlayAudio(props) {
+  const [redirectToOverdub, setRedirectToOverdub] = React.useState(false);
   const chatId = props.match.params.id;
   const fileName = props.match.params.fileName;
   const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
@@ -33,7 +34,8 @@ export default function PlayAudio(props) {
         </Link>
       </HeaderBar>
       <AudioInterfaceWrapper>
-        <FiddleDisplay audioFileUrl={audioUrl} />
+        <FiddleDisplay audioFileUrl={audioUrl} onClick={() => setRedirectToOverdub(true)} />
+        {redirectToOverdub && <Redirect to={`/overdubAudio/${chatId}/${fileName}`} />}
       </AudioInterfaceWrapper>
     </PlayAudioPage>
   );
