@@ -119,5 +119,5 @@ export default function Chat(props) {
 }
 
 Chat.propTypes = {
-  match: PropTypes.string
+  match: PropTypes.object
 };

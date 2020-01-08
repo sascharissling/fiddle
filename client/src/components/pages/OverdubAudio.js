@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 //COMPONENTS imports
-import FiddleDisplay from '../audioInterface/FiddleDisplay';
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
+import OverdubFiddle from '../audioInterface/OverdubFiddle';
 
 //STYLE start
 
-const PlayAudioPage = styled.div`
+const OverdubAudioPage = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -20,27 +20,25 @@ const PlayAudioPage = styled.div`
 
 //STYLE end
 
-export default function PlayAudio(props) {
-  const [redirectToOverdub, setRedirectToOverdub] = React.useState(false);
+export default function OverdubAudio(props) {
   const chatId = props.match.params.id;
-  const fileName = props.match.params.fileName;
-  const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
+  const fileName = props.match.params.originalFileName;
+  const audioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
 
   return (
-    <PlayAudioPage>
+    <OverdubAudioPage>
       <HeaderBar>
         <Link to={`/chat/${chatId}`}>
           <BackButton />
         </Link>
       </HeaderBar>
       <AudioInterfaceWrapper>
-        <FiddleDisplay audioFileUrl={audioUrl} onClick={() => setRedirectToOverdub(true)} />
-        {redirectToOverdub && <Redirect to={`/overdubAudio/${chatId}/${fileName}`} />}
+        <OverdubFiddle originalAudioFileUrl={audioFileUrl} chatId={chatId} />
       </AudioInterfaceWrapper>
-    </PlayAudioPage>
+    </OverdubAudioPage>
   );
 }
 
-PlayAudio.propTypes = {
+OverdubAudio.propTypes = {
   match: PropTypes.object
 };

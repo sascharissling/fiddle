@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //Components imports
 import ProxyButton from './ProxyButton';
@@ -28,3 +29,7 @@ export default function PlayButton({ onClick }) {
     </ProxyButton>
   );
 }
+
+PlayButton.propTypes = {
+  onClick: PropTypes.func
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 //Components imports
 import ProxyButton from './ProxyButton';
@@ -29,3 +30,7 @@ export default function NewChatButton({ onClick }) {
     </ProxyButton>
   );
 }
+
+NewChatButton.propTypes = {
+  onClick: PropTypes.func
+};

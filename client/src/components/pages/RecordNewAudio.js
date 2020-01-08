@@ -71,6 +71,7 @@ export default function RecordNewAudio(props) {
           audioFileUrl={audioFileUrl}
           handleDelete={handleDelete}
           handleSend={handleSend}
+          chatId={chatId}
         />
       )}
       {redirectToChat && <Redirect to={`/chat/${chatId}`} />}
@@ -79,5 +80,5 @@ export default function RecordNewAudio(props) {
 }
 
 RecordNewAudio.propTypes = {
-  match: PropTypes.string
+  match: PropTypes.object
 };

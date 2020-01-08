@@ -10,12 +10,15 @@ import Chat from './components/pages/Chat';
 import NewChat from './components/pages/NewChat';
 import RecordNewAudio from './components/pages/RecordNewAudio';
 import PlayAudio from './components/pages/PlayAudio';
+import OverdubAudio from './components/pages/OverdubAudio';
+import PlayConsolidatedAudio from './components/pages/PlayConsolidatedAudio';
 
 //STYLE imports
 import styled from '@emotion/styled';
 import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import defaultTheme from './utils/themes';
+import Consolidation from './components/pages/Consolidation';
 
 //STYLE start
 
@@ -41,6 +44,9 @@ function App() {
             <Route path="/newChat" component={NewChat} />
             <Route path="/recordNewAudio/:id/:userName" component={RecordNewAudio} />
             <Route path="/playAudio/:id/:fileName" exact component={PlayAudio} />
+            <Route path="/overdubAudio/:id/:originalFileName" component={OverdubAudio} />
+            <Route path="/consolidation/:id/:oldFile/:newFile" component={Consolidation} />
+            <Route path="/playConsolidatedAudio/:id/:fileName" component={PlayConsolidatedAudio} />
           </Switch>
         </Router>
       </ThemeProvider>

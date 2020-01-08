@@ -19,10 +19,10 @@ to {
 `;
 
 export const buttonFeedback = keyframes`
-  0% {
+  0%{
     zoom: 1;
   }
-  50% {
+  50%{
     zoom: 0.95;
   }
   100%{

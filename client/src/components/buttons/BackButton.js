@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import ProxyButton from './ProxyButton';
+import PropTypes from 'prop-types';
 
 //STYLE start
 
@@ -27,3 +28,7 @@ export default function BackButton({ onClick }) {
     </ProxyButton>
   );
 }
+
+BackButton.propTypes = {
+  onClick: PropTypes.func
+};

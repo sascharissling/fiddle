@@ -2,12 +2,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { sendChatMessage } from '../../api/chats';
 
 //COMPONENTS imports
-import FiddleDisplay from '../audioInterface/FiddleDisplay';
+import ConsolidatedFiddle from '../audioInterface/ConsolidatedFiddle';
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
+import FileHandling from '../audioInterface/FileHandling';
 
 //STYLE start
 
@@ -20,11 +22,25 @@ const PlayAudioPage = styled.div`
 
 //STYLE end
 
-export default function PlayAudio(props) {
-  const [redirectToOverdub, setRedirectToOverdub] = React.useState(false);
+export default function PlayConsolidatedAudio(props) {
+  const [redirectToChat, setRedirectToChat] = React.useState(false);
   const chatId = props.match.params.id;
   const fileName = props.match.params.fileName;
   const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
+
+  // Send Chatmessage
+  const type = 'audio';
+  const body = audioUrl;
+  const author = localStorage.getItem('userName');
+
+  function handleSend() {
+    sendChatMessage(body, author, type, chatId);
+    setRedirectToChat(true);
+  }
+
+  function handleDelete() {
+    setRedirectToChat(true);
+  }
 
   return (
     <PlayAudioPage>
@@ -34,13 +50,14 @@ export default function PlayAudio(props) {
         </Link>
       </HeaderBar>
       <AudioInterfaceWrapper>
-        <FiddleDisplay audioFileUrl={audioUrl} onClick={() => setRedirectToOverdub(true)} />
-        {redirectToOverdub && <Redirect to={`/overdubAudio/${chatId}/${fileName}`} />}
+        <ConsolidatedFiddle audioFileUrl={audioUrl} />
+        <FileHandling handleDelete={handleDelete} handleSend={handleSend} />
       </AudioInterfaceWrapper>
+      {redirectToChat && <Redirect to={`/chat/${chatId}`} />}
     </PlayAudioPage>
   );
 }
 
-PlayAudio.propTypes = {
+PlayConsolidatedAudio.propTypes = {
   match: PropTypes.object
 };

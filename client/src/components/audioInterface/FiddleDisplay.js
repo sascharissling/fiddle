@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 //COMPONENTS imports
 import PlayButton from '../buttons/PlayButton';
 import PauseButton from '../buttons/PauseButton';
+import RecordButton from '../buttons/RecordButton';
 
 //STYLE start
 const Waveform = styled.div`
@@ -13,9 +14,15 @@ const Waveform = styled.div`
   height: 350px;
   margin-bottom: 20px;
 `;
+
+const PlayRecord = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+`;
 //STYLE end
 
-export default function FiddleDisplay({ audioFileUrl }) {
+export default function FiddleDisplay({ audioFileUrl, onClick }) {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [waveSurfer, setWaveSurfer] = React.useState();
   const waveformRef = React.useRef();
@@ -60,12 +67,18 @@ export default function FiddleDisplay({ audioFileUrl }) {
   return (
     <>
       <Waveform ref={waveformRef} />
-      {!isPlaying && <PlayButton onClick={handlePlay} />}
+      {!isPlaying && (
+        <PlayRecord>
+          <PlayButton onClick={handlePlay} />
+          <RecordButton onClick={onClick} />
+        </PlayRecord>
+      )}
       {isPlaying && <PauseButton onClick={handlePause} />}
     </>
   );
 }
 
 FiddleDisplay.propTypes = {
-  audioFileUrl: PropTypes.string
+  audioFileUrl: PropTypes.string,
+  onClick: PropTypes.func
 };

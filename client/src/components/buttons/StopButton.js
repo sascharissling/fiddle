@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //Components imports
 import ProxyButton from './ProxyButton';
@@ -24,3 +25,7 @@ export default function StopButton({ onClick }) {
     </ProxyButton>
   );
 }
+
+StopButton.propTypes = {
+  onClick: PropTypes.func
+};

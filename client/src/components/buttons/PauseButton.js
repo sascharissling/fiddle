@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 //Components imports
 import ProxyButton from './ProxyButton';
 
@@ -28,3 +28,7 @@ export default function PauseButton({ onClick }) {
     </ProxyButton>
   );
 }
+
+PauseButton.propTypes = {
+  onClick: PropTypes.func
+};

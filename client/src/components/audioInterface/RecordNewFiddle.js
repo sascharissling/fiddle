@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
 import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
+import linGrad from '../../utils/gradient';
 
 //STYLE start
 const Waveform = styled.div`
@@ -13,13 +14,6 @@ const Waveform = styled.div`
 
 export default function RecordNewFiddle() {
   const waveformRef = React.useRef();
-
-  const linGrad = document
-    .createElement('canvas')
-    .getContext('2d')
-    .createLinearGradient(0, 0, 0, 700);
-  linGrad.addColorStop(0, '#EA4F87');
-  linGrad.addColorStop(1, '#F37A6A');
 
   React.useEffect(() => {
     if (waveformRef.current) {
@@ -47,6 +41,6 @@ export default function RecordNewFiddle() {
       });
       wavesurfer.microphone.start();
     }
-  }, [linGrad]);
+  }, []);
   return <Waveform ref={waveformRef} />;
 }
