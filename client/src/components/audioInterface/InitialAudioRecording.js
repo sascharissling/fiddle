@@ -47,14 +47,7 @@ export default function InitialAudioRecording({ handleStop }) {
       )}
       {!noAudioYet && (
         <>
-          <Mic
-            record={isRecording}
-            onStop={handleStop}
-            onData={handleData}
-            strokeColor="#000000"
-            backgroundColor="white"
-            mimeType="audio/webm"
-          />
+          <Mic record={isRecording} onStop={handleStop} onData={handleData} mimeType="audio/webm" />
           {isProcessing && <LoadingLineLong />}
           {!isProcessing && <RecordNewFiddle />}
         </>
