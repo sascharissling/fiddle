@@ -1,43 +1,20 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 //COMPONENTS imports
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import FiddleDisplay from '../audioInterface/FiddleDisplay';
-import SendAudio from '../buttons/SendAudio';
-import DiscardAudio from '../buttons/DiscardAudio';
+import FileHandling from '../audioInterface/FileHandling';
 
-//STYLE start
-const FileHandling = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-  margin-top: 30px;
-  width: 100vw;
-  div {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-  }
-`;
-//STYLE end
-
-export default function PlayJustRecordedAudio({ audioFileUrl, handleDelete, handleSend }) {
+export default function PlayJustRecordedAudio({ chatId, audioFileUrl, handleDelete, handleSend }) {
+  const [redirectToOverdub, setRedirectToOverdub] = React.useState(false);
   return (
     <>
       <AudioInterfaceWrapper>
-        <FiddleDisplay audioFileUrl={audioFileUrl} />
-        <FileHandling>
-          <div>
-            <DiscardAudio onClick={handleDelete} />
-          </div>
-          <div>
-            <SendAudio onClick={handleSend} />
-          </div>
-        </FileHandling>
+        <FiddleDisplay audioFileUrl={audioFileUrl} onClick={() => setRedirectToOverdub(true)} />
+        {redirectToOverdub && <Redirect to={`/overdubAudio/${chatId}/${audioFileUrl.slice(47)}`} />}
+        <FileHandling handleDelete={handleDelete} handleSend={handleSend} />
       </AudioInterfaceWrapper>
     </>
   );
@@ -45,6 +22,6 @@ export default function PlayJustRecordedAudio({ audioFileUrl, handleDelete, hand
 
 PlayJustRecordedAudio.propTypes = {
   audioFileUrl: PropTypes.string,
-  handleDelete: PropTypes.func,
-  handleSend: PropTypes.func
+  match: PropTypes.string,
+  chatId: PropTypes.string
 };
