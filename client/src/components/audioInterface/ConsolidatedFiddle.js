@@ -89,6 +89,5 @@ export default function ConsolidatedFiddle({ audioFileUrl }) {
 }
 
 ConsolidatedFiddle.propTypes = {
-  audioFileUrl: PropTypes.string,
-  onClick: PropTypes.func
+  audioFileUrl: PropTypes.string
 };

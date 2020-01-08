@@ -151,6 +151,5 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
 
 OverdubFiddle.propTypes = {
   originalAudioFileUrl: PropTypes.string,
-  match: PropTypes.object,
   chatId: PropTypes.string
 };
