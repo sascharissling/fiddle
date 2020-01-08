@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import useGetChatMessages from '../hooks/useGetChatMessages';
 import useGetChatInformation from '../hooks/useGetChatInformation';
-import ScrollToBottom from 'react-scroll-to-bottom';
 import PropTypes from 'prop-types';
 
 //COMPONENTS imports
@@ -28,11 +27,12 @@ const ChatPage = styled.div`
   flex-flow: column nowrap;
 `;
 
-const ChatHistory = styled(ScrollToBottom)`
+const ChatHistory = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
-  overflow: hidden;
+  overflow: auto;
+  overflow-y: scroll;
   flex-grow: 1;
   flex-basis: 0;
 `;
@@ -44,6 +44,17 @@ export default function Chat(props) {
   const userName = localStorage.getItem('userName');
   const chatInformation = useGetChatInformation(chatId);
   const messages = useGetChatMessages(chatId);
+  const chatHistoryRef = React.useRef();
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      chatHistoryRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end'
+      });
+    }, 2100);
+    return () => clearInterval(interval);
+  }, [chatHistoryRef]);
 
   function pickPartnerName(userName, user1, user2) {
     if (userName === user1) {
@@ -107,6 +118,7 @@ export default function Chat(props) {
             return null;
           }
         })}
+        <div ref={chatHistoryRef} />
       </ChatHistory>
       <FooterBar>
         <MessageInput chatId={chatId} author={localStorage.getItem('userName')} />
