@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //COMPONENTS imports
 import MessageWrapperOut from './MessageWrapperOut';
@@ -11,3 +12,8 @@ export default function OutgoingAudio({ onClick, audioFileUrl }) {
     </MessageWrapperOut>
   );
 }
+
+OutgoingAudio.propTypes = {
+  onClick: PropTypes.func,
+  audioFileUrl: PropTypes.string
+};
