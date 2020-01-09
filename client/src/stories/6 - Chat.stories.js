@@ -1,6 +1,5 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
 
 //COMPONENTS imports
 import FiddleButton from '../components/buttons/FiddleButton';
@@ -11,8 +10,7 @@ import OutgoingAudio from '../components/messages/OutgoingAudio';
 import ChatListItem from '../components/layout/ChatListItem';
 
 export default {
-  title: 'Chat Objects',
-  decorators: [withKnobs]
+  title: 'Chat Objects'
 };
 
 //Button leads to where a new audio file can be recorded

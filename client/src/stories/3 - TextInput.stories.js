@@ -1,14 +1,12 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
 
 //COMPONENTS Imports
 import UserNameInput from '../components/inputs/UserNameInput';
 import MessageInput from '../components/inputs/MessageInput';
 
 export default {
-  title: 'Text Inputs',
-  decorators: [withKnobs]
+  title: 'Text Inputs'
 };
 
 export function NameInput() {
