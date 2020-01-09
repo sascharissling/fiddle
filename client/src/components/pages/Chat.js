@@ -53,11 +53,11 @@ export default function Chat(props) {
     });
   }, [chatHistoryRef, messages.length]);
 
-  function pickPartnerName(userName, user1, user2) {
-    if (userName === user1) {
-      return user2;
+  function pickPartnerName(userName, userName1, userName2) {
+    if (userName === userName1) {
+      return userName2;
     } else {
-      return user1;
+      return userName1;
     }
   }
 
@@ -70,7 +70,7 @@ export default function Chat(props) {
       </HeaderBar>
       <HeadlineBar>
         <PageHeadline
-          headline={pickPartnerName(userName, chatInformation.user1, chatInformation.user2)}
+          headline={pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2)}
         />
       </HeadlineBar>
       <LoadingLineLong />
@@ -78,21 +78,21 @@ export default function Chat(props) {
         {messages.map(message => {
           if (
             message.author !==
-              pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
+              pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2) &&
             message.type === 'text'
           ) {
             return <OutgoingMessage key={message._id} outgoingText={message.body} />;
           }
           if (
             message.author ===
-              pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
+              pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2) &&
             message.type === 'text'
           ) {
             return <IncomingMessage key={message._id} incomingText={message.body} />;
           }
           if (
             message.author !==
-              pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
+              pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2) &&
             message.type === 'audio'
           ) {
             return (
@@ -103,7 +103,7 @@ export default function Chat(props) {
           }
           if (
             message.author ===
-              pickPartnerName(userName, chatInformation.user1, chatInformation.user2) &&
+              pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2) &&
             message.type === 'audio'
           ) {
             return (

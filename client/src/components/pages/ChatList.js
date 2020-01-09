@@ -16,8 +16,8 @@ import { LoadingLine } from '../misc/LoadingLine';
 
 //SVG imports
 import DefaultUser0 from '../icons/DefaultUser0.svg';
-import DefaultUser1 from '../icons/DefaultUser1.svg';
-import DefaultUser2 from '../icons/DefaultUser2.svg';
+import DefaultuserName1 from '../icons/DefaultuserName1.svg';
+import DefaultuserName2 from '../icons/DefaultuserName2.svg';
 
 //STYLE start
 
@@ -55,7 +55,7 @@ export default function ChatList() {
   const userName = localStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
   const reversedChats = userChats.reverse();
-  const avatars = [DefaultUser0, DefaultUser1, DefaultUser2];
+  const avatars = [DefaultUser0, DefaultuserName1, DefaultuserName2];
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -63,8 +63,8 @@ export default function ChatList() {
     }, 1450);
   }, []);
 
-  function pickPartnerName(userName, user1, user2) {
-    const partner = userName === user1 ? user2 : user1;
+  function pickPartnerName(userName, userName1, userName2) {
+    const partner = userName === userName1 ? userName2 : userName1;
     return partner;
   }
 
@@ -98,7 +98,7 @@ export default function ChatList() {
             {reversedChats.map(chat => (
               <ChatLink key={chat._id} to={`/chat/${chat._id}`}>
                 <ChatListItem
-                  partnerName={pickPartnerName(userName, chat.user1, chat.user2)}
+                  partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
                   userImgSrc={avatars[Math.floor(Math.random() * avatars.length)]}
                   lastMessage={chat.messages[chat.messages.length - 1].body}
                   lastMessageDate={chat.messages[chat.messages.length - 1].date.slice(11, 16)}
