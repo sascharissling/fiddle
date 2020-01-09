@@ -52,7 +52,7 @@ export default function ConsolidatedFiddle({ audioFileUrl }) {
         responsive: true,
         width: 100,
         height: 350,
-        barHeight: 9,
+        barHeight: 2,
         interact: true,
         maxCanvasWidth: 2000
       });

@@ -58,7 +58,7 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
         autoCenter: false,
         responsive: true,
         width: 100,
-        barHeight: 70,
+        barHeight: 2,
         height: 80,
         interact: true,
         maxCanvasWidth: 2000
@@ -80,7 +80,7 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
       const wavesurfer = WaveSurfer.create({
         container: recordingWaveformRef.current,
         barWidth: 5,
-        barHeight: 9,
+        barHeight: 2,
         cursorWidth: 0,
         waveColor: themeGradient,
         hideScrollbar: true,
