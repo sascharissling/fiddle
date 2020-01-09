@@ -125,10 +125,10 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
       uploadAudio(base64_string, author, chatId, dateOfRecording);
       return base64_string;
     };
-    setNewAudioFileUrl(
+    await setNewAudioFileUrl(
       `https://res.cloudinary.com/fiddle/video/upload/${chatId}-${dateOfRecording}-${author}.webm`
     );
-    setTimeout(() => setTwoRecordings(true), 1000);
+    setTwoRecordings(true);
   }
 
   return (

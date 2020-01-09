@@ -28,6 +28,10 @@ export default function MessageInput({ chatId }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    const trimmedMessage = message.trim();
+    if (trimmedMessage === '') {
+      return;
+    }
     sendChatMessage(body, author, type, chatId);
     setMessage('');
   }
