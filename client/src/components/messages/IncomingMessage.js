@@ -7,6 +7,7 @@ import MessageWrapper from './MessageWrapperIn';
 
 //STYLE start
 const IncomingTextMessage = styled.div`
+  word-break: break-all;
   max-width: 200px;
   background: transparent;
   font-size: 12px;
