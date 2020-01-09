@@ -47,14 +47,13 @@ export default function Chat(props) {
   const chatHistoryRef = React.useRef();
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
+    if (chatHistoryRef.current) {
       chatHistoryRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'end'
       });
-    }, 2100);
-    return () => clearInterval(interval);
-  }, [chatHistoryRef]);
+    }
+  }, [chatHistoryRef, messages]);
 
   function pickPartnerName(userName, user1, user2) {
     if (userName === user1) {
