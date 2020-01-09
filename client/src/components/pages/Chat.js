@@ -39,10 +39,20 @@ const ChatHistory = styled.div`
 
 //STYLE end
 
+function pickPartnerName(userName, userName1, userName2) {
+  const partner = userName === userName1 ? userName2 : userName1;
+  return partner;
+}
+
 export default function Chat(props) {
   const chatId = props.match.params.id;
-  const userName = localStorage.getItem('userName');
   const chatInformation = useGetChatInformation(chatId);
+  const userName = localStorage.getItem('userName');
+  const partnerName = pickPartnerName(
+    userName,
+    chatInformation.userName1,
+    chatInformation.userName2
+  );
   const messages = useGetChatMessages(chatId);
   const chatHistoryRef = React.useRef();
 
@@ -53,14 +63,6 @@ export default function Chat(props) {
     });
   }, [chatHistoryRef, messages.length]);
 
-  function pickPartnerName(userName, userName1, userName2) {
-    if (userName === userName1) {
-      return userName2;
-    } else {
-      return userName1;
-    }
-  }
-
   return (
     <ChatPage>
       <HeaderBar>
@@ -69,51 +71,32 @@ export default function Chat(props) {
         </Link>
       </HeaderBar>
       <HeadlineBar>
-        <PageHeadline
-          headline={pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2)}
-        />
+        <PageHeadline headline={partnerName} />
       </HeadlineBar>
       <LoadingLineLong />
       <ChatHistory>
         {messages.map(message => {
-          if (
-            message.author !==
-              pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2) &&
-            message.type === 'text'
-          ) {
+          if (message.author !== partnerName && message.type === 'text') {
             return <OutgoingMessage key={message._id} outgoingText={message.body} />;
           }
-          if (
-            message.author ===
-              pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2) &&
-            message.type === 'text'
-          ) {
+          if (message.author === partnerName && message.type === 'text') {
             return <IncomingMessage key={message._id} incomingText={message.body} />;
           }
-          if (
-            message.author !==
-              pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2) &&
-            message.type === 'audio'
-          ) {
+          if (message.author !== partnerName && message.type === 'audio') {
             return (
               <Link key={message._id} to={`/playAudio/${chatId}/${message.body.slice(47)}`}>
                 <OutgoingAudio audioFileUrl={message.body} />
               </Link>
             );
           }
-          if (
-            message.author ===
-              pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2) &&
-            message.type === 'audio'
-          ) {
+          if (message.author === partnerName && message.type === 'audio') {
             return (
               <Link key={message._id} to={`/playAudio/${chatId}/${message.body.slice(47)}`}>
                 <IncomingAudio audioFileUrl={message.body} />
               </Link>
             );
-          } else {
-            return null;
           }
+          return null;
         })}
         <div ref={chatHistoryRef} />
       </ChatHistory>
