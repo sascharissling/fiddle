@@ -1,21 +1,20 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { changeWidth, changeWidthLong } from '../../utils/animations';
 
-export const LoadingLine = styled.div`
+const base = props => css`
   height: 4px;
   width: 0px;
-  animation: ${changeWidth} 2s ease-out 1;
-  background: ${props => props.theme.themeGradient};
+  background: ${props.theme.themeGradient};
   border-radius: 15px;
   margin: 2px;
 `;
 
-export const LoadingLineLong = styled.div`
-  height: 4px;
-  width: 0px;
+export const LoadingLine = styled.div`
+  ${base};
+  animation: ${changeWidth} 2s ease-out 1;
+`;
+
+export const LoadingLineLong = styled(LoadingLine)`
   animation: ${changeWidthLong} 2.2s ease-out 1;
-  background: ${props => props.theme.themeGradient};
-  margin: 0px 20px 0px 20px;
-  border-radius: 15px;
-  margin: 2px;
 `;
