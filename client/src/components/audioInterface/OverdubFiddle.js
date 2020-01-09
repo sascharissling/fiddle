@@ -10,7 +10,7 @@ import { uploadAudio } from '../../api/chats';
 //COMPONENTS imports
 import RecordButton from '../buttons/RecordButton';
 import StopButton from '../buttons/StopButton';
-import linGrad from '../../utils/gradient';
+import getThemeGradient from '../../utils/getThemeGradient';
 
 //STYLE start
 const PlaybackWaveform = styled.div`
@@ -76,12 +76,13 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
 
   React.useEffect(() => {
     if (recordingWaveformRef.current) {
+      const themeGradient = getThemeGradient();
       const wavesurfer = WaveSurfer.create({
         container: recordingWaveformRef.current,
         barWidth: 5,
         barHeight: 9,
         cursorWidth: 0,
-        waveColor: linGrad,
+        waveColor: themeGradient,
         hideScrollbar: true,
         autoCenter: true,
         responsive: true,
