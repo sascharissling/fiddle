@@ -40,14 +40,14 @@ export default function Consolidation(props) {
       audio
         .fetchAudio(oldAudioFileUrl, newAudioFileUrl)
         .then(buffers => audio.mergeAudio(buffers))
-        .then(merged => audio.export(merged, 'audio/wav'))
+        .then(merged => audio.export(merged, 'audio/webm'))
         .then(output => {
           const file_reader = new FileReader();
           const dateOfRecording = Date.now();
           file_reader.readAsDataURL(output.blob);
           file_reader.onloadend = async function() {
             const base64_string = file_reader.result;
-            uploadAudio(base64_string, author, chatId, dateOfRecording);
+            await uploadAudio(base64_string, author, chatId, dateOfRecording);
             return base64_string;
           };
           setConsolidatedAudioFileName(`${chatId}-${dateOfRecording}-${author}.webm`);

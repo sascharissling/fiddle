@@ -122,13 +122,13 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
     file_reader.readAsDataURL(recordedBlob.blob);
     file_reader.onloadend = async function() {
       const base64_string = file_reader.result;
-      uploadAudio(base64_string, author, chatId, dateOfRecording);
+      await uploadAudio(base64_string, author, chatId, dateOfRecording);
       return base64_string;
     };
-    await setNewAudioFileUrl(
+    setNewAudioFileUrl(
       `https://res.cloudinary.com/fiddle/video/upload/${chatId}-${dateOfRecording}-${author}.webm`
     );
-    setTwoRecordings(true);
+    setTimeout(() => setTwoRecordings(true), 500);
   }
 
   return (
