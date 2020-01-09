@@ -14,7 +14,7 @@ from {
   width: 0vw;
 }
 to {
-  width: 85vw;
+  width: 100vw;
 }
 `;
 

@@ -7,7 +7,7 @@ import { uploadAudio } from '../../api/chats';
 
 //COMPONENTS imports
 import ConsolidatingHeadline from '../headlines/ConsolidatingHeadline';
-import LoadingLineLong from '../misc/LoadingLineLong';
+import { LoadingLineLong } from '../misc/LoadingLine';
 import FiddleSmallLogo from '../branding/FiddleSmallLogo';
 
 //STYLE start
