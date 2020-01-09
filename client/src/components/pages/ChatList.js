@@ -15,9 +15,7 @@ import FiddleSmallLogo from '../branding/FiddleSmallLogo';
 import { LoadingLine } from '../misc/LoadingLine';
 
 //SVG imports
-import DefaultUser0 from '../icons/DefaultUser0.svg';
-import DefaultuserName1 from '../icons/DefaultuserName1.svg';
-import DefaultuserName2 from '../icons/DefaultuserName2.svg';
+import DefaultUserAvatar from '../icons/DefaultUserAvatar.svg';
 
 //STYLE start
 
@@ -55,7 +53,6 @@ export default function ChatList() {
   const userName = localStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
   const reversedChats = userChats.reverse();
-  const avatars = [DefaultUser0, DefaultuserName1, DefaultuserName2];
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -99,7 +96,7 @@ export default function ChatList() {
               <ChatLink key={chat._id} to={`/chat/${chat._id}`}>
                 <ChatListItem
                   partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
-                  userImgSrc={avatars[Math.floor(Math.random() * avatars.length)]}
+                  userImgSrc={DefaultUserAvatar}
                   lastMessage={chat.messages[chat.messages.length - 1].body}
                   lastMessageDate={chat.messages[chat.messages.length - 1].date.slice(11, 16)}
                 />
