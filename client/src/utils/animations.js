@@ -18,7 +18,7 @@ to {
 }
 `;
 
-export const buttonFeedback = keyframes`
+export const zoomInOut = keyframes`
   0%{
     zoom: 1;
   }
