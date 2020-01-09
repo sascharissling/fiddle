@@ -43,11 +43,8 @@ export default function ChatList() {
   const avatars = [DefaultUser0, DefaultUser1, DefaultUser2];
 
   function pickPartnerName(userName, user1, user2) {
-    if (userName === user1) {
-      return user2;
-    } else {
-      return user1;
-    }
+    const partner = userName === user1 ? user2 : user1;
+    return partner;
   }
 
   return (
@@ -69,7 +66,7 @@ export default function ChatList() {
             <ChatListItem
               partnerName={pickPartnerName(userName, chat.user1, chat.user2)}
               userImgSrc={avatars[Math.floor(Math.random() * avatars.length)]}
-              lastMessage={chat.messages[chat.messages.length - 1].body.slice(0, 25) + '   ...'}
+              lastMessage={chat.messages[chat.messages.length - 1].body}
               lastMessageDate={chat.messages[chat.messages.length - 1].date.slice(11, 16)}
             />
           </ChatLink>

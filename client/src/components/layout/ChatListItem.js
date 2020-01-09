@@ -20,6 +20,7 @@ const ChatDetails = styled.div`
   justify-content: center;
   margin-left: 10px;
   flex-grow: 1;
+  overflow: hidden;
 `;
 
 const PartnerName = styled.h3`
@@ -29,6 +30,7 @@ const PartnerName = styled.h3`
 const LastMessage = styled.p`
   font-size: 12px;
   margin: 0;
+  text-overflow: ellipsis;
 `;
 
 const LastMessageDate = styled.p`
