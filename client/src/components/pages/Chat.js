@@ -47,13 +47,11 @@ export default function Chat(props) {
   const chatHistoryRef = React.useRef();
 
   React.useEffect(() => {
-    if (chatHistoryRef.current) {
-      chatHistoryRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'end'
-      });
-    }
-  }, [chatHistoryRef, messages]);
+    chatHistoryRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end'
+    });
+  }, [chatHistoryRef, messages.length]);
 
   function pickPartnerName(userName, user1, user2) {
     if (userName === user1) {
