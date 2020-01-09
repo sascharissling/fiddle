@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import useGetChatMessages from '../hooks/useGetChatMessages';
 import useGetChatInformation from '../hooks/useGetChatInformation';
+import useScrollIntoView from '../hooks/useScrollIntoView';
 import PropTypes from 'prop-types';
 
 //COMPONENTS imports
@@ -56,12 +57,7 @@ export default function Chat(props) {
   const messages = useGetChatMessages(chatId);
   const chatHistoryRef = React.useRef();
 
-  React.useEffect(() => {
-    chatHistoryRef.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end'
-    });
-  }, [chatHistoryRef, messages.length]);
+  useScrollIntoView(chatHistoryRef, messages);
 
   return (
     <ChatPage>
