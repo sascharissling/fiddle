@@ -1,6 +1,6 @@
 # fiddle (working title)
 
-<img src="./.github/logo192.png" alt="Trophy Hunter" align="right" width="100" />
+<img src="./.github/logo192.png" alt="fiddle logo" align="right" width="100" />
 
 Welcome to the repository for fiddle.
 This app helps musicians collaborate rapidly using their smartphone.
