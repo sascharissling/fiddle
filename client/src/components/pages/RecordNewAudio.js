@@ -60,7 +60,7 @@ export default function RecordNewAudio(props) {
   return (
     <RecordPage>
       <HeaderBar>
-        <Link to={`/chat/${chatId}`}>
+        <Link to={`/chats/${chatId}`}>
           <BackButton />
         </Link>
       </HeaderBar>
@@ -74,7 +74,7 @@ export default function RecordNewAudio(props) {
           chatId={chatId}
         />
       )}
-      {redirectToChat && <Redirect to={`/chat/${chatId}`} />}
+      {redirectToChat && <Redirect to={`/chats/${chatId}`} />}
     </RecordPage>
   );
 }

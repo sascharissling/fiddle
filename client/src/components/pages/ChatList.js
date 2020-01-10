@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useGetUserChats from '../hooks/useGetUserChats';
 
 //COMPONENTS imports
@@ -71,9 +71,6 @@ export default function ChatList() {
         <LoadingPage>
           <WelcomeUser userName={`${localStorage.getItem('userName')}`} />
           <LoadingLine />
-          {loadingDone && (
-            <Redirect to={`/chatlist?userName=${localStorage.getItem('userName')}`} />
-          )}
           <FiddleSmallLogo />
         </LoadingPage>
       )}
@@ -84,7 +81,7 @@ export default function ChatList() {
             <Link to={'/login'}>
               <BackButton />
             </Link>
-            <Link to={`/newChat/?userName=${localStorage.getItem('userName')}`}>
+            <Link to={'/chats/new'}>
               <NewChatButton />
             </Link>
           </HeaderBar>
@@ -93,7 +90,7 @@ export default function ChatList() {
           </HeadlineBar>
           <Chats>
             {reversedChats.map(chat => (
-              <ChatLink key={chat._id} to={`/chat/${chat._id}`}>
+              <ChatLink key={chat._id} to={`/chats/${chat._id}`}>
                 <ChatListItem
                   partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
                   userImgSrc={DefaultUserAvatar}

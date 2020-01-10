@@ -13,7 +13,9 @@ export default function PlayJustRecordedAudio({ chatId, audioFileUrl, handleDele
     <>
       <AudioInterfaceWrapper>
         <FiddleDisplay audioFileUrl={audioFileUrl} onClick={() => setRedirectToOverdub(true)} />
-        {redirectToOverdub && <Redirect to={`/overdubAudio/${chatId}/${audioFileUrl.slice(47)}`} />}
+        {redirectToOverdub && (
+          <Redirect to={`/chats/${chatId}/overdub/${audioFileUrl.slice(47)}`} />
+        )}
         <FileHandling handleDelete={handleDelete} handleSend={handleSend} />
       </AudioInterfaceWrapper>
     </>

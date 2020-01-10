@@ -36,15 +36,22 @@ function App() {
         <Router>
           <Switch>
             <Route path="/" exact component={WelcomeScreen} />
-            <Route path="/login" component={UserLogin} />
-            <Route path="/chatlist" component={ChatList} />
-            <Route path="/chat/:id" component={Chat} />
-            <Route path="/newChat" component={NewChat} />
-            <Route path="/recordNewAudio/:id/:userName" component={RecordNewAudio} />
-            <Route path="/playAudio/:id/:fileName" exact component={PlayAudio} />
-            <Route path="/overdubAudio/:id/:originalFileName" component={OverdubAudio} />
-            <Route path="/consolidation/:id/:oldFile/:newFile" component={Consolidation} />
-            <Route path="/playConsolidatedAudio/:id/:fileName" component={PlayConsolidatedAudio} />
+            <Route path="/login" exact component={UserLogin} />
+            <Route path="/chatslist" exact component={ChatList} />
+            <Route path="/chats/new" component={NewChat} />
+            <Route path="/chats/:id" exact component={Chat} />
+            <Route path="/chats/:id/record" exact component={RecordNewAudio} />
+            <Route path="/chats/:id/playback/:fileName" exact component={PlayAudio} />
+            <Route path="/chats/:id/overdub/:originalFileName" exact component={OverdubAudio} />
+            <Route
+              path="/chats/:id/consolidate/:oldFile/:newFile"
+              exact
+              component={Consolidation}
+            />
+            <Route
+              path="/chats/:id/playbackconsolidated/:fileName"
+              component={PlayConsolidatedAudio}
+            />
           </Switch>
         </Router>
       </ThemeProvider>

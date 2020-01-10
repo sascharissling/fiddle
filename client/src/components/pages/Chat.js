@@ -62,7 +62,7 @@ export default function Chat(props) {
   return (
     <ChatPage>
       <HeaderBar>
-        <Link to={`/chatlist?userName=${localStorage.getItem('userName')}`}>
+        <Link to={'/chatslist'}>
           <BackButton />
         </Link>
       </HeaderBar>
@@ -80,14 +80,14 @@ export default function Chat(props) {
           }
           if (message.author !== partnerName && message.type === 'audio') {
             return (
-              <Link key={message._id} to={`/playAudio/${chatId}/${message.body.slice(47)}`}>
+              <Link key={message._id} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
                 <OutgoingAudio audioFileUrl={message.body} />
               </Link>
             );
           }
           if (message.author === partnerName && message.type === 'audio') {
             return (
-              <Link key={message._id} to={`/playAudio/${chatId}/${message.body.slice(47)}`}>
+              <Link key={message._id} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
                 <IncomingAudio audioFileUrl={message.body} />
               </Link>
             );
@@ -98,7 +98,7 @@ export default function Chat(props) {
       </ChatHistory>
       <FooterBar>
         <MessageInput chatId={chatId} author={localStorage.getItem('userName')} />
-        <Link to={`/recordNewAudio/${chatId}/userName=${localStorage.getItem('userName')}`}>
+        <Link to={`/chats/${chatId}/record`}>
           <FiddleButton />
         </Link>
       </FooterBar>

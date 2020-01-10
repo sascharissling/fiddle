@@ -62,7 +62,7 @@ export default function PartnerNameInput() {
       <form onSubmit={handleSubmit}>
         <NameInput autoFocus utype="text" value={partnerName} onChange={handleChange} />
       </form>
-      {definedPartnerName && <Redirect to={`/chat/${chatId}`} />}
+      {definedPartnerName && <Redirect to={`/chats/${chatId}`} />}
     </>
   );
 }

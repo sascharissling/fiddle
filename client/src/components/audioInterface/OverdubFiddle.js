@@ -141,9 +141,9 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
       {isRecording && <StopButton onClick={stopRecording} />}
       {twoRecordings && (
         <Redirect
-          to={`/consolidation/${chatId}/${originalAudioFileUrl.slice(47)}/${newAudioFileUrl.slice(
+          to={`/chats/${chatId}/consolidate/${originalAudioFileUrl.slice(
             47
-          )}`}
+          )}/${newAudioFileUrl.slice(47)}`}
         />
       )}
     </>
