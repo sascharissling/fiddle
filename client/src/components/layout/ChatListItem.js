@@ -9,8 +9,9 @@ const Wrapper = styled.div`
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: flex-start;
-  height: 40px;
+  height: 45px;
   margin-bottom: 7px;
+  text-overflow: ellipsis;
   cursor: pointer;
 `;
 
@@ -27,10 +28,10 @@ const PartnerName = styled.h3`
   font-size: 15px;
   margin: 0;
 `;
-const LastMessage = styled.p`
+const LastMessage = styled.div`
   font-size: 12px;
   margin: 0;
-  text-overflow: ellipsis;
+  height: 14px;
 `;
 
 const LastMessageDate = styled.p`
