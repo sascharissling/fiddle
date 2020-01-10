@@ -42,7 +42,7 @@ export default function InitialAudioRecording({ handleStop }) {
     <AudioInterfaceWrapper>
       {noAudioYet && (
         <>
-          <NoAudioYet />
+          <NoAudioYet systemMessage={'record a fiddle.'} />
         </>
       )}
       {!noAudioYet && (

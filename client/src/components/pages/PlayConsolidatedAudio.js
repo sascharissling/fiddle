@@ -10,6 +10,7 @@ import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import FileHandling from '../audioInterface/FileHandling';
+import NoAudioYet from '../headlines/NoAudioYet';
 
 //STYLE start
 
@@ -23,6 +24,7 @@ const PlayAudioPage = styled.div`
 //STYLE end
 
 export default function PlayConsolidatedAudio(props) {
+  const [visualizing, setVisualizing] = React.useState(true);
   const [redirectToChat, setRedirectToChat] = React.useState(false);
   const chatId = props.match.params.id;
   const fileName = props.match.params.fileName;
@@ -32,6 +34,10 @@ export default function PlayConsolidatedAudio(props) {
   const type = 'audio';
   const body = audioUrl;
   const author = localStorage.getItem('userName');
+
+  React.useEffect(() => {
+    setTimeout(() => setVisualizing(false), 2000);
+  }, []);
 
   function handleSend() {
     sendChatMessage(body, author, type, chatId);
@@ -45,15 +51,20 @@ export default function PlayConsolidatedAudio(props) {
   return (
     <PlayAudioPage>
       <HeaderBar>
-        <Link to={`/chat/${chatId}`}>
+        <Link to={`/chats/${chatId}`}>
           <BackButton />
         </Link>
       </HeaderBar>
       <AudioInterfaceWrapper>
-        <ConsolidatedFiddle audioFileUrl={audioUrl} />
-        <FileHandling handleDelete={handleDelete} handleSend={handleSend} />
+        {visualizing && <NoAudioYet systemMessage={'visualizing audio.'} />}
+        {!visualizing && (
+          <>
+            <ConsolidatedFiddle audioFileUrl={audioUrl} />
+            <FileHandling handleDelete={handleDelete} handleSend={handleSend} />
+          </>
+        )}
       </AudioInterfaceWrapper>
-      {redirectToChat && <Redirect to={`/chat/${chatId}`} />}
+      {redirectToChat && <Redirect to={`/chats/${chatId}`} />}
     </PlayAudioPage>
   );
 }

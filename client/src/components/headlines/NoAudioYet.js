@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 //STYLE start
 
-const RecordFiddleCTA = styled.h3`
+const SystemMessage = styled.h3`
   font-size: 25px;
   font-style: bold;
   text-align: center;
@@ -22,10 +23,14 @@ const NoAudioYetWrapper = styled.div`
 
 //STYLE end
 
-export default function NoAudioYet() {
+export default function NoAudioYet({ systemMessage }) {
   return (
     <NoAudioYetWrapper>
-      <RecordFiddleCTA>record a fiddle</RecordFiddleCTA>
+      <SystemMessage>{systemMessage}</SystemMessage>
     </NoAudioYetWrapper>
   );
 }
+
+NoAudioYet.propTypes = {
+  systemMessage: PropTypes.string
+};
