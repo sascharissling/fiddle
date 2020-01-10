@@ -28,7 +28,7 @@ export default function OverdubAudio(props) {
   return (
     <OverdubAudioPage>
       <HeaderBar>
-        <Link to={`/chat/${chatId}`}>
+        <Link to={`/chats/${chatId}`}>
           <BackButton />
         </Link>
       </HeaderBar>

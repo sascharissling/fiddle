@@ -43,7 +43,7 @@ export default function NewChat() {
   return (
     <NewChatPage>
       <HeaderBar>
-        <Link to={`/chatlist?userName=${localStorage.getItem('userName')}`}>
+        <Link to={'/chatslist'}>
           <BackButton />
         </Link>
       </HeaderBar>

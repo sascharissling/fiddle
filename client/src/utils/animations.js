@@ -14,11 +14,11 @@ from {
   width: 0vw;
 }
 to {
-  width: 85vw;
+  width: 100vw;
 }
 `;
 
-export const buttonFeedback = keyframes`
+export const zoomInOut = keyframes`
   0%{
     zoom: 1;
   }

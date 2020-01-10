@@ -1,6 +1,5 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
 
 //COMPONENTS imports
 import FiddleButton from '../components/buttons/FiddleButton';
@@ -17,8 +16,7 @@ import OverdubFiddle from '../components/audioInterface/OverdubFiddle';
 import ConsolidatedFiddle from '../components/audioInterface/ConsolidatedFiddle';
 
 export default {
-  title: 'Audio Actions',
-  decorators: [withKnobs]
+  title: 'Audio Actions'
 };
 
 export function GoFiddle() {

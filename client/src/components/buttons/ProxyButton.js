@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { buttonFeedback } from '../../utils/animations';
+import { zoomInOut } from '../../utils/animations';
 
 const ProxyButton = styled.button`
   border: none;
@@ -12,7 +12,7 @@ const ProxyButton = styled.button`
   justify-content: center;
   cursor: pointer;
   &:active {
-    animation: ${buttonFeedback} 0.1s ease-out 1;
+    animation: ${zoomInOut} 0.1s ease-out 1;
   }
 `;
 

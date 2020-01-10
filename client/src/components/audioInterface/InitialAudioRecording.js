@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 //COMPONENTS imports
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import NoAudioYet from '../headlines/NoAudioYet';
-import LoadingLineLong from '../misc/LoadingLineLong';
+import { LoadingLineLong } from '../misc/LoadingLine';
 import RecordNewFiddle from '../audioInterface/RecordNewFiddle';
 import RecordButton from '../buttons/RecordButton';
 import StopButton from '../buttons/StopButton';
@@ -42,7 +42,7 @@ export default function InitialAudioRecording({ handleStop }) {
     <AudioInterfaceWrapper>
       {noAudioYet && (
         <>
-          <NoAudioYet />
+          <NoAudioYet systemMessage={'record a fiddle.'} />
         </>
       )}
       {!noAudioYet && (

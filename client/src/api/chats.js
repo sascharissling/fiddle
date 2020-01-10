@@ -40,9 +40,9 @@ export async function getChatMessages(_id) {
     .then(response => response.json());
 }
 
-//Get chat ID by user1 and user2
-export async function getChatId(user1, user2) {
-  return fetch(`/api/${user1}/${user2}`, {
+//Get chat ID by userName1 and userName2
+export async function getChatId(userName1, userName2) {
+  return fetch(`/api/${userName1}/${userName2}`, {
     method: 'GET'
   })
     .then(response => {
@@ -55,15 +55,15 @@ export async function getChatId(user1, user2) {
 }
 
 //Create new chat
-export function initiateNewChat(user1, user2, messages) {
+export function initiateNewChat(userName1, userName2, messages) {
   return fetch('/api', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      user1,
-      user2,
+      userName1,
+      userName2,
       messages
     })
   });

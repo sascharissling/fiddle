@@ -40,7 +40,7 @@ export default function FiddleDisplay({ audioFileUrl, onClick }) {
         autoCenter: false,
         responsive: true,
         width: 100,
-        barHeight: 9,
+        barHeight: 2,
         height: 350,
         interact: true,
         maxCanvasWidth: 2000

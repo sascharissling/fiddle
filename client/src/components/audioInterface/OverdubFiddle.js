@@ -10,7 +10,7 @@ import { uploadAudio } from '../../api/chats';
 //COMPONENTS imports
 import RecordButton from '../buttons/RecordButton';
 import StopButton from '../buttons/StopButton';
-import linGrad from '../../utils/gradient';
+import getThemeGradient from '../../utils/getThemeGradient';
 
 //STYLE start
 const PlaybackWaveform = styled.div`
@@ -58,7 +58,7 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
         autoCenter: false,
         responsive: true,
         width: 100,
-        barHeight: 70,
+        barHeight: 2,
         height: 80,
         interact: true,
         maxCanvasWidth: 2000
@@ -76,12 +76,13 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
 
   React.useEffect(() => {
     if (recordingWaveformRef.current) {
+      const themeGradient = getThemeGradient();
       const wavesurfer = WaveSurfer.create({
         container: recordingWaveformRef.current,
         barWidth: 5,
-        barHeight: 9,
+        barHeight: 2,
         cursorWidth: 0,
-        waveColor: linGrad,
+        waveColor: themeGradient,
         hideScrollbar: true,
         autoCenter: true,
         responsive: true,
@@ -122,13 +123,13 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
     file_reader.readAsDataURL(recordedBlob.blob);
     file_reader.onloadend = async function() {
       const base64_string = file_reader.result;
-      uploadAudio(base64_string, author, chatId, dateOfRecording);
+      await uploadAudio(base64_string, author, chatId, dateOfRecording);
       return base64_string;
     };
-    await setNewAudioFileUrl(
+    setNewAudioFileUrl(
       `https://res.cloudinary.com/fiddle/video/upload/${chatId}-${dateOfRecording}-${author}.webm`
     );
-    setTwoRecordings(true);
+    setTimeout(() => setTwoRecordings(true), 500);
   }
 
   return (
@@ -140,9 +141,9 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
       {isRecording && <StopButton onClick={stopRecording} />}
       {twoRecordings && (
         <Redirect
-          to={`/consolidation/${chatId}/${originalAudioFileUrl.slice(47)}/${newAudioFileUrl.slice(
+          to={`/chats/${chatId}/consolidate/${originalAudioFileUrl.slice(
             47
-          )}`}
+          )}/${newAudioFileUrl.slice(47)}`}
         />
       )}
     </>

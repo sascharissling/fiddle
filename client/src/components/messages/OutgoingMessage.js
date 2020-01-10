@@ -7,6 +7,7 @@ import MessageWrapperOut from './MessageWrapperOut';
 
 //STYLE start
 const OutgoingTextMessage = styled.div`
+  word-break: break-all;
   max-width: 200px;
   background: ${props => props.theme.lightBackground};
   font-size: 12px;

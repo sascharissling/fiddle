@@ -27,13 +27,13 @@ export default function PartnerNameInput() {
   const [partnerName, setPartnerName] = React.useState('');
   const [chatId, setChatId] = React.useState('');
   const [definedPartnerName, setDefinedPartnerName] = React.useState(false);
-  const user1 = localStorage.getItem('userName');
-  const user2 = partnerName;
+  const userName1 = localStorage.getItem('userName');
+  const userName2 = partnerName;
   const messages = [
     {
       type: 'text',
       body: `Hey let's create 👋`,
-      author: user1
+      author: userName1
     }
   ];
 
@@ -44,14 +44,14 @@ export default function PartnerNameInput() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const isChat = await getChatId(user1, user2);
+    const isChat = await getChatId(userName1, userName2);
     if (isChat) {
       setChatId(isChat);
       setDefinedPartnerName(true);
     }
     if (!isChat) {
-      await initiateNewChat(user1, user2, messages);
-      const chatId = await getChatId(user1, user2);
+      await initiateNewChat(userName1, userName2, messages);
+      const chatId = await getChatId(userName1, userName2);
       setChatId(chatId);
       setDefinedPartnerName(true);
     }
@@ -62,7 +62,7 @@ export default function PartnerNameInput() {
       <form onSubmit={handleSubmit}>
         <NameInput autoFocus utype="text" value={partnerName} onChange={handleChange} />
       </form>
-      {definedPartnerName && <Redirect to={`/chat/${chatId}`} />}
+      {definedPartnerName && <Redirect to={`/chats/${chatId}`} />}
     </>
   );
 }

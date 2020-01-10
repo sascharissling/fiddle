@@ -29,13 +29,13 @@ export default function PlayAudio(props) {
   return (
     <PlayAudioPage>
       <HeaderBar>
-        <Link to={`/chat/${chatId}`}>
+        <Link to={`/chats/${chatId}`}>
           <BackButton />
         </Link>
       </HeaderBar>
       <AudioInterfaceWrapper>
         <FiddleDisplay audioFileUrl={audioUrl} onClick={() => setRedirectToOverdub(true)} />
-        {redirectToOverdub && <Redirect to={`/overdubAudio/${chatId}/${fileName}`} />}
+        {redirectToOverdub && <Redirect to={`/chats/${chatId}/overdub/${fileName}`} />}
       </AudioInterfaceWrapper>
     </PlayAudioPage>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
 import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
-import linGrad from '../../utils/gradient';
+import getThemeGradient from '../../utils/getThemeGradient';
 
 //STYLE start
 const Waveform = styled.div`
@@ -17,12 +17,13 @@ export default function RecordNewFiddle() {
 
   React.useEffect(() => {
     if (waveformRef.current) {
+      const themeGradient = getThemeGradient();
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
         barWidth: 5,
-        barHeight: 9,
+        barHeight: 2,
         cursorWidth: 0,
-        waveColor: linGrad,
+        waveColor: themeGradient,
         hideScrollbar: true,
         autoCenter: false,
         responsive: true,
