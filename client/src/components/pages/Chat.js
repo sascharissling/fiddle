@@ -18,7 +18,7 @@ import IncomingMessage from '../messages/IncomingMessage';
 import IncomingAudio from '../messages/IncomingAudio';
 import OutgoingMessage from '../messages/OutgoingMessage';
 import OutgoingAudio from '../messages/OutgoingAudio';
-import { LoadingLineLong } from '../misc/LoadingLine';
+import { LoadingLineChat } from '../misc/LoadingLine';
 
 //STYLE start
 const ChatPage = styled.div`
@@ -69,7 +69,7 @@ export default function Chat(props) {
       <HeadlineBar>
         <PageHeadline headline={partnerName} />
       </HeadlineBar>
-      <LoadingLineLong />
+      <LoadingLineChat />
       <ChatHistory>
         {messages.map(message => {
           if (message.author !== partnerName && message.type === 'text') {
