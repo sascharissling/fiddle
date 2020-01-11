@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { fadeIn } from '../../utils/animations';
 
 //COMPONENTS imports
 import PartnerNameInput from '../inputs/PartnerNameInput';
@@ -18,6 +19,7 @@ const NewChatPage = styled.div`
   align-content: center;
   align-items: center;
   flex-basis: 0;
+  animation: ${fadeIn} 0.05s;
 `;
 
 const PageHeadline = styled.h3`

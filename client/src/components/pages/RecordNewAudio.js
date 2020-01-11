@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link, Redirect } from 'react-router-dom';
 import { sendChatMessage, uploadAudio } from '../../api/chats';
 import PropTypes from 'prop-types';
+import { fadeIn } from '../../utils/animations';
 
 //COMPONENTS imports
 import HeaderBar from '../layout/HeaderBar';
@@ -17,6 +18,7 @@ const RecordPage = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
+  animation: ${fadeIn} 0.05s;
 `;
 //STYLE end
 

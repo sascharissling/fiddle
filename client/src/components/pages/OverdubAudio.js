@@ -8,6 +8,7 @@ import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import OverdubFiddle from '../audioInterface/OverdubFiddle';
+import { fadeIn } from '../../utils/animations';
 
 //STYLE start
 
@@ -16,6 +17,7 @@ const OverdubAudioPage = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
+  animation: ${fadeIn} 0.05s;
 `;
 
 //STYLE end

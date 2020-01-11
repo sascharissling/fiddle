@@ -29,3 +29,12 @@ export const zoomInOut = keyframes`
     zoom: 1;
   }
 `;
+
+export const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    }
+  to {
+    opacity: 1;
+    }
+`;

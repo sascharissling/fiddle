@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Redirect } from 'react-router-dom';
+import { fadeIn } from '../../utils/animations';
 
 //VISUALS imports
 import FiddleLogo from '../branding/FiddleLogo';
@@ -14,6 +15,7 @@ const WelcomePage = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
+  animation: ${fadeIn} 0.4s;
 `;
 //STYLE end
 

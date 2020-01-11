@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { uploadAudio } from '../../api/chats';
 import { changeWidthLong } from '../../utils/animations';
+import { fadeIn } from '../../utils/animations';
 
 //COMPONENTS imports
 import { LoadingLineLong } from '../misc/LoadingLine';
@@ -20,6 +21,7 @@ const ConsolidatingPage = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
+  animation: ${fadeIn} 0.05s;
 `;
 
 const Consolidating = styled.h3`
