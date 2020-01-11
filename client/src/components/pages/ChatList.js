@@ -57,7 +57,7 @@ export default function ChatList() {
   React.useEffect(() => {
     setTimeout(() => {
       setLoadingDone(true);
-    }, 1450);
+    }, 900);
   }, []);
 
   function pickPartnerName(userName, userName1, userName2) {

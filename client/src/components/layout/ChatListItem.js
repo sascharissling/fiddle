@@ -9,9 +9,8 @@ const Wrapper = styled.div`
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: flex-start;
-  height: 45px;
+  height: 40px;
   margin-bottom: 7px;
-  text-overflow: ellipsis;
   cursor: pointer;
 `;
 
@@ -21,7 +20,6 @@ const ChatDetails = styled.div`
   justify-content: center;
   margin-left: 10px;
   flex-grow: 1;
-  overflow: hidden;
 `;
 
 const PartnerName = styled.h3`
