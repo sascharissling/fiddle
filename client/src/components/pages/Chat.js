@@ -48,6 +48,7 @@ function pickPartnerName(userName, userName1, userName2) {
 }
 
 export default function Chat(props) {
+  const [socketMessage, setSocketMessage] = React.useState({});
   const chatId = props.match.params.id;
   const chatInformation = useGetChatInformation(chatId);
   const userName = localStorage.getItem('userName');
@@ -58,8 +59,15 @@ export default function Chat(props) {
   );
   const messages = useGetChatMessages(chatId);
   const chatHistoryRef = React.useRef();
-
   useScrollIntoView(chatHistoryRef, messages);
+
+  React.useEffect(() => {
+    const io = require('socket.io-client');
+    const socket = io('http://localhost:9090');
+    socket.on('new-chat-message', message => {
+      setSocketMessage(message);
+    });
+  }, []);
 
   return (
     <ChatPage>

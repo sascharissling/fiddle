@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { sendChatMessage } from '../../api/chats';
 import PropTypes from 'prop-types';
 
+//STYLED start
+
 const Input = styled.input`
   color: ${props => props.theme.tertiary};
   background: transparent;
@@ -20,11 +22,18 @@ const MessageForm = styled.form`
   margin-right: 10px;
 `;
 
+//STYLED end
+
 export default function MessageInput({ chatId }) {
   const [message, setMessage] = React.useState('');
   const type = 'text';
   const body = message;
   const author = localStorage.getItem('userName');
+  const socketMessage = {
+    type: type,
+    body: body,
+    author: author
+  };
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -33,6 +42,9 @@ export default function MessageInput({ chatId }) {
       return;
     }
     sendChatMessage(body, author, type, chatId);
+    const io = require('socket.io-client');
+    const socket = io('http://localhost:9090');
+    socket.emit('message-sent', socketMessage);
     setMessage('');
   }
 
