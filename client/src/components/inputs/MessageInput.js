@@ -32,7 +32,8 @@ export default function MessageInput({ chatId }) {
   const socketMessage = {
     type: type,
     body: body,
-    author: author
+    author: author,
+    date: Date.now()
   };
 
   async function handleSubmit(event) {

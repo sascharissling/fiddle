@@ -10,6 +10,9 @@ export default function useGetChatMessages(_id) {
     socket.on('chat-messages', data => {
       setChatMessages(data.messages);
     });
+    socket.on('new-chat-message', message => {
+      setChatMessages(messages => [...messages, message]);
+    });
   }, [_id]);
 
   return chatMessages;

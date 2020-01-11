@@ -48,7 +48,6 @@ function pickPartnerName(userName, userName1, userName2) {
 }
 
 export default function Chat(props) {
-  const [socketMessage, setSocketMessage] = React.useState({});
   const chatId = props.match.params.id;
   const chatInformation = useGetChatInformation(chatId);
   const userName = localStorage.getItem('userName');
@@ -60,14 +59,6 @@ export default function Chat(props) {
   const messages = useGetChatMessages(chatId);
   const chatHistoryRef = React.useRef();
   useScrollIntoView(chatHistoryRef, messages);
-
-  React.useEffect(() => {
-    const io = require('socket.io-client');
-    const socket = io('http://localhost:9090');
-    socket.on('new-chat-message', message => {
-      setSocketMessage(message);
-    });
-  }, []);
 
   return (
     <ChatPage>
@@ -83,21 +74,21 @@ export default function Chat(props) {
       <ChatHistory>
         {messages.map(message => {
           if (message.author !== partnerName && message.type === 'text') {
-            return <OutgoingMessage key={message._id} outgoingText={message.body} />;
+            return <OutgoingMessage key={message.date} outgoingText={message.body} />;
           }
           if (message.author === partnerName && message.type === 'text') {
-            return <IncomingMessage key={message._id} incomingText={message.body} />;
+            return <IncomingMessage key={message.date} incomingText={message.body} />;
           }
           if (message.author !== partnerName && message.type === 'audio') {
             return (
-              <Link key={message._id} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
+              <Link key={message.date} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
                 <OutgoingAudio audioFileUrl={message.body} />
               </Link>
             );
           }
           if (message.author === partnerName && message.type === 'audio') {
             return (
-              <Link key={message._id} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
+              <Link key={message.date} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
                 <IncomingAudio audioFileUrl={message.body} />
               </Link>
             );
