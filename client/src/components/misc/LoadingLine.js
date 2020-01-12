@@ -18,3 +18,7 @@ export const LoadingLine = styled.div`
 export const LoadingLineLong = styled(LoadingLine)`
   animation: ${changeWidthLong} 2.2s ease-out 1;
 `;
+
+export const LoadingLineChat = styled(LoadingLine)`
+  animation: ${changeWidthLong} 0.3s ease-out 1;
+`;

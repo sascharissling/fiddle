@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { sendChatMessage } from '../../api/chats';
+import { fadeIn } from '../../utils/animations';
 
 //COMPONENTS imports
 import ConsolidatedFiddle from '../audioInterface/ConsolidatedFiddle';
@@ -19,6 +20,7 @@ const PlayAudioPage = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
+  animation: ${fadeIn} 0.05s;
 `;
 
 //STYLE end

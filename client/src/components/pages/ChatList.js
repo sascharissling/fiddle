@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import useGetUserChats from '../hooks/useGetUserChats';
+import { fadeIn } from '../../utils/animations';
 
 //COMPONENTS imports
 import ChatListItem from '../layout/ChatListItem';
@@ -27,6 +28,7 @@ const LoadingPage = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
+  animation: ${fadeIn} 0.05s;
 `;
 
 const ChatListPage = styled.main`
@@ -34,6 +36,7 @@ const ChatListPage = styled.main`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
+  animation: ${fadeIn} 0.05s;
 `;
 const Chats = styled.div`
   flex-grow: 1;
@@ -57,7 +60,7 @@ export default function ChatList() {
   React.useEffect(() => {
     setTimeout(() => {
       setLoadingDone(true);
-    }, 1450);
+    }, 900);
   }, []);
 
   function pickPartnerName(userName, userName1, userName2) {

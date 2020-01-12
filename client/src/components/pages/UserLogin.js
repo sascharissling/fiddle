@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { fadeIn } from '../../utils/animations';
 
 //COMPONENTS imports
 import UserNameInput from '../inputs/UserNameInput';
@@ -14,6 +15,7 @@ const LoginPage = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
+  animation: ${fadeIn} 0.05s;
 `;
 
 const PageHeadline = styled.h3`

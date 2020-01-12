@@ -5,6 +5,7 @@ import useGetChatMessages from '../hooks/useGetChatMessages';
 import useGetChatInformation from '../hooks/useGetChatInformation';
 import useScrollIntoView from '../hooks/useScrollIntoView';
 import PropTypes from 'prop-types';
+import { fadeIn } from '../../utils/animations';
 
 //COMPONENTS imports
 import BackButton from '../buttons/BackButton';
@@ -18,7 +19,7 @@ import IncomingMessage from '../messages/IncomingMessage';
 import IncomingAudio from '../messages/IncomingAudio';
 import OutgoingMessage from '../messages/OutgoingMessage';
 import OutgoingAudio from '../messages/OutgoingAudio';
-import { LoadingLineLong } from '../misc/LoadingLine';
+import { LoadingLineChat } from '../misc/LoadingLine';
 
 //STYLE start
 const ChatPage = styled.div`
@@ -26,6 +27,7 @@ const ChatPage = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
+  animation: ${fadeIn} 0.05s;
 `;
 
 const ChatHistory = styled.div`
@@ -56,7 +58,6 @@ export default function Chat(props) {
   );
   const messages = useGetChatMessages(chatId);
   const chatHistoryRef = React.useRef();
-
   useScrollIntoView(chatHistoryRef, messages);
 
   return (
@@ -69,25 +70,25 @@ export default function Chat(props) {
       <HeadlineBar>
         <PageHeadline headline={partnerName} />
       </HeadlineBar>
-      <LoadingLineLong />
+      <LoadingLineChat />
       <ChatHistory>
         {messages.map(message => {
           if (message.author !== partnerName && message.type === 'text') {
-            return <OutgoingMessage key={message._id} outgoingText={message.body} />;
+            return <OutgoingMessage key={message.date} outgoingText={message.body} />;
           }
           if (message.author === partnerName && message.type === 'text') {
-            return <IncomingMessage key={message._id} incomingText={message.body} />;
+            return <IncomingMessage key={message.date} incomingText={message.body} />;
           }
           if (message.author !== partnerName && message.type === 'audio') {
             return (
-              <Link key={message._id} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
+              <Link key={message.date} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
                 <OutgoingAudio audioFileUrl={message.body} />
               </Link>
             );
           }
           if (message.author === partnerName && message.type === 'audio') {
             return (
-              <Link key={message._id} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
+              <Link key={message.date} to={`/chats/${chatId}/playback/${message.body.slice(47)}`}>
                 <IncomingAudio audioFileUrl={message.body} />
               </Link>
             );
