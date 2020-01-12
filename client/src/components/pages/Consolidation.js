@@ -21,7 +21,7 @@ const ConsolidatingPage = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 
 const Consolidating = styled.h3`

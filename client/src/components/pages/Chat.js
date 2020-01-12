@@ -27,7 +27,7 @@ const ChatPage = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 
 const ChatHistory = styled.div`
