@@ -18,7 +18,7 @@ const RecordPage = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 //STYLE end
 
@@ -27,11 +27,15 @@ export default function RecordNewAudio(props) {
   const [recordingDone, setRecordingDone] = React.useState(false);
   const [redirectToChat, setRedirectToChat] = React.useState(false);
   const [audioFileUrl, setAudioFileUrl] = React.useState('');
-
-  // Send Chatmessage
   const type = 'audio';
   const body = audioFileUrl;
   const author = sessionStorage.getItem('userName');
+  const socketMessage = {
+    type: type,
+    body: body,
+    author: author,
+    date: Date.now()
+  };
 
   async function handleStop(recordedBlob) {
     const file_reader = new FileReader();
@@ -52,6 +56,9 @@ export default function RecordNewAudio(props) {
 
   function handleSend() {
     sendChatMessage(body, author, type, chatId);
+    const io = require('socket.io-client');
+    const socket = io('http://localhost:9090');
+    socket.emit('message-sent', socketMessage);
     setRedirectToChat(true);
   }
 
