@@ -35,7 +35,7 @@ export default function PlayConsolidatedAudio(props) {
   // Send Chatmessage
   const type = 'audio';
   const body = audioUrl;
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
 
   React.useEffect(() => {
     setTimeout(() => setVisualizing(false), 2000);

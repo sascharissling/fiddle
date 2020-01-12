@@ -28,7 +28,7 @@ export default function MessageInput({ chatId }) {
   const [message, setMessage] = React.useState('');
   const type = 'text';
   const body = message;
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
   const socketMessage = {
     type: type,
     body: body,

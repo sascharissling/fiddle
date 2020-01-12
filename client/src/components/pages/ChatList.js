@@ -53,7 +53,7 @@ const ChatLink = styled(Link)`
 
 export default function ChatList() {
   const [loadingDone, setLoadingDone] = React.useState(false);
-  const userName = localStorage.getItem('userName');
+  const userName = sessionStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
   const reversedChats = userChats.reverse();
 
@@ -72,7 +72,7 @@ export default function ChatList() {
     <>
       {!loadingDone && (
         <LoadingPage>
-          <WelcomeUser userName={`${localStorage.getItem('userName')}`} />
+          <WelcomeUser userName={`${sessionStorage.getItem('userName')}`} />
           <LoadingLine />
           <FiddleSmallLogo />
         </LoadingPage>

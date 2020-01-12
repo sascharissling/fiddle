@@ -42,7 +42,7 @@ export default function Consolidation(props) {
   const [consolidatedAudioFileName, setConsolidatedAudioFileName] = React.useState('');
   const [consolidationDone, setConsolidationDone] = React.useState(false);
   const chatId = props.match.params.id;
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
 
   const crunkerRef = React.useRef();
 

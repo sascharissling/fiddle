@@ -34,7 +34,7 @@ const Mic = styled(ReactMic)`
 //STYLE end
 
 export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
   const [playbackWaveSurfer, setPlaybackWaveSurfer] = React.useState();
   const [recordingWaveSurfer, setRecordingWaveSurfer] = React.useState();
   const [isRecording, setIsRecording] = React.useState(false);

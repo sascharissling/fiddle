@@ -27,7 +27,7 @@ export default function PartnerNameInput() {
   const [partnerName, setPartnerName] = React.useState('');
   const [chatId, setChatId] = React.useState('');
   const [definedPartnerName, setDefinedPartnerName] = React.useState(false);
-  const userName1 = localStorage.getItem('userName');
+  const userName1 = sessionStorage.getItem('userName');
   const userName2 = partnerName;
   const messages = [
     {

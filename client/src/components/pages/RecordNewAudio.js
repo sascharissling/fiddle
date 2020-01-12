@@ -31,7 +31,7 @@ export default function RecordNewAudio(props) {
   // Send Chatmessage
   const type = 'audio';
   const body = audioFileUrl;
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
 
   async function handleStop(recordedBlob) {
     const file_reader = new FileReader();
