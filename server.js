@@ -74,19 +74,21 @@ io.on('connection', socket => {
   //Get chat specific messages
 
   socket.on('send-chat-id', _id => {
+    socket.join(_id);
     const ObjectId = require('mongodb').ObjectID;
     const chatId = new ObjectId(_id);
     Chat.findOne(chatId, function(error, result) {
       if (error) {
         throw error;
       }
-      socket.emit('chat-messages', result);
+      io.to(_id).emit('chat-messages', result);
     });
   });
 
   //Send message
 
   socket.on('message-sent', message => {
-    socket.broadcast.emit('new-chat-message', message);
+    socket.join(message.id);
+    io.to(message.id).emit('new-chat-message', message);
   });
 });
