@@ -21,7 +21,7 @@ const ConsolidatingPage = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 
 const Consolidating = styled.h3`
@@ -42,7 +42,7 @@ export default function Consolidation(props) {
   const [consolidatedAudioFileName, setConsolidatedAudioFileName] = React.useState('');
   const [consolidationDone, setConsolidationDone] = React.useState(false);
   const chatId = props.match.params.id;
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
 
   const crunkerRef = React.useRef();
 

@@ -28,7 +28,7 @@ const LoadingPage = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 
 const ChatListPage = styled.main`
@@ -36,7 +36,7 @@ const ChatListPage = styled.main`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 const Chats = styled.div`
   flex-grow: 1;
@@ -53,7 +53,7 @@ const ChatLink = styled(Link)`
 
 export default function ChatList() {
   const [loadingDone, setLoadingDone] = React.useState(false);
-  const userName = localStorage.getItem('userName');
+  const userName = sessionStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
   const reversedChats = userChats.reverse();
 
@@ -72,7 +72,7 @@ export default function ChatList() {
     <>
       {!loadingDone && (
         <LoadingPage>
-          <WelcomeUser userName={`${localStorage.getItem('userName')}`} />
+          <WelcomeUser userName={`${sessionStorage.getItem('userName')}`} />
           <LoadingLine />
           <FiddleSmallLogo />
         </LoadingPage>

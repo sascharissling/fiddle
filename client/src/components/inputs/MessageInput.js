@@ -28,7 +28,7 @@ export default function MessageInput({ chatId }) {
   const [message, setMessage] = React.useState('');
   const type = 'text';
   const body = message;
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
   const socketMessage = {
     type: type,
     body: body,
@@ -44,7 +44,7 @@ export default function MessageInput({ chatId }) {
     }
     sendChatMessage(body, author, type, chatId);
     const io = require('socket.io-client');
-    const socket = io('http://localhost:9090');
+    const socket = io('http://localhost:8080');
     socket.emit('message-sent', socketMessage);
     setMessage('');
   }

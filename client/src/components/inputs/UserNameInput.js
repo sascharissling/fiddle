@@ -33,7 +33,7 @@ export default function UserNameInput() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    localStorage.setItem('userName', `${userName}`);
+    sessionStorage.setItem('userName', `${userName}`);
     setDefinedUsername(true);
   }
 

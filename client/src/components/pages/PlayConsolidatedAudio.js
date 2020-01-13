@@ -20,7 +20,7 @@ const PlayAudioPage = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 
 //STYLE end
@@ -31,11 +31,15 @@ export default function PlayConsolidatedAudio(props) {
   const chatId = props.match.params.id;
   const fileName = props.match.params.fileName;
   const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
-
-  // Send Chatmessage
   const type = 'audio';
   const body = audioUrl;
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
+  const socketMessage = {
+    type: type,
+    body: body,
+    author: author,
+    date: Date.now()
+  };
 
   React.useEffect(() => {
     setTimeout(() => setVisualizing(false), 2000);
@@ -43,6 +47,9 @@ export default function PlayConsolidatedAudio(props) {
 
   function handleSend() {
     sendChatMessage(body, author, type, chatId);
+    const io = require('socket.io-client');
+    const socket = io('http://localhost:8080');
+    socket.emit('message-sent', socketMessage);
     setRedirectToChat(true);
   }
 

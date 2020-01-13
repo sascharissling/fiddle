@@ -34,7 +34,7 @@ const Mic = styled(ReactMic)`
 //STYLE end
 
 export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
-  const author = localStorage.getItem('userName');
+  const author = sessionStorage.getItem('userName');
   const [playbackWaveSurfer, setPlaybackWaveSurfer] = React.useState();
   const [recordingWaveSurfer, setRecordingWaveSurfer] = React.useState();
   const [isRecording, setIsRecording] = React.useState(false);
@@ -58,7 +58,7 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
         autoCenter: false,
         responsive: true,
         width: 100,
-        barHeight: 2,
+        barHeight: 10,
         height: 80,
         interact: true,
         maxCanvasWidth: 2000
@@ -80,7 +80,7 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
       const wavesurfer = WaveSurfer.create({
         container: recordingWaveformRef.current,
         barWidth: 5,
-        barHeight: 2,
+        barHeight: 10,
         cursorWidth: 0,
         waveColor: themeGradient,
         hideScrollbar: true,
@@ -129,7 +129,7 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
     setNewAudioFileUrl(
       `https://res.cloudinary.com/fiddle/video/upload/${chatId}-${dateOfRecording}-${author}.webm`
     );
-    setTimeout(() => setTwoRecordings(true), 500);
+    setTimeout(() => setTwoRecordings(true), 800);
   }
 
   return (

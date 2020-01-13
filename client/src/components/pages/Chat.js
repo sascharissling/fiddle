@@ -27,7 +27,7 @@ const ChatPage = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 
 const ChatHistory = styled.div`
@@ -50,7 +50,7 @@ function pickPartnerName(userName, userName1, userName2) {
 export default function Chat(props) {
   const chatId = props.match.params.id;
   const chatInformation = useGetChatInformation(chatId);
-  const userName = localStorage.getItem('userName');
+  const userName = sessionStorage.getItem('userName');
   const partnerName = pickPartnerName(
     userName,
     chatInformation.userName1,
@@ -98,7 +98,7 @@ export default function Chat(props) {
         <div ref={chatHistoryRef} />
       </ChatHistory>
       <FooterBar>
-        <MessageInput chatId={chatId} author={localStorage.getItem('userName')} />
+        <MessageInput chatId={chatId} author={sessionStorage.getItem('userName')} />
         <Link to={`/chats/${chatId}/record`}>
           <FiddleButton />
         </Link>

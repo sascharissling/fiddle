@@ -21,7 +21,7 @@ export default function RecordNewFiddle() {
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
         barWidth: 5,
-        barHeight: 2,
+        barHeight: 10,
         cursorWidth: 0,
         waveColor: themeGradient,
         hideScrollbar: true,

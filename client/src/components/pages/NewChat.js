@@ -19,7 +19,7 @@ const NewChatPage = styled.div`
   align-content: center;
   align-items: center;
   flex-basis: 0;
-  animation: ${fadeIn} 0.05s;
+  animation: ${fadeIn} 0.1s;
 `;
 
 const PageHeadline = styled.h3`
