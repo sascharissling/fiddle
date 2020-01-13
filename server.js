@@ -41,7 +41,6 @@ server.listen(PORT, () => {
 // ----------------------------------------------
 
 //SOCKET.io
-
 const io = require('socket.io')(server, {
   handlePreflightRequest: (req, res) => {
     const headers = {
@@ -53,6 +52,8 @@ const io = require('socket.io')(server, {
     res.end();
   }
 });
+
+//Connection
 
 // Get user specific chats
 io.on('connection', socket => {
@@ -69,11 +70,9 @@ io.on('connection', socket => {
       }
     );
   });
-});
 
-//Get chat specific messages
+  //Get chat specific messages
 
-io.on('connection', socket => {
   socket.on('send-chat-id', _id => {
     const ObjectId = require('mongodb').ObjectID;
     const chatId = new ObjectId(_id);
@@ -84,11 +83,9 @@ io.on('connection', socket => {
       socket.emit('chat-messages', result);
     });
   });
-});
 
-//Send message
+  //Send message
 
-io.on('connection', socket => {
   console.log('user connection');
   socket.on('message-sent', message => {
     console.log(message);

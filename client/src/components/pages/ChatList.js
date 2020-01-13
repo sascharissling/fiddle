@@ -55,7 +55,6 @@ export default function ChatList() {
   const [loadingDone, setLoadingDone] = React.useState(false);
   const userName = sessionStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
-  const reversedChats = userChats.reverse();
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -92,7 +91,7 @@ export default function ChatList() {
             <PageHeadline headline={'Chats'} />
           </HeadlineBar>
           <Chats>
-            {reversedChats.map(chat => (
+            {userChats.map(chat => (
               <ChatLink key={chat._id} to={`/chats/${chat._id}`}>
                 <ChatListItem
                   partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
