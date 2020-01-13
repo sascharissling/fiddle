@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 
 mongoose.connect(`mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/fiddle`, {
@@ -19,6 +20,14 @@ app.use(express.json());
 const chatsRouter = require('./lib/chats');
 app.use('/api', chatsRouter);
 
-app.listen(8080, () => {
+// Serve any static files
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Handle React routing, return all requests to React app
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
+app.listen(process.env.LOCAL_PORT, () => {
   console.log('Server ready on http://localhost:8080');
 });
