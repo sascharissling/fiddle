@@ -58,6 +58,7 @@ const io = require('socket.io')(server, {
 // Get user specific chats
 io.on('connection', socket => {
   socket.on('get-userName', userName => {
+    socket.join(userName);
     Chat.find(
       {
         $or: [{ $and: [{ userName1: userName }] }, { $and: [{ userName2: userName }] }]
@@ -66,9 +67,22 @@ io.on('connection', socket => {
         if (error) {
           throw error;
         }
-        socket.emit('user-chats', result);
+        io.to(userName).emit('user-chats', result);
       }
     );
+    setInterval(() => {
+      Chat.find(
+        {
+          $or: [{ $and: [{ userName1: userName }] }, { $and: [{ userName2: userName }] }]
+        },
+        function(error, result) {
+          if (error) {
+            throw error;
+          }
+          io.to(userName).emit('user-chats', result);
+        }
+      );
+    }, 2000);
   });
 
   //Get chat specific messages
