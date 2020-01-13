@@ -30,6 +30,9 @@ const PartnerName = styled.h3`
 const LastMessage = styled.p`
   font-size: 12px;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const LastMessageDate = styled.p`
@@ -50,7 +53,7 @@ export default function ChatListItem({
       <img src={userImgSrc} alt={'default user'} />
       <ChatDetails>
         <PartnerName>{partnerName}</PartnerName>
-        <LastMessage>{lastMessage.slice(0, 31) + '...'}</LastMessage>
+        <LastMessage>{lastMessage}</LastMessage>
       </ChatDetails>
 
       <LastMessageDate>{lastMessageDate}</LastMessageDate>

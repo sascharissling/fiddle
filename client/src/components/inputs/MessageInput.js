@@ -15,6 +15,9 @@ const Input = styled.input`
   height: auto;
   overflow: hidden;
   width: 100%;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const MessageForm = styled.form`
@@ -33,7 +36,8 @@ export default function MessageInput({ chatId }) {
     type: type,
     body: body,
     author: author,
-    date: Date.now()
+    date: Date.now(),
+    id: chatId
   };
 
   async function handleSubmit(event) {
