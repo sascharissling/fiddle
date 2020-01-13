@@ -89,6 +89,6 @@ io.on('connection', socket => {
   console.log('user connection');
   socket.on('message-sent', message => {
     console.log(message);
-    socket.broadcast.emit('new-chat-message', message);
+    socket.emit('new-chat-message', message);
   });
 });
