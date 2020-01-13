@@ -35,7 +35,7 @@ app.get('*', function(req, res) {
 
 const server = require('http').createServer(app);
 server.listen(PORT, () => {
-  console.log('Server ready on http://localhost:8080');
+  console.log('Server ready!');
 });
 
 // ----------------------------------------------

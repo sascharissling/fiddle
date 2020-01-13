@@ -5,7 +5,7 @@ export default function useGetUserChats(userName) {
 
   React.useEffect(() => {
     const io = require('socket.io-client');
-    const socket = io('http://localhost:8080');
+    const socket = io(process.env.REACT_APP_WS_URL);
     socket.emit('get-userName', userName);
     socket.on('user-chats', data => {
       setUserChats(data);

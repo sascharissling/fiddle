@@ -48,7 +48,7 @@ export default function PlayConsolidatedAudio(props) {
   function handleSend() {
     sendChatMessage(body, author, type, chatId);
     const io = require('socket.io-client');
-    const socket = io('http://localhost:8080');
+    const socket = io(process.env.REACT_APP_WS_URL);
     socket.emit('message-sent', socketMessage);
     setRedirectToChat(true);
   }
