@@ -15,6 +15,9 @@ const Input = styled.input`
   height: auto;
   overflow: hidden;
   width: 100%;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const MessageForm = styled.form`
