@@ -41,7 +41,6 @@ server.listen(PORT, () => {
 // ----------------------------------------------
 
 //SOCKET.io
-
 const io = require('socket.io')(server, {
   handlePreflightRequest: (req, res) => {
     const headers = {
@@ -54,9 +53,12 @@ const io = require('socket.io')(server, {
   }
 });
 
+//Connection
+
 // Get user specific chats
 io.on('connection', socket => {
   socket.on('get-userName', userName => {
+    socket.join(userName);
     Chat.find(
       {
         $or: [{ $and: [{ userName1: userName }] }, { $and: [{ userName2: userName }] }]
@@ -65,33 +67,42 @@ io.on('connection', socket => {
         if (error) {
           throw error;
         }
-        socket.emit('user-chats', result);
+        io.to(userName).emit('user-chats', result);
       }
     );
+    setInterval(() => {
+      Chat.find(
+        {
+          $or: [{ $and: [{ userName1: userName }] }, { $and: [{ userName2: userName }] }]
+        },
+        function(error, result) {
+          if (error) {
+            throw error;
+          }
+          io.to(userName).emit('user-chats', result);
+        }
+      );
+    }, 2000);
   });
-});
 
-//Get chat specific messages
+  //Get chat specific messages
 
-io.on('connection', socket => {
   socket.on('send-chat-id', _id => {
+    socket.join(_id);
     const ObjectId = require('mongodb').ObjectID;
     const chatId = new ObjectId(_id);
     Chat.findOne(chatId, function(error, result) {
       if (error) {
         throw error;
       }
-      socket.emit('chat-messages', result);
+      io.to(_id).emit('chat-messages', result);
     });
   });
-});
 
-//Send message
+  //Send message
 
-io.on('connection', socket => {
-  console.log('user connection');
   socket.on('message-sent', message => {
-    console.log(message);
-    socket.broadcast.emit('new-chat-message', message);
+    socket.join(message.id);
+    io.to(message.id).emit('new-chat-message', message);
   });
 });
