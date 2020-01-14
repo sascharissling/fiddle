@@ -85,6 +85,19 @@ io.on('connection', socket => {
     }, 2000);
   });
 
+  //Get chat informacion
+  socket.on('send-chat-id-for-info', _id => {
+    socket.join(_id);
+    const ObjectId = require('mongodb').ObjectID;
+    const chatId = new ObjectId(_id);
+    Chat.findOne(chatId, function(error, result) {
+      if (error) {
+        throw error;
+      }
+      io.to(_id).emit('chat-info', result);
+    });
+  });
+
   //Get chat specific messages
 
   socket.on('send-chat-id', _id => {
