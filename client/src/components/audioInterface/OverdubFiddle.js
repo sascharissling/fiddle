@@ -113,7 +113,8 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
     setIsRecording(true);
   }
 
-  function stopRecording() {
+  async function stopRecording() {
+    await recordingWaveSurfer.microphone.stop();
     setIsRecording(false);
   }
 
