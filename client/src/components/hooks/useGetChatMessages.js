@@ -13,13 +13,16 @@ export default function useGetChatMessages(_id) {
   React.useEffect(() => {
     const io = require('socket.io-client');
     const socket = io(process.env.REACT_APP_WS_URL);
+    const userName = sessionStorage.getItem('userName');
     socket.emit('send-chat-id', _id);
     socket.on('chat-messages', data => {
       setChatMessages(data.messages);
     });
     socket.on('new-chat-message', message => {
       setChatMessages(messages => [...messages, message]);
-      notification.play();
+      if (message.author !== userName) {
+        notification.play();
+      }
     });
   }, [_id]);
 
