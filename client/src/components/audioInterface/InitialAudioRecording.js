@@ -79,9 +79,10 @@ export default function InitialAudioRecording({ handleStop }) {
   }
 
   async function stopRecording() {
-    setShowWavesurfer(false);
+    await waveSurfer.microphone.stop();
     setIsRecording(false);
     setIsProcessing(true);
+    setShowWavesurfer(false);
   }
 
   return (
