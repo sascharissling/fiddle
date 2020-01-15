@@ -30,22 +30,34 @@ client
 npm install
 ```
 
-### Running the application
+### env Variables you'll need
 
-A step by step series of examples that tell you how to get a development env running
+You will need one .env.production file in your client directory which contains this:
+
+```
+REACT_APP_WS_URL=ws://localhost:8080 (Has to match the port in the top level .env)
+```
+
+As this application is developed with MongoDB you'll need a .env file in your top level directory with the following content:
+
+```
+MONGO_DB_URL = mongodb://<YOUR_MONGO_DB_IP>:<YOUR_MONGO_PORT_PROBABLY_27017>/
+MONGO_DB_NAME = <YOUR_MONGO_DB_NAME>;
+PORT=8080 (Or whatever you prefer)
+```
+
+### Running the application
 
 Open two terminals next to eachother
 
 First terminal
 
 ```
-npm run client
+npm run server
 ```
 
 Second Terminal
 
 ```
-npm run server
+npm run client
 ```
-
-Head to your browser with one of the links given to you in the first terminal and enjoy fiddle.
