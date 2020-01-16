@@ -51,6 +51,18 @@ const ChatLink = styled(Link)`
 `;
 //STYLE end
 
+function pickPartnerName(userName, userName1, userName2) {
+  const partner = userName === userName1 ? userName2 : userName1;
+  return partner;
+}
+
+function toLocaleTime(date) {
+  const newDate = new Date(date);
+  const localTime = newDate.toLocaleTimeString();
+  const shortTime = localTime.replace(/:\d+ /, ' ');
+  return shortTime.slice(0, 5);
+}
+
 export default function ChatList() {
   const [loadingDone, setLoadingDone] = React.useState(false);
   const userName = sessionStorage.getItem('userName');
@@ -64,11 +76,6 @@ export default function ChatList() {
       setLoadingDone(true);
     }, 900);
   }, []);
-
-  function pickPartnerName(userName, userName1, userName2) {
-    const partner = userName === userName1 ? userName2 : userName1;
-    return partner;
-  }
 
   return (
     <>
@@ -100,7 +107,7 @@ export default function ChatList() {
                   partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
                   userImgSrc={DefaultUserAvatar}
                   lastMessage={chat.messages[chat.messages.length - 1].body}
-                  lastMessageDate={chat.updatedAt.slice(11, 16)}
+                  lastMessageDate={toLocaleTime(chat.updatedAt)}
                 />
               </ChatLink>
             ))}
