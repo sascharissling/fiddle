@@ -55,6 +55,9 @@ export default function ChatList() {
   const [loadingDone, setLoadingDone] = React.useState(false);
   const userName = sessionStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
+  const sortedUserChats = userChats.sort(function(a, b) {
+    return new Date(b.updatedAt) - new Date(a.updatedAt);
+  });
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -91,13 +94,13 @@ export default function ChatList() {
             <PageHeadline headline={'Chats'} />
           </HeadlineBar>
           <Chats>
-            {userChats.map(chat => (
+            {sortedUserChats.map(chat => (
               <ChatLink key={chat._id} to={`/chats/${chat._id}`}>
                 <ChatListItem
                   partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
                   userImgSrc={DefaultUserAvatar}
                   lastMessage={chat.messages[chat.messages.length - 1].body}
-                  lastMessageDate={chat.messages[chat.messages.length - 1].date.slice(11, 16)}
+                  lastMessageDate={chat.updatedAt.slice(11, 16)}
                 />
               </ChatLink>
             ))}
