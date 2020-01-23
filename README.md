@@ -5,7 +5,6 @@
 Welcome to the repository for fiddle.
 This app helps musicians collaborate rapidly using their smartphone.
 The rapid collaboration is enabled by built in microphones and the ability to record over eachothers audio recordings and sending back consolidated audio files.
-https://fiddle.now.sh
 
 This is the masterpiece of my twelve week web development bootcamp at "neue fische" in Cologne, Germany
 
