@@ -31,7 +31,7 @@ npm install
 
 ### env Variables you'll need
 
-You will need one .env.production file in your client directory which contains this:
+You will need one .env.development file in your client directory which contains this:
 
 ```
 REACT_APP_WS_URL=ws://localhost:8080 (Has to match the port in the top level .env)
@@ -41,7 +41,7 @@ As this application is developed with MongoDB you'll need a .env file in your to
 
 ```
 MONGO_DB_URL = mongodb://<YOUR_MONGO_DB_IP>:<YOUR_MONGO_PORT_PROBABLY_27017>/
-MONGO_DB_NAME = <YOUR_MONGO_DB_NAME>;
+MONGO_DB_NAME = <YOUR_MONGO_DB_NAME>
 PORT=8080 (Or whatever you prefer)
 ```
 
