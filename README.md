@@ -16,18 +16,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 After cloning this to your machine, you need to install node_modules on both client and server
 
-First on the server side
+Due to `postinstall` you'll only need to do it once in the top level directory.
 
 ```
 npm install
 ```
 
-as soon as installation finished do this:
-
-```
-client
-npm install
-```
 
 ### env Variables you'll need
 
