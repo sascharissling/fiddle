@@ -2,15 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-//COMPONENTS imports
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import OverdubFiddle from '../audioInterface/OverdubFiddle';
 import { fadeIn } from '../../utils/animations';
-
-//STYLE start
 
 const OverdubAudioPage = styled.div`
   height: 100vh;
@@ -19,8 +15,6 @@ const OverdubAudioPage = styled.div`
   flex-flow: column nowrap;
   animation: ${fadeIn} 0.1s;
 `;
-
-//STYLE end
 
 export default function OverdubAudio(props) {
   const chatId = props.match.params.id;

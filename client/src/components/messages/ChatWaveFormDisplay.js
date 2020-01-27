@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
 import PropTypes from 'prop-types';
 
-//STYLE start
 const AudioMessage = styled.div`
   background: ${props => props.theme.themeGradient};
   font-size: 12px;
@@ -15,7 +14,6 @@ const AudioMessage = styled.div`
   width: 200px;
   cursor: pointer;
 `;
-//STYLE end
 
 export default function ChatWaveFormDisplay({ audioFileUrl }) {
   const activeWaveColor = '#f5f5f5';

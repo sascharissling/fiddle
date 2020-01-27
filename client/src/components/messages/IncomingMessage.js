@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-
-//COMPONENTS imports
 import MessageWrapper from './MessageWrapperIn';
 
-//STYLE start
 const IncomingTextMessage = styled.div`
   word-break: break-all;
   max-width: 200px;
@@ -17,7 +14,6 @@ const IncomingTextMessage = styled.div`
   margin: 5px 0px 5px 0px;
   padding: 8px;
 `;
-//STYLE end
 
 export default function IncomingMessage({ incomingText }) {
   return (

@@ -2,8 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Redirect } from 'react-router-dom';
 
-//STYLE start
-
 const NameInput = styled.input`
   background: transparent;
   border: none;
@@ -15,8 +13,6 @@ const NameInput = styled.input`
     outline: none;
   }
 `;
-
-//STYLE end
 
 function upperCaseFirstChar(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

@@ -2,12 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
 import PropTypes from 'prop-types';
-
-//COMPONENTS imports
 import PlayButton from '../buttons/PlayButton';
 import PauseButton from '../buttons/PauseButton';
 
-//STYLE start
 const ConsolidatedContainer = styled.div`
   background: ${props => props.theme.themeGradient};
   display: flex;
@@ -29,8 +26,6 @@ const PlayRecord = styled.div`
   justify-content: space-evenly;
   width: 100vw;
 `;
-
-//STYLE end
 
 export default function ConsolidatedFiddle({ audioFileUrl }) {
   const [isPlaying, setIsPlaying] = React.useState(false);

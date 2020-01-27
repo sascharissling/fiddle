@@ -6,8 +6,6 @@ import useGetChatInformation from '../hooks/useGetChatInformation';
 import useScrollIntoView from '../hooks/useScrollIntoView';
 import PropTypes from 'prop-types';
 import { fadeIn } from '../../utils/animations';
-
-//COMPONENTS imports
 import BackButton from '../buttons/BackButton';
 import HeaderBar from '../layout/HeaderBar';
 import PageHeadline from '../headlines/PageHeadline';
@@ -21,7 +19,7 @@ import OutgoingMessage from '../messages/OutgoingMessage';
 import OutgoingAudio from '../messages/OutgoingAudio';
 import { LoadingLineChat } from '../misc/LoadingLine';
 
-//STYLE start
+
 const ChatPage = styled.div`
   height: 100vh;
   width: 100vw;
@@ -39,8 +37,6 @@ const ChatHistory = styled.div`
   flex-grow: 1;
   flex-basis: 0;
 `;
-
-//STYLE end
 
 function pickPartnerName(userName, userName1, userName2) {
   const partner = userName === userName1 ? userName2 : userName1;

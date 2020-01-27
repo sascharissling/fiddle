@@ -2,8 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
-//STYLE start
-
 const SystemMessage = styled.h3`
   font-size: 25px;
   font-style: bold;
@@ -20,8 +18,6 @@ const NoAudioYetWrapper = styled.div`
   align-content: center;
   align-items: center;
 `;
-
-//STYLE end
 
 export default function NoAudioYet({ systemMessage }) {
   return (

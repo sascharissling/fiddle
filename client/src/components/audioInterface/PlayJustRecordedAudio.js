@@ -1,8 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-//COMPONENTS imports
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import FiddleDisplay from '../audioInterface/FiddleDisplay';
 import FileHandling from '../audioInterface/FileHandling';

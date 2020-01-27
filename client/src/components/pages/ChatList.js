@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import useGetUserChats from '../hooks/useGetUserChats';
 import { fadeIn } from '../../utils/animations';
-
-//COMPONENTS imports
 import ChatListItem from '../layout/ChatListItem';
 import BackButton from '../buttons/BackButton';
 import HeaderBar from '../layout/HeaderBar';
@@ -14,11 +12,7 @@ import NewChatButton from '../buttons/NewChatButton';
 import WelcomeUser from '../headlines/WelcomeUser';
 import FiddleSmallLogo from '../branding/FiddleSmallLogo';
 import { LoadingLine } from '../misc/LoadingLine';
-
-//SVG imports
 import DefaultUserAvatar from '../icons/DefaultUserAvatar.svg';
-
-//STYLE start
 
 const LoadingPage = styled.div`
   height: 100vh;
@@ -49,7 +43,6 @@ const ChatLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
-//STYLE end
 
 function pickPartnerName(userName, userName1, userName2) {
   const partner = userName === userName1 ? userName2 : userName1;

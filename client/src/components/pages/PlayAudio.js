@@ -3,14 +3,10 @@ import styled from '@emotion/styled';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fadeIn } from '../../utils/animations';
-
-//COMPONENTS imports
 import FiddleDisplay from '../audioInterface/FiddleDisplay';
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
-
-//STYLE start
 
 const PlayAudioPage = styled.div`
   height: 100vh;
@@ -19,8 +15,6 @@ const PlayAudioPage = styled.div`
   flex-flow: column nowrap;
   animation: ${fadeIn} 0.1s;
 `;
-
-//STYLE end
 
 export default function PlayAudio(props) {
   const [redirectToOverdub, setRedirectToOverdub] = React.useState(false);

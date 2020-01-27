@@ -5,15 +5,11 @@ import PropTypes from 'prop-types';
 import WaveSurfer from 'wavesurfer.js';
 import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
 import getThemeGradient from '../../utils/getThemeGradient';
-
-//COMPONENTS imports
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import NoAudioYet from '../headlines/NoAudioYet';
 import { LoadingLineLong } from '../misc/LoadingLine';
 import RecordButton from '../buttons/RecordButton';
 import StopButton from '../buttons/StopButton';
-
-//STYLE start
 
 const Mic = styled(ReactMic)`
   opacity: 0;
@@ -27,8 +23,6 @@ const Waveform = styled.div`
   margin-bottom: 20px;
   display: ${props => (props.showWavesurfer ? 'block ' : 'none')};
 `;
-
-//STYLE end
 
 export default function InitialAudioRecording({ handleStop }) {
   const [noAudioYet, setNoAudioYet] = React.useState(true);

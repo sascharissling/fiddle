@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { fadeIn } from '../../utils/animations';
-
-//COMPONENTS imports
 import UserNameInput from '../inputs/UserNameInput';
-
-//STYLE start
 
 const LoginPage = styled.div`
   height: 100vh;
@@ -25,7 +21,6 @@ const PageHeadline = styled.h3`
   color: ${props => props.theme.secondary};
   margin: 0;
 `;
-//STYLE end
 
 export default function UserLogin() {
   return (

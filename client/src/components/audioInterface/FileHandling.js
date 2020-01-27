@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-
-//COMPONENTS imports
 import SendAudio from '../buttons/SendAudio';
 import DiscardAudio from '../buttons/DiscardAudio';
 
-//STYLE start
 const FileHandlingDisplay = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -21,7 +18,6 @@ const FileHandlingDisplay = styled.div`
     width: 50%;
   }
 `;
-//STYLE end
 
 export default function FileHandling({ handleDelete, handleSend }) {
   return (

@@ -1,7 +1,5 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-
-//COMPONENTS Imports
 import UserNameInput from '../components/inputs/UserNameInput';
 import MessageInput from '../components/inputs/MessageInput';
 

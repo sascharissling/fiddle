@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-//PAGES imports
 import WelcomeScreen from './components/pages/WelcomeScreen';
 import UserLogin from './components/pages/UserLogin';
 import ChatList from './components/pages/ChatList';
@@ -12,21 +10,15 @@ import PlayAudio from './components/pages/PlayAudio';
 import OverdubAudio from './components/pages/OverdubAudio';
 import PlayConsolidatedAudio from './components/pages/PlayConsolidatedAudio';
 import Consolidation from './components/pages/Consolidation';
-
-//STYLE imports
 import styled from '@emotion/styled';
 import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import defaultTheme from './utils/defaultTheme';
 
-//STYLE start
-
 const AppContainer = styled.main`
   width: 100vw;
   height: 100vh;
 `;
-
-//STYLE end
 
 function App() {
   return (
