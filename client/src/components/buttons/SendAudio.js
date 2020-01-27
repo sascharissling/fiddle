@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-
-//Components imports
 import ProxyButton from './ProxyButton';
-
-//STYLE start
 
 const Send = styled.h3`
   padding: 0;
@@ -17,8 +13,6 @@ const Send = styled.h3`
     color: ${props => props.theme.primary};
   }
 `;
-
-//STYLE end
 
 export default function SendAudio({ onClick }) {
   return (

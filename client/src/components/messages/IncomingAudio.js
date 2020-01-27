@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//COMPONENTS imports
 import MessageWrapperIn from './MessageWrapperIn';
 import ChatWaveFormDisplay from './ChatWaveFormDisplay';
 

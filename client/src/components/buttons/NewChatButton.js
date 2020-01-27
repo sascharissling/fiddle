@@ -1,17 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-
-//Components imports
 import ProxyButton from './ProxyButton';
-
-//STYLE start
 
 const NewChat = styled.path`
   fill: ${props => props.theme.primary};
 `;
-
-//STYLE end
 
 export default function NewChatButton({ onClick }) {
   return (

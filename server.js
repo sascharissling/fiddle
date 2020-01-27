@@ -38,8 +38,6 @@ server.listen(PORT, () => {
   console.log('Server ready!');
 });
 
-// ----------------------------------------------
-
 //SOCKET.io
 const io = require('socket.io')(server, {
   handlePreflightRequest: (req, res) => {
@@ -99,7 +97,6 @@ io.on('connection', socket => {
   });
 
   //Get chat specific messages
-
   socket.on('send-chat-id', _id => {
     socket.join(_id);
     const ObjectId = require('mongodb').ObjectID;
@@ -113,7 +110,6 @@ io.on('connection', socket => {
   });
 
   //Send message
-
   socket.on('message-sent', message => {
     socket.join(message.id);
     io.to(message.id).emit('new-chat-message', message);

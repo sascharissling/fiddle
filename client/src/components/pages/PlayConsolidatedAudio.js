@@ -4,16 +4,12 @@ import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { sendChatMessage } from '../../api/chats';
 import { fadeIn } from '../../utils/animations';
-
-//COMPONENTS imports
 import ConsolidatedFiddle from '../audioInterface/ConsolidatedFiddle';
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import FileHandling from '../audioInterface/FileHandling';
 import NoAudioYet from '../headlines/NoAudioYet';
-
-//STYLE start
 
 const PlayAudioPage = styled.div`
   height: 100vh;
@@ -22,8 +18,6 @@ const PlayAudioPage = styled.div`
   flex-flow: column nowrap;
   animation: ${fadeIn} 0.1s;
 `;
-
-//STYLE end
 
 export default function PlayConsolidatedAudio(props) {
   const [visualizing, setVisualizing] = React.useState(true);

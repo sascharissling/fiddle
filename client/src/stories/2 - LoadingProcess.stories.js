@@ -1,6 +1,4 @@
 import React from 'react';
-
-//COMPONENTS Imports
 import LoadingLine from '../components/misc/LoadingLine';
 import WelcomeUser from '../components/headlines/WelcomeUser';
 

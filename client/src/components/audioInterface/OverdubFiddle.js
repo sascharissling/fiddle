@@ -6,13 +6,10 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { ReactMic } from 'react-mic';
 import { uploadAudio } from '../../api/chats';
-
-//COMPONENTS imports
 import RecordButton from '../buttons/RecordButton';
 import StopButton from '../buttons/StopButton';
 import getThemeGradient from '../../utils/getThemeGradient';
 
-//STYLE start
 const PlaybackWaveform = styled.div`
   width: 90vw;
   height: 100px;
@@ -30,8 +27,6 @@ const Mic = styled(ReactMic)`
   height: 0;
   width: 0;
 `;
-
-//STYLE end
 
 export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
   const author = sessionStorage.getItem('userName');

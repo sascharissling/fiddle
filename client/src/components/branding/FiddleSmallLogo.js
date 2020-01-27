@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-//STYLE start
+
 
 const Logo = styled.path`
   fill: ${props => props.theme.secondary};

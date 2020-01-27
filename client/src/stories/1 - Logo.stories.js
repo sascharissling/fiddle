@@ -1,6 +1,4 @@
 import React from 'react';
-
-//COMPONENTS Imports
 import FiddleLogo from '../components/branding/FiddleLogo';
 import FiddleSmallLogo from '../components/branding/FiddleSmallLogo';
 

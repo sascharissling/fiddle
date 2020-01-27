@@ -4,14 +4,10 @@ import { Link, Redirect } from 'react-router-dom';
 import { sendChatMessage, uploadAudio } from '../../api/chats';
 import PropTypes from 'prop-types';
 import { fadeIn } from '../../utils/animations';
-
-//COMPONENTS imports
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import PlayJustRecordedAudio from '../audioInterface/PlayJustRecordedAudio';
 import InitialAudioRecording from '../audioInterface/InitialAudioRecording';
-
-//STYLE start
 
 const RecordPage = styled.div`
   height: 100vh;
@@ -20,7 +16,6 @@ const RecordPage = styled.div`
   flex-flow: column nowrap;
   animation: ${fadeIn} 0.1s;
 `;
-//STYLE end
 
 export default function RecordNewAudio(props) {
   const chatId = props.match.params.id;

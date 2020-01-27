@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 import { sendChatMessage } from '../../api/chats';
 import PropTypes from 'prop-types';
 
-//STYLED start
-
 const Input = styled.input`
   color: ${props => props.theme.tertiary};
   background: transparent;
@@ -24,8 +22,6 @@ const MessageForm = styled.form`
   flex-grow: 1;
   margin-right: 10px;
 `;
-
-//STYLED end
 
 export default function MessageInput({ chatId }) {
   const [message, setMessage] = React.useState('');

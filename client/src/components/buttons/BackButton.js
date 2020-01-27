@@ -3,13 +3,9 @@ import styled from '@emotion/styled';
 import ProxyButton from './ProxyButton';
 import PropTypes from 'prop-types';
 
-//STYLE start
-
 const BackArrow = styled.path`
   fill: ${props => props.theme.primary};
 `;
-
-//STYLE end
 
 export default function BackButton({ onClick }) {
   return (

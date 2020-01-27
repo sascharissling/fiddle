@@ -2,11 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Redirect } from 'react-router-dom';
 import { fadeIn } from '../../utils/animations';
-
-//VISUALS imports
 import FiddleLogo from '../branding/FiddleLogo';
 
-//STYLE start
 const WelcomePage = styled.div`
   height: 100vh;
   width: 100vw;
@@ -17,7 +14,6 @@ const WelcomePage = styled.div`
   align-items: center;
   animation: ${fadeIn} 0.4s;
 `;
-//STYLE end
 
 export default function WelcomeScreen() {
   const [redirect, setRedirect] = React.useState(false);

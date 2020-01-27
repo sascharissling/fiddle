@@ -1,7 +1,5 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-
-//COMPONENTS imports
 import FiddleButton from '../components/buttons/FiddleButton';
 import RecordButton from '../components/buttons/RecordButton';
 import PlayButton from '../components/buttons/PlayButton';

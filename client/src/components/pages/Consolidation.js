@@ -6,12 +6,8 @@ import { Redirect } from 'react-router-dom';
 import { uploadAudio } from '../../api/chats';
 import { changeWidthLong } from '../../utils/animations';
 import { fadeIn } from '../../utils/animations';
-
-//COMPONENTS imports
 import { LoadingLineLong } from '../misc/LoadingLine';
 import FiddleSmallLogo from '../branding/FiddleSmallLogo';
-
-//STYLE start
 
 const ConsolidatingPage = styled.div`
   height: 100vh;
@@ -33,8 +29,6 @@ const Consolidating = styled.h3`
 const ConsolidationLoadingLine = styled(LoadingLineLong)`
   animation: ${changeWidthLong} 15s ease-out 1;
 `;
-
-//STYLE end
 
 export default function Consolidation(props) {
   const oldAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${props.match.params.oldFile}`;

@@ -2,13 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { fadeIn } from '../../utils/animations';
-
-//COMPONENTS imports
 import PartnerNameInput from '../inputs/PartnerNameInput';
 import BackButton from '../buttons/BackButton';
 import HeaderBar from '../layout/HeaderBar';
-
-//STYLE start
 
 const NewChatPage = styled.div`
   height: 100vh;
@@ -39,7 +35,6 @@ const ChoosePartner = styled.div`
   align-content: center;
   align-items: center;
 `;
-//STYLE end
 
 export default function NewChat() {
   return (
