@@ -14,7 +14,7 @@ const Input = styled.input`
   overflow: hidden;
   width: 100%;
   &:focus {
-    outline: none;
+    outline-color: ${props => props.theme.primary};
   }
 `;
 

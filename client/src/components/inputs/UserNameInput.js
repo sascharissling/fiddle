@@ -10,7 +10,7 @@ const NameInput = styled.input`
   color: ${props => props.theme.tertiary};
   max-width: 220px;
   &:focus {
-    outline: none;
+    outline-color: ${props => props.theme.primary};
   }
 `;
 
