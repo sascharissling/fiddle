@@ -16,7 +16,8 @@
     "storybook": "cd client && npm run storybook",
     "test": "cd client && npm test",
     "postinstall": "cd client && npm install",
-    "start": "node server.js"
+    "start": "node server.js",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
