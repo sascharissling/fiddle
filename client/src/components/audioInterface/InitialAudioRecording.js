@@ -93,8 +93,10 @@ export default function InitialAudioRecording({ handleStop }) {
         </>
       )}
       <Waveform showWavesurfer={showWavesurfer} ref={waveformRef} />
-      {isRecording && <StopButton onClick={stopRecording} />}
-      {!isRecording && !isProcessing && <RecordButton onClick={startRecording} />}
+      {isRecording && <StopButton data-test-id="audio-stop-button" onClick={stopRecording} />}
+      {!isRecording && !isProcessing && (
+        <RecordButton data-test-id="audio-record-button" onClick={startRecording} />
+      )}
     </AudioInterfaceWrapper>
   );
 }

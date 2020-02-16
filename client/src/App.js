@@ -27,20 +27,37 @@ function App() {
         <GlobalStyles />
         <Router>
           <Switch>
-            <Route path="/" exact component={WelcomeScreen} />
-            <Route path="/login" exact component={UserLogin} />
-            <Route path="/chatslist" exact component={ChatList} />
-            <Route path="/chats/new" component={NewChat} />
-            <Route path="/chats/:id" exact component={Chat} />
-            <Route path="/chats/:id/record" exact component={RecordNewAudio} />
-            <Route path="/chats/:id/playback/:fileName" exact component={PlayAudio} />
-            <Route path="/chats/:id/overdub/:originalFileName" exact component={OverdubAudio} />
+            <Route data-test-id="welcome-page" path="/" exact component={WelcomeScreen} />
+            <Route data-test-id="login-page" path="/login" exact component={UserLogin} />
+            <Route data-test-id="chatslist" path="/chatslist" exact component={ChatList} />
+            <Route data-test-id="create-new-chat" path="/chats/new" component={NewChat} />
+            <Route data-test-id="chat" path="/chats/:id" exact component={Chat} />
             <Route
+              data-test-id="record-new-audio"
+              path="/chats/:id/record"
+              exact
+              component={RecordNewAudio}
+            />
+            <Route
+              data-test-id="play-audio"
+              path="/chats/:id/playback/:fileName"
+              exact
+              component={PlayAudio}
+            />
+            <Route
+              data-test-id="overdub-audio"
+              path="/chats/:id/overdub/:originalFileName"
+              exact
+              component={OverdubAudio}
+            />
+            <Route
+              data-test-id="consolidation"
               path="/chats/:id/consolidate/:oldFile/:newFile"
               exact
               component={Consolidation}
             />
             <Route
+              data-test-id="play-consolidated-audio"
               path="/chats/:id/playbackconsolidated/:fileName"
               component={PlayConsolidatedAudio}
             />

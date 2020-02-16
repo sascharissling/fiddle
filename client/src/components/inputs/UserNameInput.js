@@ -36,7 +36,13 @@ export default function UserNameInput() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <NameInput autoFocus type="text" value={userName} onChange={handleChange} />
+        <NameInput
+          data-test-id="user-name-input"
+          autoFocus
+          type="text"
+          value={userName}
+          onChange={handleChange}
+        />
       </form>
       {definedUsername && <Redirect to={'/chatslist'} />}
     </>

@@ -46,7 +46,7 @@ export default function NewChat() {
       </HeaderBar>
       <ChoosePartner>
         <PageHeadline>Who do you want to create with?</PageHeadline>
-        <PartnerNameInput />
+        <PartnerNameInput data-test-id="partner-name-input" />
       </ChoosePartner>
     </NewChatPage>
   );

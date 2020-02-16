@@ -75,7 +75,7 @@ export default function ConsolidatedFiddle({ audioFileUrl }) {
       </ConsolidatedContainer>
       {!isPlaying && (
         <PlayRecord>
-          <PlayButton onClick={handlePlay} />
+          <PlayButton data-test-id="consolidated-play-button" onClick={handlePlay} />
         </PlayRecord>
       )}
       {isPlaying && <PauseButton onClick={handlePause} />}

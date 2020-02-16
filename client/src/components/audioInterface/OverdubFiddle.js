@@ -133,8 +133,10 @@ export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
       <PlaybackWaveform ref={playbackWaveformRef} />
       <RecordingWaveform ref={recordingWaveformRef} />
       <Mic record={isRecording} onStop={handleStop} onData={handleData} mimeType="audio/webm" />
-      {!isRecording && <RecordButton onClick={startRecording} />}
-      {isRecording && <StopButton onClick={stopRecording} />}
+      {!isRecording && (
+        <RecordButton data-test-id="overdub-record-button" onClick={startRecording} />
+      )}
+      {isRecording && <StopButton data-test-id="overdub-stop-button" onClick={stopRecording} />}
       {twoRecordings && (
         <Redirect
           to={`/chats/${chatId}/consolidate/${originalAudioFileUrl.slice(

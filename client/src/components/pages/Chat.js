@@ -19,7 +19,6 @@ import OutgoingMessage from '../messages/OutgoingMessage';
 import OutgoingAudio from '../messages/OutgoingAudio';
 import { LoadingLineChat } from '../misc/LoadingLine';
 
-
 const ChatPage = styled.div`
   height: 100vh;
   width: 100vw;
@@ -94,9 +93,13 @@ export default function Chat(props) {
         <div ref={chatHistoryRef} />
       </ChatHistory>
       <FooterBar>
-        <MessageInput chatId={chatId} author={sessionStorage.getItem('userName')} />
+        <MessageInput
+          data-test-id="chat-message-input"
+          chatId={chatId}
+          author={sessionStorage.getItem('userName')}
+        />
         <Link to={`/chats/${chatId}/record`}>
-          <FiddleButton />
+          <FiddleButton data-test-id="record-audio-button" />
         </Link>
       </FooterBar>
     </ChatPage>

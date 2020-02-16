@@ -65,11 +65,11 @@ export default function FiddleDisplay({ audioFileUrl, onClick }) {
       <Waveform ref={waveformRef} />
       {!isPlaying && (
         <PlayRecord>
-          <PlayButton onClick={handlePlay} />
-          <RecordButton onClick={onClick} />
+          <PlayButton data-test-id="audio-play-button" onClick={handlePlay} />
+          <RecordButton data-test-id="audio-record-button" onClick={onClick} />
         </PlayRecord>
       )}
-      {isPlaying && <PauseButton onClick={handlePause} />}
+      {isPlaying && <PauseButton data-test-id="audio-pause-button" onClick={handlePause} />}
     </>
   );
 }

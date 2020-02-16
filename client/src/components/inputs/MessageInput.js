@@ -56,7 +56,14 @@ export default function MessageInput({ chatId }) {
 
   return (
     <MessageForm onSubmit={handleSubmit}>
-      <Input autoFocus author={author} type="text" value={message} onChange={handleChange} />
+      <Input
+        data-test-id="message-input"
+        autoFocus
+        author={author}
+        type="text"
+        value={message}
+        onChange={handleChange}
+      />
     </MessageForm>
   );
 }

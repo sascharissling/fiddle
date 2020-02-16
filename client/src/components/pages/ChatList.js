@@ -84,10 +84,10 @@ export default function ChatList() {
         <ChatListPage>
           <HeaderBar>
             <Link to={'/login'}>
-              <BackButton />
+              <BackButton data-test-id="back-to-login" />
             </Link>
             <Link to={'/chats/new'}>
-              <NewChatButton />
+              <NewChatButton data-test-id="create-new-chat" />
             </Link>
           </HeaderBar>
           <HeadlineBar>
@@ -97,6 +97,7 @@ export default function ChatList() {
             {sortedUserChats.map(chat => (
               <ChatLink key={chat._id} to={`/chats/${chat._id}`}>
                 <ChatListItem
+                  data-test-id="chatlist-item"
                   partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
                   userImgSrc={DefaultUserAvatar}
                   lastMessage={chat.messages[chat.messages.length - 1].body}

@@ -41,7 +41,7 @@ export default function ChatWaveFormDisplay({ audioFileUrl }) {
     }
   }, [audioFileUrl]);
 
-  return <AudioMessage ref={waveformRef}></AudioMessage>;
+  return <AudioMessage data-test-id="audio-message" ref={waveformRef}></AudioMessage>;
 }
 
 ChatWaveFormDisplay.propTypes = {
