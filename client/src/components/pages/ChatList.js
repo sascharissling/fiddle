@@ -87,7 +87,7 @@ export default function ChatList() {
               <BackButton data-test-id="back-to-login" />
             </Link>
             <Link to={'/chats/new'}>
-              <NewChatButton data-test-id="create-new-chat" />
+              <NewChatButton />
             </Link>
           </HeaderBar>
           <HeadlineBar>

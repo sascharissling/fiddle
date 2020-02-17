@@ -9,7 +9,7 @@ const NewChat = styled.path`
 
 export default function NewChatButton({ onClick }) {
   return (
-    <ProxyButton onClick={onClick}>
+    <ProxyButton data-test-id="create-new-chat" onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18.217"
