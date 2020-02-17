@@ -29,6 +29,10 @@ export default function UserNameInput() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    if (userName === '') {
+      alert('Please insert a User Name!');
+      return;
+    }
     sessionStorage.setItem('userName', `${userName}`);
     setDefinedUsername(true);
   }
