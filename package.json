@@ -40,7 +40,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.5.3",
-    "mongoose": "^5.9.0",
+    "mongoose": "^5.9.1",
     "socket.io": "^2.3.0"
   }
 }
