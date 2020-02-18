@@ -39,7 +39,6 @@ const LastMessageDate = styled.p`
   margin: 0;
 `;
 
-
 export default function ChatListItem({
   userImgSrc,
   onClick,
@@ -50,7 +49,7 @@ export default function ChatListItem({
   return (
     <Wrapper onClick={onClick}>
       <img src={userImgSrc} alt={'default user'} />
-      <ChatDetails>
+      <ChatDetails data-test-id="chatlist-item">
         <PartnerName>{partnerName}</PartnerName>
         <LastMessage>{lastMessage}</LastMessage>
       </ChatDetails>

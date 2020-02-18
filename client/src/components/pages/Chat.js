@@ -93,11 +93,7 @@ export default function Chat(props) {
         <div ref={chatHistoryRef} />
       </ChatHistory>
       <FooterBar>
-        <MessageInput
-          data-test-id="chat-message-input"
-          chatId={chatId}
-          author={sessionStorage.getItem('userName')}
-        />
+        <MessageInput chatId={chatId} author={sessionStorage.getItem('userName')} />
         <Link to={`/chats/${chatId}/record`}>
           <FiddleButton data-test-id="record-audio-button" />
         </Link>
