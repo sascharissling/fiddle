@@ -32,7 +32,7 @@
   "homepage": "https://github.com/sascharissling/fiddle#readme",
   "devDependencies": {
     "eslint": "^6.7.2",
-    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react": "^7.20.0",
     "nodemon": "^2.0.2",
     "prettier": "1.19.1"
   },
