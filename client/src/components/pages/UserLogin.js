@@ -1,22 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { fadeIn } from '../../utils/animations';
 import UserNameInput from '../inputs/UserNameInput';
+import PageFrame from './PageFrame';
 
-const LoginPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
+const LoginPage = styled(PageFrame)`
   justify-content: center;
   align-content: center;
   align-items: center;
-  animation: ${fadeIn} 0.1s;
 `;
 
 const PageHeadline = styled.h3`
   text-align: left;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 300;
   color: ${props => props.theme.secondary};
   margin: 0;
@@ -25,10 +20,8 @@ const PageHeadline = styled.h3`
 export default function UserLogin() {
   return (
     <LoginPage>
-      <div>
-        <PageHeadline>Who are you?</PageHeadline>
-        <UserNameInput />
-      </div>
+      <PageHeadline>Who are you?</PageHeadline>
+      <UserNameInput />
     </LoginPage>
   );
 }

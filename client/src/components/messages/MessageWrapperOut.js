@@ -5,7 +5,7 @@ const MessageWrapperOut = styled.div`
   height: auto;
   display: flex;
   flex-flow: row-reverse nowrap;
-  padding-right: 20px;
+  padding-right: 1.25rem;
 `;
 
 export default MessageWrapperOut;

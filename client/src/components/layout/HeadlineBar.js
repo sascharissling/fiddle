@@ -1,17 +1,12 @@
 import styled from '@emotion/styled';
+import { HeaderBaseStyle } from './HeaderBar';
 
 const HeadlineBar = styled.div`
-  width: 100vw;
-  height: 45px;
-  display: flex;
+  ${HeaderBaseStyle}
   flex-flow: column nowrap;
   background: ${props => props.theme.background};
   justify-content: flex-start;
   align-items: flex-start;
-  align-content: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  flex-basis: 1;
 `;
 
 export default HeadlineBar;

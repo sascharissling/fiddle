@@ -5,7 +5,6 @@ import useGetChatMessages from '../hooks/useGetChatMessages';
 import useGetChatInformation from '../hooks/useGetChatInformation';
 import useScrollIntoView from '../hooks/useScrollIntoView';
 import PropTypes from 'prop-types';
-import { fadeIn } from '../../utils/animations';
 import BackButton from '../buttons/BackButton';
 import HeaderBar from '../layout/HeaderBar';
 import PageHeadline from '../headlines/PageHeadline';
@@ -17,16 +16,8 @@ import IncomingMessage from '../messages/IncomingMessage';
 import IncomingAudio from '../messages/IncomingAudio';
 import OutgoingMessage from '../messages/OutgoingMessage';
 import OutgoingAudio from '../messages/OutgoingAudio';
+import PageFrame from './PageFrame';
 import { LoadingLineChat } from '../misc/LoadingLine';
-
-
-const ChatPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
-  animation: ${fadeIn} 0.1s;
-`;
 
 const ChatHistory = styled.div`
   width: 100vw;
@@ -57,7 +48,7 @@ export default function Chat(props) {
   useScrollIntoView(chatHistoryRef, messages);
 
   return (
-    <ChatPage>
+    <PageFrame>
       <HeaderBar>
         <Link to={'/chatslist'}>
           <BackButton />
@@ -99,7 +90,7 @@ export default function Chat(props) {
           <FiddleButton />
         </Link>
       </FooterBar>
-    </ChatPage>
+    </PageFrame>
   );
 }
 

@@ -13,16 +13,12 @@ import WelcomeUser from '../headlines/WelcomeUser';
 import FiddleSmallLogo from '../branding/FiddleSmallLogo';
 import { LoadingLine } from '../misc/LoadingLine';
 import DefaultUserAvatar from '../icons/DefaultUserAvatar.svg';
+import PageFrame from './PageFrame';
 
-const LoadingPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
+const LoadingPage = styled(PageFrame)`
   justify-content: center;
   align-content: center;
   align-items: center;
-  animation: ${fadeIn} 0.1s;
 `;
 
 const ChatListPage = styled.main`
@@ -34,7 +30,7 @@ const ChatListPage = styled.main`
 `;
 const Chats = styled.div`
   flex-grow: 1;
-  margin: 0px 20px 0px 20px;
+  margin: 0 1.25rem;
   overflow: auto;
   flex-basis: 0;
 `;

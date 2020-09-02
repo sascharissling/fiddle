@@ -8,8 +8,8 @@ import RecordButton from '../buttons/RecordButton';
 
 const Waveform = styled.div`
   width: 90vw;
-  height: 350px;
-  margin-bottom: 20px;
+  height: 21.875rem;
+  margin-bottom: 1.25rem;
 `;
 
 const PlayRecord = styled.div`

@@ -5,7 +5,7 @@ const MessageWrapperIn = styled.div`
   height: auto;
   display: flex;
   flex-flow: row nowrap;
-  padding-left: 20px;
+  padding-left: 1.25rem;
 `;
 
 export default MessageWrapperIn;

@@ -1,20 +1,11 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import OverdubFiddle from '../audioInterface/OverdubFiddle';
-import { fadeIn } from '../../utils/animations';
-
-const OverdubAudioPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
-  animation: ${fadeIn} 0.1s;
-`;
+import PageFrame from './PageFrame';
 
 export default function OverdubAudio(props) {
   const chatId = props.match.params.id;
@@ -22,7 +13,7 @@ export default function OverdubAudio(props) {
   const audioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
 
   return (
-    <OverdubAudioPage>
+    <PageFrame>
       <HeaderBar>
         <Link to={`/chats/${chatId}`}>
           <BackButton />
@@ -31,7 +22,7 @@ export default function OverdubAudio(props) {
       <AudioInterfaceWrapper>
         <OverdubFiddle originalAudioFileUrl={audioFileUrl} chatId={chatId} />
       </AudioInterfaceWrapper>
-    </OverdubAudioPage>
+    </PageFrame>
   );
 }
 

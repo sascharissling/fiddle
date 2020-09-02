@@ -1,18 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Redirect } from 'react-router-dom';
-import { fadeIn } from '../../utils/animations';
+import PageFrame from './PageFrame';
 import FiddleLogo from '../branding/FiddleLogo';
 
-const WelcomePage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
+const WelcomePage = styled(PageFrame)`
   justify-content: center;
-  align-content: center;
   align-items: center;
-  animation: ${fadeIn} 0.4s;
 `;
 
 export default function WelcomeScreen() {

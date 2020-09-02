@@ -1,27 +1,22 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { fadeIn } from '../../utils/animations';
 import PartnerNameInput from '../inputs/PartnerNameInput';
 import BackButton from '../buttons/BackButton';
 import HeaderBar from '../layout/HeaderBar';
+import PageFrame from './PageFrame';
 
-const NewChatPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
+const NewChatPage = styled(PageFrame)`
   justify-content: center;
   align-content: center;
   align-items: center;
   flex-basis: 0;
-  animation: ${fadeIn} 0.1s;
 `;
 
 const PageHeadline = styled.h3`
   text-align: left;
-  max-width: 220px;
-  font-size: 20px;
+  max-width: 13.75rem;
+  font-size: 1.25rem;
   font-weight: 300;
   color: ${props => props.theme.secondary};
   margin: 0;

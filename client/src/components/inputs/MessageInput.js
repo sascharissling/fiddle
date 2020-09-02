@@ -6,21 +6,18 @@ import PropTypes from 'prop-types';
 const Input = styled.input`
   color: ${props => props.theme.tertiary};
   background: transparent;
-  border: 1px solid ${props => props.theme.secondary};
-  border-radius: 15px;
-  padding: 7px;
-  font-size: 14px;
+  border: 0.0625rem solid ${props => props.theme.secondary};
+  border-radius: 1rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
   height: auto;
   overflow: hidden;
   width: 100%;
-  &:focus {
-    outline-color: ${props => props.theme.primary};
-  }
 `;
 
 const MessageForm = styled.form`
   flex-grow: 1;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 `;
 
 export default function MessageInput({ chatId }) {

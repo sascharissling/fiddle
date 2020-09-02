@@ -1,20 +1,11 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { fadeIn } from '../../utils/animations';
 import FiddleDisplay from '../audioInterface/FiddleDisplay';
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
-
-const PlayAudioPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
-  animation: ${fadeIn} 0.1s;
-`;
+import PageFrame from './PageFrame';
 
 export default function PlayAudio(props) {
   const [redirectToOverdub, setRedirectToOverdub] = React.useState(false);
@@ -23,7 +14,7 @@ export default function PlayAudio(props) {
   const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
 
   return (
-    <PlayAudioPage>
+    <PageFrame>
       <HeaderBar>
         <Link to={`/chats/${chatId}`}>
           <BackButton />
@@ -33,7 +24,7 @@ export default function PlayAudio(props) {
         <FiddleDisplay audioFileUrl={audioUrl} onClick={() => setRedirectToOverdub(true)} />
         {redirectToOverdub && <Redirect to={`/chats/${chatId}/overdub/${fileName}`} />}
       </AudioInterfaceWrapper>
-    </PlayAudioPage>
+    </PageFrame>
   );
 }
 

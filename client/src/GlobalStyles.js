@@ -1,5 +1,6 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
+import defaultTheme from './utils/defaultTheme';
 
 export default function GlobalStyles() {
   return (
@@ -12,7 +13,7 @@ export default function GlobalStyles() {
         }
 
         ::-webkit-scrollbar {
-          width: 0px;
+          width: 0;
         }
 
         body {
@@ -20,6 +21,14 @@ export default function GlobalStyles() {
           font-family: 'Montserrat', sans-serif;
           background: #000000;
           color: #f5f5f5;
+        }
+
+        input,
+        button,
+        a {
+          &:focus {
+            outline-color: ${defaultTheme.primary};
+          }
         }
       `}
     />

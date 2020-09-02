@@ -5,19 +5,14 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { uploadAudio } from '../../api/chats';
 import { changeWidthLong } from '../../utils/animations';
-import { fadeIn } from '../../utils/animations';
 import { LoadingLineLong } from '../misc/LoadingLine';
 import FiddleSmallLogo from '../branding/FiddleSmallLogo';
+import PageFrame from './PageFrame';
 
-const ConsolidatingPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
+const ConsolidatingPage = styled(PageFrame)`
   justify-content: center;
   align-content: center;
   align-items: center;
-  animation: ${fadeIn} 0.1s;
 `;
 
 const Consolidating = styled.h3`
