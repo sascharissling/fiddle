@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Headline = styled.h1`
   margin: 0;
-  font-size: 25px;
+  font-size: 1.5rem;
 `;
 
 export default function PageHeadline({ headline }) {

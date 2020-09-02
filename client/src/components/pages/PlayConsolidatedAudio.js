@@ -1,23 +1,14 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { sendChatMessage } from '../../api/chats';
-import { fadeIn } from '../../utils/animations';
 import ConsolidatedFiddle from '../audioInterface/ConsolidatedFiddle';
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
 import FileHandling from '../audioInterface/FileHandling';
 import NoAudioYet from '../headlines/NoAudioYet';
-
-const PlayAudioPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
-  animation: ${fadeIn} 0.1s;
-`;
+import PageFrame from './PageFrame';
 
 export default function PlayConsolidatedAudio(props) {
   const [visualizing, setVisualizing] = React.useState(true);
@@ -52,7 +43,7 @@ export default function PlayConsolidatedAudio(props) {
   }
 
   return (
-    <PlayAudioPage>
+    <PageFrame>
       <HeaderBar>
         <Link to={`/chats/${chatId}`}>
           <BackButton />
@@ -68,7 +59,7 @@ export default function PlayConsolidatedAudio(props) {
         )}
       </AudioInterfaceWrapper>
       {redirectToChat && <Redirect to={`/chats/${chatId}`} />}
-    </PlayAudioPage>
+    </PageFrame>
   );
 }
 

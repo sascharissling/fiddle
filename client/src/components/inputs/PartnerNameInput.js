@@ -6,13 +6,10 @@ import { initiateNewChat, getChatId } from '../../api/chats';
 const NameInput = styled.input`
   background: transparent;
   border: none;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: bold;
   color: ${props => props.theme.tertiary};
-  max-width: 220px;
-  &:focus {
-    outline-color: ${props => props.theme.primary};
-  }
+  max-width: 13.75rem;
 `;
 
 function upperCaseFirstChar(string) {

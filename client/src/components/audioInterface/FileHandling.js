@@ -10,7 +10,7 @@ const FileHandlingDisplay = styled.div`
   justify-content: space-around;
   align-items: center;
   align-content: center;
-  margin-top: 30px;
+  margin-top: 1.875rem;
   width: 100vw;
   div {
     display: flex;

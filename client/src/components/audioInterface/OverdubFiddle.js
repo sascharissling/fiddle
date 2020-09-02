@@ -12,14 +12,14 @@ import getThemeGradient from '../../utils/getThemeGradient';
 
 const PlaybackWaveform = styled.div`
   width: 90vw;
-  height: 100px;
-  border-radius: 15px;
+  height: 6.25rem;
+  border-radius: 1rem;
 `;
 
 const RecordingWaveform = styled.div`
   width: 90vw;
-  height: 260px;
-  border-radius: 15px;
+  height: 16.25rem;
+  border-radius: 1rem;
 `;
 
 const Mic = styled(ReactMic)`

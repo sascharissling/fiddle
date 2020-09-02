@@ -2,10 +2,10 @@ import { keyframes } from '@emotion/core';
 
 export const changeWidth = keyframes`
 from {
-  width: 5px;
+  width: 0.375rem;
 }
 to {
-  width: 135px;
+  width: 8.4375rem;
 }
 `;
 

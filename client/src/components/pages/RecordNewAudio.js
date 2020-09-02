@@ -1,21 +1,12 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Link, Redirect } from 'react-router-dom';
 import { sendChatMessage, uploadAudio } from '../../api/chats';
 import PropTypes from 'prop-types';
-import { fadeIn } from '../../utils/animations';
 import HeaderBar from '../layout/HeaderBar';
 import BackButton from '../buttons/BackButton';
 import PlayJustRecordedAudio from '../audioInterface/PlayJustRecordedAudio';
 import InitialAudioRecording from '../audioInterface/InitialAudioRecording';
-
-const RecordPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
-  animation: ${fadeIn} 0.1s;
-`;
+import PageFrame from './PageFrame';
 
 export default function RecordNewAudio(props) {
   const chatId = props.match.params.id;
@@ -62,7 +53,7 @@ export default function RecordNewAudio(props) {
   }
 
   return (
-    <RecordPage>
+    <PageFrame>
       <HeaderBar>
         <Link to={`/chats/${chatId}`}>
           <BackButton />
@@ -79,7 +70,7 @@ export default function RecordNewAudio(props) {
         />
       )}
       {redirectToChat && <Redirect to={`/chats/${chatId}`} />}
-    </RecordPage>
+    </PageFrame>
   );
 }
 

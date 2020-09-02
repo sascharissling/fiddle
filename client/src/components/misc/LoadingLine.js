@@ -3,11 +3,11 @@ import { css } from '@emotion/core';
 import { changeWidth, changeWidthLong } from '../../utils/animations';
 
 const base = props => css`
-  height: 4px;
-  width: 0px;
+  height: 0.25rem;
+  width: 0;
   background: ${props.theme.themeGradient};
-  border-radius: 15px;
-  margin: 2px;
+  border-radius: 1rem;
+  margin: 0.125rem;
 `;
 
 export const LoadingLine = styled.div`

@@ -11,13 +11,13 @@ const ConsolidatedContainer = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-content: center;
-  border-radius: 15px;
-  padding: 10px;
+  border-radius: 1rem;
+  padding: 0.625rem;
   width: 90vw;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 `;
 const Waveform = styled.div`
-  height: 350px;
+  height: 21.875rem;
   align-items: center;
 `;
 

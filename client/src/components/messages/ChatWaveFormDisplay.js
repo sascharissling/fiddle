@@ -2,16 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import WaveSurfer from 'wavesurfer.js';
 import PropTypes from 'prop-types';
+import TextMessage from './Message';
 
 const AudioMessage = styled.div`
+  ${TextMessage}
   background: ${props => props.theme.themeGradient};
-  font-size: 12px;
-  color: ${props => props.theme.tertiary};
-  border-radius: 15px;
-  border: 0.5px solid ${props => props.theme.secondary};
-  margin: 5px 0px 5px 0px;
-  padding: 8px;
-  width: 200px;
+  width: 12.5rem;
   cursor: pointer;
 `;
 

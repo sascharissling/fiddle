@@ -6,7 +6,7 @@ import ProxyButton from './ProxyButton';
 const Discard = styled.h3`
   padding: 0;
   margin: 0;
-  font-size: 18px;
+  font-size: 1.125rem;
   text-align: center;
   color: ${props => props.theme.secondary};
   &:hover {
