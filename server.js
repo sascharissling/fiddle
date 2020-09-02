@@ -2,12 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 
-mongoose.connect(`${process.env.MONGO_DB_URL}${process.env.MONGO_DB_NAME}`, {
+mongoose.connect('mongodb://127.0.0.1:27017/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
   useFindAndModify: false
 });
 
