@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { ReactMic } from 'react-mic';
 import PropTypes from 'prop-types';
 import WaveSurfer from 'wavesurfer.js';

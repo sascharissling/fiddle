@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import PageFrame from './PageFrame';
 import FiddleLogo from '../branding/FiddleLogo';

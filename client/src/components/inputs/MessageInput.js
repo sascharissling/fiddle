@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { sendChatMessage } from '../../api/chats';
 import PropTypes from 'prop-types';
 

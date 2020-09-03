@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import styled from 'styled-components';
+import { css } from 'styled-components';
 import { changeWidth, changeWidthLong } from '../../utils/animations';
 
 const base = props => css`

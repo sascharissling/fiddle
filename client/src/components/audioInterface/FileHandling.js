@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SendAudio from '../buttons/SendAudio';
 import DiscardAudio from '../buttons/DiscardAudio';

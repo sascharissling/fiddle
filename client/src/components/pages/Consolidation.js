@@ -1,6 +1,6 @@
 import React from 'react';
 import Crunker from 'crunker';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { uploadAudio } from '../../api/chats';
