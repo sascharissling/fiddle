@@ -1,11 +1,7 @@
-import React from 'react';
-import { Global, css } from '@emotion/core';
+import { createGlobalStyle } from 'styled-components';
 import defaultTheme from './utils/defaultTheme';
 
-export default function GlobalStyles() {
-  return (
-    <Global
-      styles={css`
+const FiddleGlobalStyles = createGlobalStyle`
         *,
         *::after,
         *::before {
@@ -30,7 +26,6 @@ export default function GlobalStyles() {
             outline-color: ${defaultTheme.primary};
           }
         }
-      `}
-    />
-  );
-}
+`;
+
+export default FiddleGlobalStyles;

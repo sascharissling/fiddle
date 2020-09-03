@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 const FooterBar = styled.footer`
   background: ${props => props.theme.background};

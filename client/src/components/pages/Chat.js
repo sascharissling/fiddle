@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import useGetChatMessages from '../hooks/useGetChatMessages';
 import useGetChatInformation from '../hooks/useGetChatInformation';

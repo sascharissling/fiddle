@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { fadeIn } from '../../utils/animations';
 
 const PageFrame = styled.div`

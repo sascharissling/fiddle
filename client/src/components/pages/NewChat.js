@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PartnerNameInput from '../inputs/PartnerNameInput';
 import BackButton from '../buttons/BackButton';

@@ -10,9 +10,9 @@ import PlayAudio from './components/pages/PlayAudio';
 import OverdubAudio from './components/pages/OverdubAudio';
 import PlayConsolidatedAudio from './components/pages/PlayConsolidatedAudio';
 import Consolidation from './components/pages/Consolidation';
-import styled from '@emotion/styled';
-import GlobalStyles from './GlobalStyles';
-import { ThemeProvider } from 'emotion-theming';
+import styled from 'styled-components';
+import FiddleGlobalStyles from './GlobalStyles';
+import { ThemeProvider } from 'styled-components';
 import defaultTheme from './utils/defaultTheme';
 
 const AppContainer = styled.main`
@@ -23,8 +23,8 @@ const AppContainer = styled.main`
 function App() {
   return (
     <AppContainer>
+      <FiddleGlobalStyles />
       <ThemeProvider theme={defaultTheme}>
-        <GlobalStyles />
         <Router>
           <Switch>
             <Route path="/" exact component={WelcomeScreen} />
