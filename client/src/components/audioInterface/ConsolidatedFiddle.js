@@ -34,14 +34,12 @@ export default function ConsolidatedFiddle({ audioFileUrl }) {
 
   React.useEffect(() => {
     if (waveformRef.current) {
-      const activeWaveColor = '#f5f5f5';
-      const playedWaveColor = '#707070';
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
         barWidth: 5,
         cursorWidth: 2,
-        waveColor: activeWaveColor,
-        progressColor: playedWaveColor,
+        waveColor: '#f5f5f5,
+        progressColor: '#707070',
         hideScrollbar: true,
         autoCenter: true,
         responsive: true,
