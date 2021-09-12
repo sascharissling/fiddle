@@ -22,6 +22,7 @@ export default function FiddleDisplay({ audioFileUrl, onClick }) {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [waveSurfer, setWaveSurfer] = React.useState();
   const waveformRef = React.useRef();
+
   React.useEffect(() => {
     if (waveformRef.current) {
       const activeWaveColor = '#f5f5f5';

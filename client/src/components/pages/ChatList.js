@@ -9,17 +9,7 @@ import HeaderBar from '../layout/HeaderBar';
 import PageHeadline from '../headlines/PageHeadline';
 import HeadlineBar from '../layout/HeadlineBar';
 import NewChatButton from '../buttons/NewChatButton';
-import WelcomeUser from '../headlines/WelcomeUser';
-import FiddleSmallLogo from '../branding/FiddleSmallLogo';
-import { LoadingLine } from '../misc/LoadingLine';
 import DefaultUserAvatar from '../icons/DefaultUserAvatar.svg';
-import PageFrame from './PageFrame';
-
-const LoadingPage = styled(PageFrame)`
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-`;
 
 const ChatListPage = styled.main`
   height: 100vh;
@@ -53,56 +43,37 @@ function toLocaleTime(date) {
 }
 
 export default function ChatList() {
-  const [loadingDone, setLoadingDone] = React.useState(false);
   const userName = sessionStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
   const sortedUserChats = userChats.sort(function(a, b) {
     return new Date(b.updatedAt) - new Date(a.updatedAt);
   });
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setLoadingDone(true);
-    }, 900);
-  }, []);
-
   return (
-    <>
-      {!loadingDone && (
-        <LoadingPage>
-          <WelcomeUser userName={`${sessionStorage.getItem('userName')}`} />
-          <LoadingLine />
-          <FiddleSmallLogo />
-        </LoadingPage>
-      )}
-
-      {loadingDone && (
-        <ChatListPage>
-          <HeaderBar>
-            <Link to={'/login'}>
-              <BackButton />
-            </Link>
-            <Link to={'/chats/new'}>
-              <NewChatButton />
-            </Link>
-          </HeaderBar>
-          <HeadlineBar>
-            <PageHeadline headline={'Chats'} />
-          </HeadlineBar>
-          <Chats>
-            {sortedUserChats.map(chat => (
-              <ChatLink key={chat._id} to={`/chats/${chat._id}`}>
-                <ChatListItem
-                  partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
-                  userImgSrc={DefaultUserAvatar}
-                  lastMessage={chat.messages[chat.messages.length - 1].body}
-                  lastMessageDate={toLocaleTime(chat.updatedAt)}
-                />
-              </ChatLink>
-            ))}
-          </Chats>
-        </ChatListPage>
-      )}
-    </>
+    <ChatListPage>
+      <HeaderBar>
+        <Link to={'/login'}>
+          <BackButton />
+        </Link>
+        <Link to={'/chats/new'}>
+          <NewChatButton />
+        </Link>
+      </HeaderBar>
+      <HeadlineBar>
+        <PageHeadline headline={'Chats'} />
+      </HeadlineBar>
+      <Chats>
+        {sortedUserChats.map(chat => (
+          <ChatLink key={chat._id} to={`/chats/${chat._id}`}>
+            <ChatListItem
+              partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
+              userImgSrc={DefaultUserAvatar}
+              lastMessage={chat.messages[chat.messages.length - 1].body}
+              lastMessageDate={toLocaleTime(chat.updatedAt)}
+            />
+          </ChatLink>
+        ))}
+      </Chats>
+    </ChatListPage>
   );
 }

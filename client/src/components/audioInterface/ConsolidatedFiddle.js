@@ -38,7 +38,7 @@ export default function ConsolidatedFiddle({ audioFileUrl }) {
         container: waveformRef.current,
         barWidth: 5,
         cursorWidth: 2,
-        waveColor: '#f5f5f5,
+        waveColor: '#f5f5f5',
         progressColor: '#707070',
         hideScrollbar: true,
         autoCenter: true,
