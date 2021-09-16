@@ -1,7 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import ProxyButton from './ProxyButton';
+import { ProxyButton } from './ProxyButton';
 
 const NewChat = styled.path`
   fill: ${props => props.theme.primary};
@@ -24,7 +22,3 @@ export default function NewChatButton({ onClick }) {
     </ProxyButton>
   );
 }
-
-NewChatButton.propTypes = {
-  onClick: PropTypes.func
-};

@@ -1,8 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import SendAudio from '../buttons/SendAudio';
-import DiscardAudio from '../buttons/DiscardAudio';
+import { SendAudio } from '../buttons/SendAudio';
+import { DiscardAudio } from '../buttons/DiscardAudio';
 
 const FileHandlingDisplay = styled.div`
   display: flex;
@@ -31,8 +29,3 @@ export default function FileHandling({ handleDelete, handleSend }) {
     </FileHandlingDisplay>
   );
 }
-
-FileHandling.propTypes = {
-  handleDelete: PropTypes.func,
-  handleSend: PropTypes.func
-};

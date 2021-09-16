@@ -1,24 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
-import PropTypes from 'prop-types';
-import PlayButton from '../buttons/PlayButton';
-import PauseButton from '../buttons/PauseButton';
+import { PlayButton } from '../buttons/PlayButton';
+import { PauseButton } from '../buttons/PauseButton';
+import { RecordButton } from '../buttons/RecordButton';
 
-const ConsolidatedContainer = styled.div`
-  background: ${props => props.theme.themeGradient};
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-content: center;
-  border-radius: 1rem;
-  padding: 0.625rem;
-  width: 90vw;
-  margin-bottom: 1.25rem;
-`;
 const Waveform = styled.div`
+  width: 90vw;
   height: 21.875rem;
-  align-items: center;
+  margin-bottom: 1.25rem;
 `;
 
 const PlayRecord = styled.div`
@@ -27,25 +17,27 @@ const PlayRecord = styled.div`
   width: 100vw;
 `;
 
-export default function ConsolidatedFiddle({ audioFileUrl }) {
+export function FiddleDisplay({ audioFileUrl, onClick }) {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [waveSurfer, setWaveSurfer] = React.useState();
   const waveformRef = React.useRef();
 
   React.useEffect(() => {
     if (waveformRef.current) {
+      const activeWaveColor = '#f5f5f5';
+      const playedWaveColor = '#707070';
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
         barWidth: 5,
         cursorWidth: 2,
-        waveColor: '#f5f5f5',
-        progressColor: '#707070',
+        waveColor: activeWaveColor,
+        progressColor: playedWaveColor,
         hideScrollbar: true,
-        autoCenter: true,
+        autoCenter: false,
         responsive: true,
         width: 100,
-        height: 350,
         barHeight: 10,
+        height: 350,
         interact: true,
         maxCanvasWidth: 2000
       });
@@ -57,6 +49,7 @@ export default function ConsolidatedFiddle({ audioFileUrl }) {
       setWaveSurfer(wavesurfer);
     }
   }, [audioFileUrl]);
+
   function handlePlay() {
     waveSurfer.play();
     setIsPlaying(true);
@@ -66,21 +59,17 @@ export default function ConsolidatedFiddle({ audioFileUrl }) {
     waveSurfer.pause();
     setIsPlaying(false);
   }
+
   return (
     <>
-      <ConsolidatedContainer>
-        <Waveform ref={waveformRef} />
-      </ConsolidatedContainer>
+      <Waveform ref={waveformRef} />
       {!isPlaying && (
         <PlayRecord>
           <PlayButton onClick={handlePlay} />
+          <RecordButton onClick={onClick} />
         </PlayRecord>
       )}
       {isPlaying && <PauseButton onClick={handlePause} />}
     </>
   );
 }
-
-ConsolidatedFiddle.propTypes = {
-  audioFileUrl: PropTypes.string
-};

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { zoomInOut } from '../../utils/animations';
 
-const ProxyButton = styled.button`
+export const ProxyButton = styled.button`
   border: none;
   background: transparent;
   margin: 0;
@@ -15,5 +15,3 @@ const ProxyButton = styled.button`
     animation: ${zoomInOut} 0.1s ease-out 1;
   }
 `;
-
-export default ProxyButton;

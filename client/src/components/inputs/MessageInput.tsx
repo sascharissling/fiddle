@@ -1,7 +1,6 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { sendChatMessage } from '../../api/chats';
-import PropTypes from 'prop-types';
 
 const Input = styled.input`
   color: ${props => props.theme.tertiary};
@@ -20,8 +19,12 @@ const MessageForm = styled.form`
   margin-right: 0.625rem;
 `;
 
-export default function MessageInput({ chatId }) {
-  const [message, setMessage] = React.useState('');
+type MessageInputProps = {
+  chatId: string;
+};
+
+export function MessageInput({ chatId }: MessageInputProps) {
+  const [message, setMessage] = useState('');
   const type = 'text';
   const body = message;
   const author = sessionStorage.getItem('userName');
@@ -53,11 +56,7 @@ export default function MessageInput({ chatId }) {
 
   return (
     <MessageForm onSubmit={handleSubmit}>
-      <Input autoFocus author={author} type="text" value={message} onChange={handleChange} />
+      <Input autoFocus type="text" value={message} onChange={handleChange} />
     </MessageForm>
   );
 }
-
-MessageInput.propTypes = {
-  chatId: PropTypes.string
-};

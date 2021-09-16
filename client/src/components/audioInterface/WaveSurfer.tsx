@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 
@@ -7,14 +7,7 @@ const Waveform = styled.div`
   align-items: center;
 `;
 
-export default function WafeSurfer({
-  audioFileUrl,
-  waveColor,
-  progressColor,
-  onStop,
-  onPlay,
-  onPause
-}) {
+export function WafeSurfer({ audioFileUrl, waveColor, progressColor, onStop, onPlay, onPause }) {
   const [waveSurfer, setWaveSurfer] = useState();
   const waveformRef = useRef();
 

@@ -1,8 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ProxyButton from './ProxyButton';
+import { ProxyButton } from './ProxyButton';
 
-export default function StopButton({ onClick }) {
+export function StopButton({ onClick }) {
   return (
     <ProxyButton onClick={onClick}>
       <svg
@@ -23,7 +21,3 @@ export default function StopButton({ onClick }) {
     </ProxyButton>
   );
 }
-
-StopButton.propTypes = {
-  onClick: PropTypes.func
-};

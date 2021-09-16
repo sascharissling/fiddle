@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactMic } from 'react-mic';
-import PropTypes from 'prop-types';
 import WaveSurfer from 'wavesurfer.js';
 import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
 import getThemeGradient from '../../utils/getThemeGradient';
-import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
-import NoAudioYet from '../headlines/NoAudioYet';
+import AudioInterfaceWrapper from './AudioInterfaceWrapper';
+import { NoAudioYet } from '../headlines/NoAudioYet';
 import { LoadingLineLong } from '../misc/LoadingLine';
-import RecordButton from '../buttons/RecordButton';
-import StopButton from '../buttons/StopButton';
+import { RecordButton } from '../buttons/RecordButton';
+import { StopButton } from '../buttons/StopButton';
 
 const Mic = styled(ReactMic)`
   opacity: 0;
@@ -98,7 +97,3 @@ export default function InitialAudioRecording({ handleStop }) {
     </AudioInterfaceWrapper>
   );
 }
-
-InitialAudioRecording.propTypes = {
-  handleStop: PropTypes.func
-};

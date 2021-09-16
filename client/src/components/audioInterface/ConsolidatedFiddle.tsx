@@ -1,15 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
-import PropTypes from 'prop-types';
 import PlayButton from '../buttons/PlayButton';
 import PauseButton from '../buttons/PauseButton';
-import RecordButton from '../buttons/RecordButton';
 
-const Waveform = styled.div`
+const ConsolidatedContainer = styled.div`
+  background: ${props => props.theme.themeGradient};
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
+  border-radius: 1rem;
+  padding: 0.625rem;
   width: 90vw;
-  height: 21.875rem;
   margin-bottom: 1.25rem;
+`;
+const Waveform = styled.div`
+  height: 21.875rem;
+  align-items: center;
 `;
 
 const PlayRecord = styled.div`
@@ -18,27 +26,29 @@ const PlayRecord = styled.div`
   width: 100vw;
 `;
 
-export default function FiddleDisplay({ audioFileUrl, onClick }) {
+type Props {
+  audioFileUrl: string
+}
+
+export default function ConsolidatedFiddle({ audioFileUrl }: Props) {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [waveSurfer, setWaveSurfer] = React.useState();
   const waveformRef = React.useRef();
 
   React.useEffect(() => {
     if (waveformRef.current) {
-      const activeWaveColor = '#f5f5f5';
-      const playedWaveColor = '#707070';
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
         barWidth: 5,
         cursorWidth: 2,
-        waveColor: activeWaveColor,
-        progressColor: playedWaveColor,
+        waveColor: '#f5f5f5',
+        progressColor: '#707070',
         hideScrollbar: true,
-        autoCenter: false,
+        autoCenter: true,
         responsive: true,
         width: 100,
-        barHeight: 10,
         height: 350,
+        barHeight: 10,
         interact: true,
         maxCanvasWidth: 2000
       });
@@ -50,7 +60,6 @@ export default function FiddleDisplay({ audioFileUrl, onClick }) {
       setWaveSurfer(wavesurfer);
     }
   }, [audioFileUrl]);
-
   function handlePlay() {
     waveSurfer.play();
     setIsPlaying(true);
@@ -60,22 +69,17 @@ export default function FiddleDisplay({ audioFileUrl, onClick }) {
     waveSurfer.pause();
     setIsPlaying(false);
   }
-
   return (
     <>
-      <Waveform ref={waveformRef} />
+      <ConsolidatedContainer>
+        <Waveform ref={waveformRef} />
+      </ConsolidatedContainer>
       {!isPlaying && (
         <PlayRecord>
           <PlayButton onClick={handlePlay} />
-          <RecordButton onClick={onClick} />
         </PlayRecord>
       )}
       {isPlaying && <PauseButton onClick={handlePause} />}
     </>
   );
 }
-
-FiddleDisplay.propTypes = {
-  audioFileUrl: PropTypes.string,
-  onClick: PropTypes.func
-};

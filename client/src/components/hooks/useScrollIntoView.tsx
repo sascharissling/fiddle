@@ -1,7 +1,7 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 export default function useScrollIntoView(ref, array) {
-  React.useEffect(() => {
+  useEffect(() => {
     ref.current.scrollIntoView({
       behavior: 'smooth',
       block: 'end'

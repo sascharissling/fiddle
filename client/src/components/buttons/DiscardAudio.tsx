@@ -1,7 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import ProxyButton from './ProxyButton';
+import { ProxyButton } from './ProxyButton';
 
 const Discard = styled.h3`
   padding: 0;
@@ -21,7 +19,3 @@ export default function DiscardAudio({ onClick }) {
     </ProxyButton>
   );
 }
-
-DiscardAudio.propTypes = {
-  onClick: PropTypes.func
-};

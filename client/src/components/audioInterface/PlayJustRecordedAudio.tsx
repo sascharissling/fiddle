@@ -1,12 +1,11 @@
-import React from 'react';
 import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import AudioInterfaceWrapper from '../audioInterface/AudioInterfaceWrapper';
-import FiddleDisplay from '../audioInterface/FiddleDisplay';
-import FileHandling from '../audioInterface/FileHandling';
+import { AudioInterfaceWrapper } from './AudioInterfaceWrapper';
+import { FiddleDisplay } from './FiddleDisplay';
+import { FileHandling } from './FileHandling';
+import { useState } from 'react';
 
 export default function PlayJustRecordedAudio({ chatId, audioFileUrl, handleDelete, handleSend }) {
-  const [redirectToOverdub, setRedirectToOverdub] = React.useState(false);
+  const [redirectToOverdub, setRedirectToOverdub] = useState(false);
   return (
     <>
       <AudioInterfaceWrapper>
@@ -19,10 +18,3 @@ export default function PlayJustRecordedAudio({ chatId, audioFileUrl, handleDele
     </>
   );
 }
-
-PlayJustRecordedAudio.propTypes = {
-  audioFileUrl: PropTypes.string,
-  handleDelete: PropTypes.func,
-  handleSend: PropTypes.func,
-  chatId: PropTypes.string
-};

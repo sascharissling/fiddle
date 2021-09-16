@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import { initiateNewChat, getChatId } from '../../api/chats';
@@ -17,9 +17,9 @@ function upperCaseFirstChar(string) {
 }
 
 export default function PartnerNameInput() {
-  const [partnerName, setPartnerName] = React.useState('');
-  const [chatId, setChatId] = React.useState('');
-  const [definedPartnerName, setDefinedPartnerName] = React.useState(false);
+  const [partnerName, setPartnerName] = useState('');
+  const [chatId, setChatId] = useState('');
+  const [definedPartnerName, setDefinedPartnerName] = useState(false);
   const userName1 = sessionStorage.getItem('userName');
   const userName2 = partnerName;
   const messages = [
@@ -53,7 +53,7 @@ export default function PartnerNameInput() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <NameInput autoFocus utype="text" value={partnerName} onChange={handleChange} />
+        <NameInput autoFocus type="text" value={partnerName} onChange={handleChange} />
       </form>
       {definedPartnerName && <Redirect to={`/chats/${chatId}`} />}
     </>

@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const HelloUser = styled.h3`
   margin: 0;
@@ -8,10 +6,6 @@ const HelloUser = styled.h3`
   font-size: 1.25rem;
 `;
 
-export default function WelcomeUser({ userName }) {
+export function WelcomeUser({ userName }) {
   return <HelloUser>Hello, {userName}.</HelloUser>;
 }
-
-WelcomeUser.propTypes = {
-  userName: PropTypes.string
-};

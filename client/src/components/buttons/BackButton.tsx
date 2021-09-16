@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProxyButton from './ProxyButton';
-import PropTypes from 'prop-types';
+import { ProxyButton } from './ProxyButton';
 
 const BackArrow = styled.path`
   fill: ${props => props.theme.primary};
 `;
 
-export default function BackButton({ onClick }) {
+export function BackButton({ onClick }) {
   return (
     <ProxyButton onClick={onClick}>
       <svg
@@ -24,7 +23,3 @@ export default function BackButton({ onClick }) {
     </ProxyButton>
   );
 }
-
-BackButton.propTypes = {
-  onClick: PropTypes.func
-};

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import UIfx from 'uifx';
 import incoming from '../../assets/incoming_message.mp3';
 
@@ -8,9 +8,9 @@ const notification = new UIfx(incoming, {
 });
 
 export default function useGetChatMessages(_id) {
-  const [chatMessages, setChatMessages] = React.useState([]);
+  const [chatMessages, setChatMessages] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const io = require('socket.io-client');
     const socket = io(process.env.REACT_APP_WS_URL);
     const userName = sessionStorage.getItem('userName');

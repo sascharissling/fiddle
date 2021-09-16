@@ -1,6 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ProxyButton from './ProxyButton';
+import { ProxyButton } from './ProxyButton';
 
 export default function FiddleButton({ onClick }) {
   return (
@@ -91,7 +89,3 @@ export default function FiddleButton({ onClick }) {
     </ProxyButton>
   );
 }
-
-FiddleButton.propTypes = {
-  onClick: PropTypes.func
-};

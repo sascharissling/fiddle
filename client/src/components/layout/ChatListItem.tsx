@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -39,13 +37,21 @@ const LastMessageDate = styled.p`
   margin: 0;
 `;
 
-export default function ChatListItem({
+type ChatListItemProps = {
+  onClick: () => void;
+  userImgSrc: string;
+  lastMessage: string;
+  partnerName: string;
+  lastMessageDate: string;
+};
+
+export function ChatListItem({
   userImgSrc,
   onClick,
   lastMessage,
   partnerName,
   lastMessageDate
-}) {
+}: ChatListItemProps) {
   return (
     <Wrapper onClick={onClick}>
       <img src={userImgSrc} alt={'default user'} />
@@ -58,11 +64,3 @@ export default function ChatListItem({
     </Wrapper>
   );
 }
-
-ChatListItem.propTypes = {
-  onClick: PropTypes.func,
-  userImgSrc: PropTypes.string,
-  lastMessage: PropTypes.string,
-  partnerName: PropTypes.string,
-  lastMessageDate: PropTypes.string
-};

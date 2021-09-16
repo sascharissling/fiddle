@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AudioInterfaceWrapper = styled.div`
+export const AudioInterfaceWrapper = styled.div`
   flex-grow: 1;
   display: flex;
   flex-flow: column nowrap;
@@ -8,5 +8,3 @@ const AudioInterfaceWrapper = styled.div`
   align-content: center;
   align-items: center;
 `;
-
-export default AudioInterfaceWrapper;

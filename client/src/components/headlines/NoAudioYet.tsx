@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const SystemMessage = styled.h3`
   font-size: 1.5rem;
@@ -19,14 +17,10 @@ const NoAudioYetWrapper = styled.div`
   align-items: center;
 `;
 
-export default function NoAudioYet({ systemMessage }) {
+export function NoAudioYet({ systemMessage }) {
   return (
     <NoAudioYetWrapper>
       <SystemMessage>{systemMessage}</SystemMessage>
     </NoAudioYetWrapper>
   );
 }
-
-NoAudioYet.propTypes = {
-  systemMessage: PropTypes.string
-};

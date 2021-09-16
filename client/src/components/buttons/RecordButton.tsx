@@ -1,8 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ProxyButton from './ProxyButton';
+import { ProxyButton } from './ProxyButton';
 
-export default function RecordButton({ onClick }) {
+export function RecordButton({ onClick }) {
   return (
     <ProxyButton onClick={onClick}>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -31,7 +29,3 @@ export default function RecordButton({ onClick }) {
     </ProxyButton>
   );
 }
-
-RecordButton.propTypes = {
-  onClick: PropTypes.func
-};

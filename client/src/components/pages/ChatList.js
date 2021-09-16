@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import useGetUserChats from '../hooks/useGetUserChats';
+import useGetUserChats from '../hooks/useGetUserChats.tsx';
 import { fadeIn } from '../../utils/animations';
 import ChatListItem from '../layout/ChatListItem';
 import BackButton from '../buttons/BackButton';

@@ -1,8 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ProxyButton from './ProxyButton';
+import { ProxyButton } from './ProxyButton';
 
-export default function PlayButton({ onClick }) {
+export function PauseButton({ onClick }) {
   return (
     <ProxyButton onClick={onClick}>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28">
@@ -19,15 +17,11 @@ export default function PlayButton({ onClick }) {
           </linearGradient>
         </defs>
         <path
-          d="M14,0,28,24H0Z"
-          transform="translate(24) rotate(90)"
+          d="M24,4.8H20.8c-.885,0-1.6.077-1.6.96V26.24c0,.883.715.96,1.6.96H24c.885,0,1.6-.077,1.6-.96V5.76C25.6,4.877,24.885,4.8,24,4.8Zm-12.8,0H8c-.885,0-1.6.077-1.6.96V26.24c0,.883.715.96,1.6.96h3.2c.885,0,1.6-.077,1.6-.96V5.76C12.8,4.877,12.085,4.8,11.2,4.8Z"
+          transform="translate(-6.4 -4.8)"
           fill="url(#linear-gradient)"
         />
       </svg>
     </ProxyButton>
   );
 }
-
-PlayButton.propTypes = {
-  onClick: PropTypes.func
-};
