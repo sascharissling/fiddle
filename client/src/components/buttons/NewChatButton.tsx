@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+
 import { ProxyButton } from './ProxyButton';
 
 const NewChat = styled.path`
   fill: ${props => props.theme.primary};
 `;
 
-export default function NewChatButton({ onClick }) {
+export function NewChatButton({ onClick }) {
   return (
     <ProxyButton onClick={onClick}>
       <svg

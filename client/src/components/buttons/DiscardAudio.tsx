@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { ProxyButton } from './ProxyButton';
 
 const Discard = styled.h3`
@@ -12,7 +13,7 @@ const Discard = styled.h3`
   }
 `;
 
-export default function DiscardAudio({ onClick }) {
+export function DiscardAudio({ onClick }) {
   return (
     <ProxyButton onClick={onClick}>
       <Discard>discard</Discard>

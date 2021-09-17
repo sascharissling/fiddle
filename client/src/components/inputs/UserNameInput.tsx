@@ -15,7 +15,7 @@ function upperCaseFirstChar(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export default function UserNameInput() {
+export function UserNameInput() {
   const [userName, setUserName] = React.useState('');
   const [definedUsername, setDefinedUsername] = React.useState(false);
 

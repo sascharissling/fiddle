@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
-import { PlayButton } from '../buttons/PlayButton';
+
 import { PauseButton } from '../buttons/PauseButton';
+import { PlayButton } from '../buttons/PlayButton';
 import { RecordButton } from '../buttons/RecordButton';
 
 const Waveform = styled.div`

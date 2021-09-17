@@ -1,14 +1,15 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import { ReactMic } from 'react-mic';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
-import { ReactMic } from 'react-mic';
+
 import { uploadAudio } from '../../api/chats';
-import RecordButton from '../buttons/RecordButton';
-import StopButton from '../buttons/StopButton';
-import getThemeGradient from '../../utils/getThemeGradient';
+import { getThemeGradient } from '../../utils/getThemeGradient';
+import { RecordButton } from '../buttons/RecordButton';
+import { StopButton } from '../buttons/StopButton';
 
 const PlaybackWaveform = styled.div`
   width: 90vw;
@@ -28,7 +29,7 @@ const Mic = styled(ReactMic)`
   width: 0;
 `;
 
-export default function OverdubFiddle({ originalAudioFileUrl, chatId }) {
+export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
   const author = sessionStorage.getItem('userName');
   const [playbackWaveSurfer, setPlaybackWaveSurfer] = React.useState();
   const [recordingWaveSurfer, setRecordingWaveSurfer] = React.useState();

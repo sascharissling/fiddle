@@ -1,4 +1,4 @@
-const TextMessage = `
+export const TextMessage = `
   word-break: break-all;
   max-width: 12.5rem;
   font-size: 0.75rem;
@@ -8,5 +8,3 @@ const TextMessage = `
   margin: 0.375rem 0;
   padding: 0.5rem;
 `;
-
-export default TextMessage;

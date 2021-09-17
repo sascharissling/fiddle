@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function useScrollIntoView(ref, array) {
+export function useScrollIntoView(ref, array) {
   useEffect(() => {
     ref.current.scrollIntoView({
       behavior: 'smooth',

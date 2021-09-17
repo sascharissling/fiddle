@@ -11,7 +11,7 @@ export default {
 export function ChatsNavigation() {
   return (
     <HeaderBar>
-      <BackButton onClick={action('clicked')} />
+      <BackButton />
       <NewChatButton onClick={action('clicked')} />
     </HeaderBar>
   );

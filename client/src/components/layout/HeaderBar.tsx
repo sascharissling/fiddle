@@ -10,11 +10,9 @@ padding-right: 1.25rem;
 flex-basis: 1;
 `;
 
-const HeaderBar = styled.header`
+export const HeaderBar = styled.header`
   ${HeaderBaseStyle}
   background: ${props => props.theme.background};
   justify-content: space-between;
   align-items: center;
 `;
-
-export default HeaderBar;

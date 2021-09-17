@@ -1,15 +1,14 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import useGetUserChats from '../hooks/useGetUserChats.tsx';
 import { fadeIn } from '../../utils/animations';
-import ChatListItem from '../layout/ChatListItem';
-import BackButton from '../buttons/BackButton';
-import HeaderBar from '../layout/HeaderBar';
-import PageHeadline from '../headlines/PageHeadline';
-import HeadlineBar from '../layout/HeadlineBar';
-import NewChatButton from '../buttons/NewChatButton';
-import DefaultUserAvatar from '../icons/DefaultUserAvatar.svg';
+import { ChatListItem } from '../layout/ChatListItem';
+import { BackButton } from '../buttons/BackButton';
+import { HeaderBar } from '../layout/HeaderBar';
+import { PageHeadline } from '../headlines/PageHeadline';
+import { HeadlineBar } from '../layout/HeadlineBar';
+import { NewChatButton } from '../buttons/NewChatButton';
+import { DefaultUserAvatar } from '../icons/DefaultUserAvatar.svg';
 
 const ChatListPage = styled.main`
   height: 100vh;
@@ -42,7 +41,7 @@ function toLocaleTime(date) {
   return shortTime.slice(0, 5);
 }
 
-export default function ChatList() {
+export function ChatList() {
   const userName = sessionStorage.getItem('userName');
   const userChats = useGetUserChats(userName);
   const sortedUserChats = userChats.sort(function(a, b) {

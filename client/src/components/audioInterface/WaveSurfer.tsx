@@ -1,8 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 
-const Waveform = styled.div`
+const Waveform = styled.div<{
+  ref: any;
+}>`
   height: 21.875rem;
   align-items: center;
 `;

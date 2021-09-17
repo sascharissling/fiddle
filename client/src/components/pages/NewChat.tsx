@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import PartnerNameInput from '../inputs/PartnerNameInput';
-import BackButton from '../buttons/BackButton';
-import HeaderBar from '../layout/HeaderBar';
-import PageFrame from './PageFrame';
+import { PartnerNameInput } from '../inputs/PartnerNameInput';
+import { BackButton } from '../buttons/BackButton';
+import { HeaderBar } from '../layout/HeaderBar';
+import { PageFrame } from './PageFrame';
 
 const NewChatPage = styled(PageFrame)`
   justify-content: center;
@@ -31,7 +30,7 @@ const ChoosePartner = styled.div`
   align-items: center;
 `;
 
-export default function NewChat() {
+export function NewChat() {
   return (
     <NewChatPage>
       <HeaderBar>

@@ -1,15 +1,22 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { sendChatMessage, uploadAudio } from '../../api/chats';
-import PropTypes from 'prop-types';
-import HeaderBar from '../layout/HeaderBar';
-import BackButton from '../buttons/BackButton';
-import PlayJustRecordedAudio from '../audioInterface/PlayJustRecordedAudio';
-import InitialAudioRecording from '../audioInterface/InitialAudioRecording';
-import PageFrame from './PageFrame';
+import { HeaderBar } from '../layout/HeaderBar';
+import { BackButton } from '../buttons/BackButton';
+import { PlayJustRecordedAudio } from '../audioInterface/PlayJustRecordedAudio';
+import { InitialAudioRecording } from '../audioInterface/InitialAudioRecording';
+import { PageFrame } from './PageFrame';
 
-export default function RecordNewAudio(props) {
-  const chatId = props.match.params.id;
+type RecordNewAudioProps = {
+  match: {
+    params: {
+      id: string;
+    };
+  };
+};
+
+export function RecordNewAudio({ match }: RecordNewAudioProps) {
+  const chatId = match.params.id;
   const [recordingDone, setRecordingDone] = React.useState(false);
   const [redirectToChat, setRedirectToChat] = React.useState(false);
   const [audioFileUrl, setAudioFileUrl] = React.useState('');
@@ -23,7 +30,7 @@ export default function RecordNewAudio(props) {
     date: Date.now()
   };
 
-  async function handleStop(recordedBlob) {
+  async function handleStop(recordedBlob: any) {
     const file_reader = new FileReader();
     const dateOfRecording = Date.now();
     file_reader.readAsDataURL(recordedBlob.blob);
@@ -73,7 +80,3 @@ export default function RecordNewAudio(props) {
     </PageFrame>
   );
 }
-
-RecordNewAudio.propTypes = {
-  match: PropTypes.object
-};

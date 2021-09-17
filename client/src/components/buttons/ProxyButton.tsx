@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { zoomInOut } from '../../utils/animations';
 
 export const ProxyButton = styled.button`

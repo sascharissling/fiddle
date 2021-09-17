@@ -1,4 +1,4 @@
-export default function getThemeGradient() {
+export function getThemeGradient() {
   const linGrad = document
     .createElement('canvas')
     .getContext('2d')

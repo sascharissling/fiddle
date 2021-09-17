@@ -16,7 +16,7 @@ function upperCaseFirstChar(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export default function PartnerNameInput() {
+export function PartnerNameInput() {
   const [partnerName, setPartnerName] = useState('');
   const [chatId, setChatId] = useState('');
   const [definedPartnerName, setDefinedPartnerName] = useState(false);

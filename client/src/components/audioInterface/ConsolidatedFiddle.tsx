@@ -1,8 +1,9 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
-import PlayButton from '../buttons/PlayButton';
-import PauseButton from '../buttons/PauseButton';
+
+import { PauseButton } from '../buttons/PauseButton';
+import { PlayButton } from '../buttons/PlayButton';
 
 const ConsolidatedContainer = styled.div`
   background: ${props => props.theme.themeGradient};
@@ -15,6 +16,7 @@ const ConsolidatedContainer = styled.div`
   width: 90vw;
   margin-bottom: 1.25rem;
 `;
+
 const Waveform = styled.div`
   height: 21.875rem;
   align-items: center;
@@ -26,16 +28,16 @@ const PlayRecord = styled.div`
   width: 100vw;
 `;
 
-type Props {
-  audioFileUrl: string
-}
+type Props = {
+  audioFileUrl: string;
+};
 
-export default function ConsolidatedFiddle({ audioFileUrl }: Props) {
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const [waveSurfer, setWaveSurfer] = React.useState();
-  const waveformRef = React.useRef();
+export function ConsolidatedFiddle({ audioFileUrl }: Props) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [waveSurfer, setWaveSurfer] = useState();
+  const waveformRef = useRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (waveformRef.current) {
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,

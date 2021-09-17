@@ -1,14 +1,14 @@
-import React from 'react';
 import styled from 'styled-components';
+
 import { ProxyButton } from './ProxyButton';
 
 const BackArrow = styled.path`
   fill: ${props => props.theme.primary};
 `;
 
-export function BackButton({ onClick }) {
+export function BackButton() {
   return (
-    <ProxyButton onClick={onClick}>
+    <ProxyButton>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="8.537"

@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import UserNameInput from '../inputs/UserNameInput';
-import PageFrame from './PageFrame';
+import { UserNameInput } from '../inputs/UserNameInput';
+import { PageFrame } from './PageFrame';
 
 const LoginPage = styled(PageFrame)`
   justify-content: center;
@@ -17,7 +16,7 @@ const PageHeadline = styled.h3`
   margin: 0;
 `;
 
-export default function UserLogin() {
+export function UserLogin() {
   return (
     <LoginPage>
       <PageHeadline>Who are you?</PageHeadline>

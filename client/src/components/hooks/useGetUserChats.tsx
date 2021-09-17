@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useGetUserChats(userName) {
+export function useGetUserChats(userName) {
   const [userChats, setUserChats] = useState([]);
 
   useEffect(() => {

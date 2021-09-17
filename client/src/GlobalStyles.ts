@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import defaultTheme from './utils/defaultTheme';
+import { defaultTheme } from './utils/defaultTheme';
 
-const FiddleGlobalStyles = createGlobalStyle`
+export const FiddleGlobalStyles = createGlobalStyle`
         *,
         *::after,
         *::before {
@@ -27,5 +27,3 @@ const FiddleGlobalStyles = createGlobalStyle`
           }
         }
 `;
-
-export default FiddleGlobalStyles;

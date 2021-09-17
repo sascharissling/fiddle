@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+
 import { AudioInterfaceWrapper } from './AudioInterfaceWrapper';
 import { FiddleDisplay } from './FiddleDisplay';
 import { FileHandling } from './FileHandling';
-import { useState } from 'react';
 
-export default function PlayJustRecordedAudio({ chatId, audioFileUrl, handleDelete, handleSend }) {
+export function PlayJustRecordedAudio({ chatId, audioFileUrl, handleDelete, handleSend }) {
   const [redirectToOverdub, setRedirectToOverdub] = useState(false);
   return (
     <>

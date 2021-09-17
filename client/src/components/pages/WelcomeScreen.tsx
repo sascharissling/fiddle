@@ -1,18 +1,18 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
-import PageFrame from './PageFrame';
-import FiddleLogo from '../branding/FiddleLogo';
+import { PageFrame } from './PageFrame';
+import { FiddleLogo } from '../branding/FiddleLogo';
 
 const WelcomePage = styled(PageFrame)`
   justify-content: center;
   align-items: center;
 `;
 
-export default function WelcomeScreen() {
-  const [redirect, setRedirect] = React.useState(false);
+export function WelcomeScreen() {
+  const [redirect, setRedirect] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       setRedirect(true);
     }, 2000);

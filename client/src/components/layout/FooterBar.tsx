@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FooterBar = styled.footer`
+export const FooterBar = styled.footer`
   background: ${props => props.theme.background};
   display: flex;
   flex-flow: row nowrap;
@@ -11,5 +11,3 @@ const FooterBar = styled.footer`
   padding: 0.625rem 1rem;
   flex-basis: 1;
 `;
-
-export default FooterBar;

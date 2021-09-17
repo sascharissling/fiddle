@@ -1,22 +1,20 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import MessageWrapperOut from './MessageWrapperOut';
-import TextMessage from './Message';
+import { MessageWrapperOut } from './MessageWrapperOut';
+import { TextMessage } from './Message';
 
 const OutgoingTextMessage = styled.div`
   ${TextMessage}
   background: ${props => props.theme.lightBackground};
 `;
 
-export default function OutgoingMessage({ outgoingText }) {
+type OutgoingMessageProps = {
+  outgoingText: string;
+};
+
+export function OutgoingMessage({ outgoingText }: OutgoingMessageProps) {
   return (
     <MessageWrapperOut>
       <OutgoingTextMessage>{outgoingText}</OutgoingTextMessage>
     </MessageWrapperOut>
   );
 }
-
-OutgoingMessage.propTypes = {
-  outgoingText: PropTypes.string
-};

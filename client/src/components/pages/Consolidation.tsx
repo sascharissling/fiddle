@@ -25,7 +25,7 @@ const ConsolidationLoadingLine = styled(LoadingLineLong)`
   animation: ${changeWidthLong} 15s ease-out 1;
 `;
 
-export default function Consolidation(props) {
+export function Consolidation(props) {
   const oldAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${props.match.params.oldFile}`;
   const newAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${props.match.params.newFile}`;
   const [consolidatedAudioFileName, setConsolidatedAudioFileName] = React.useState('');

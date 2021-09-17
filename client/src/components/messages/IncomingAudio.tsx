@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import MessageWrapperIn from './MessageWrapperIn';
 import ChatWaveFormDisplay from './ChatWaveFormDisplay';
 
-export default function IncomingAudio({ onClick, audioFileUrl }) {
+type IncomingAudioProps = {
+  onClick: () => void,
+  audioFileUrl: string
+};
+
+export function IncomingAudio({ onClick, audioFileUrl }: IncomingAudioProps) {
   return (
     <MessageWrapperIn onClick={onClick}>
       <ChatWaveFormDisplay audioFileUrl={audioFileUrl} />
     </MessageWrapperIn>
   );
 }
-
-IncomingAudio.propTypes = {
-  onClick: PropTypes.func,
-  audioFileUrl: PropTypes.string
-};

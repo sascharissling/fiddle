@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { SendAudio } from '../buttons/SendAudio';
+
 import { DiscardAudio } from '../buttons/DiscardAudio';
+import { SendAudio } from '../buttons/SendAudio';
 
 const FileHandlingDisplay = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ const FileHandlingDisplay = styled.div`
   }
 `;
 
-export default function FileHandling({ handleDelete, handleSend }) {
+export function FileHandling({ handleDelete, handleSend }) {
   return (
     <FileHandlingDisplay>
       <div>

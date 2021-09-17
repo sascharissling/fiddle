@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useGetChatInformation(_id) {
+export function useGetChatInformation(_id) {
   const [chatInformation, setChatInformation] = useState([]);
 
   useEffect(() => {

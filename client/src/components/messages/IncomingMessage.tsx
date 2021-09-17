@@ -9,13 +9,14 @@ const IncomingTextMessage = styled.div`
   background: transparent;
 `;
 
-export default function IncomingMessage({ incomingText }) {
+type IncomingMessageProps = {
+  incomingText: string;
+};
+
+export function IncomingMessage({ incomingText }: IncomingMessageProps) {
   return (
     <MessageWrapper>
       <IncomingTextMessage>{incomingText}</IncomingTextMessage>
     </MessageWrapper>
   );
 }
-IncomingMessage.propTypes = {
-  incomingText: PropTypes.string
-};

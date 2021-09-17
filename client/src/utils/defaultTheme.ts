@@ -1,4 +1,4 @@
-const defaultTheme = {
+export const defaultTheme = {
   primary: '#EA4F87',
   primary2: '#f37a6a',
   secondary: '#707070',
@@ -8,5 +8,3 @@ const defaultTheme = {
   themeGradient: 'linear-gradient(180deg, #EA4F87 0%, #F37A6A 60%)',
   textGradient: '-webkit-linear-gradient(#ea4f87 0%, #f37a6a 60%)'
 };
-
-export default defaultTheme;

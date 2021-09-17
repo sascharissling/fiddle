@@ -1,14 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
 import { ReactMic } from 'react-mic';
+import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
-import getThemeGradient from '../../utils/getThemeGradient';
-import AudioInterfaceWrapper from './AudioInterfaceWrapper';
-import { NoAudioYet } from '../headlines/NoAudioYet';
-import { LoadingLineLong } from '../misc/LoadingLine';
+
+import { getThemeGradient } from '../../utils/getThemeGradient';
 import { RecordButton } from '../buttons/RecordButton';
 import { StopButton } from '../buttons/StopButton';
+import { NoAudioYet } from '../headlines/NoAudioYet';
+import { LoadingLineLong } from '../misc/LoadingLine';
+import { AudioInterfaceWrapper } from './AudioInterfaceWrapper';
 
 const Mic = styled(ReactMic)`
   opacity: 0;
@@ -23,7 +24,7 @@ const Waveform = styled.div`
   display: ${props => (props.showWavesurfer ? 'block ' : 'none')};
 `;
 
-export default function InitialAudioRecording({ handleStop }) {
+export function InitialAudioRecording({ handleStop }) {
   const [noAudioYet, setNoAudioYet] = React.useState(true);
   const [isRecording, setIsRecording] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);

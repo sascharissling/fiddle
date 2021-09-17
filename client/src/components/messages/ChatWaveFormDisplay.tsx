@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
-import PropTypes from 'prop-types';
-import TextMessage from './Message';
+import { TextMessage } from './Message';
 
-const AudioMessage = styled.div`
+const AudioMessage = styled.div<{
+  ref: any;
+}>`
   ${TextMessage}
   background: ${props => props.theme.themeGradient};
   width: 12.5rem;
   cursor: pointer;
 `;
 
-export default function ChatWaveFormDisplay({ audioFileUrl }) {
+type ChatWaveFormDisplayProps = {
+  audioFileUrl: string;
+};
+export function ChatWaveFormDisplay({ audioFileUrl }: ChatWaveFormDisplayProps) {
   const activeWaveColor = '#f5f5f5';
-  const waveformRef = React.useRef();
+  const waveformRef = useRef<HTMLDivElement>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (waveformRef.current) {
       const wavesurfer = WaveSurfer.create({
         container: waveformRef.current,
@@ -39,7 +43,3 @@ export default function ChatWaveFormDisplay({ audioFileUrl }) {
 
   return <AudioMessage ref={waveformRef}></AudioMessage>;
 }
-
-ChatWaveFormDisplay.propTypes = {
-  audioFileUrl: PropTypes.string
-};
