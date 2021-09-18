@@ -17,7 +17,9 @@ const ConsolidatedContainer = styled.div`
   margin-bottom: 1.25rem;
 `;
 
-const Waveform = styled.div`
+const Waveform = styled.div<{
+  ref: HTMLDivElement;
+}>`
   height: 21.875rem;
   align-items: center;
 `;
@@ -34,8 +36,8 @@ type Props = {
 
 export function ConsolidatedFiddle({ audioFileUrl }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [waveSurfer, setWaveSurfer] = useState();
-  const waveformRef = useRef();
+  const [waveSurfer, setWaveSurfer] = useState<WaveSurfer>();
+  const waveformRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (waveformRef.current) {
@@ -48,7 +50,6 @@ export function ConsolidatedFiddle({ audioFileUrl }: Props) {
         hideScrollbar: true,
         autoCenter: true,
         responsive: true,
-        width: 100,
         height: 350,
         barHeight: 10,
         interact: true,
@@ -63,12 +64,12 @@ export function ConsolidatedFiddle({ audioFileUrl }: Props) {
     }
   }, [audioFileUrl]);
   function handlePlay() {
-    waveSurfer.play();
+    waveSurfer && waveSurfer.play();
     setIsPlaying(true);
   }
 
   function handlePause() {
-    waveSurfer.pause();
+    waveSurfer && waveSurfer.pause();
     setIsPlaying(false);
   }
   return (

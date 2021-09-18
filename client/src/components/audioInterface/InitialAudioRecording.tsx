@@ -17,7 +17,10 @@ const Mic = styled(ReactMic)`
   width: 0;
 `;
 
-const Waveform = styled.div`
+const Waveform = styled.div<{
+  showWavesurfer: boolean;
+  ref: any;
+}>`
   width: 90vw;
   height: 21.875rem;
   margin-bottom: 1.25rem;

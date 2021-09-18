@@ -41,5 +41,5 @@ export function ChatWaveFormDisplay({ audioFileUrl }: ChatWaveFormDisplayProps) 
     }
   }, [audioFileUrl]);
 
-  return <AudioMessage ref={waveformRef}></AudioMessage>;
+  return <AudioMessage ref={waveformRef} />;
 }

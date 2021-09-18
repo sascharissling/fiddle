@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import MessageWrapperIn from './MessageWrapperIn';
-import ChatWaveFormDisplay from './ChatWaveFormDisplay';
+import { MessageWrapperIn } from './MessageWrapperIn';
+import { ChatWaveFormDisplay } from './ChatWaveFormDisplay';
 
 type IncomingAudioProps = {
-  onClick: () => void,
-  audioFileUrl: string
+  audioFileUrl: string;
 };
 
-export function IncomingAudio({ onClick, audioFileUrl }: IncomingAudioProps) {
+export function IncomingAudio({ audioFileUrl }: IncomingAudioProps) {
   return (
-    <MessageWrapperIn onClick={onClick}>
+    <MessageWrapperIn>
       <ChatWaveFormDisplay audioFileUrl={audioFileUrl} />
     </MessageWrapperIn>
   );

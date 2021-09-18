@@ -38,7 +38,6 @@ const LastMessageDate = styled.p`
 `;
 
 type ChatListItemProps = {
-  onClick: () => void;
   userImgSrc: string;
   lastMessage: string;
   partnerName: string;
@@ -47,13 +46,12 @@ type ChatListItemProps = {
 
 export function ChatListItem({
   userImgSrc,
-  onClick,
   lastMessage,
   partnerName,
   lastMessageDate
 }: ChatListItemProps) {
   return (
-    <Wrapper onClick={onClick}>
+    <Wrapper>
       <img src={userImgSrc} alt={'default user'} />
       <ChatDetails>
         <PartnerName>{partnerName}</PartnerName>

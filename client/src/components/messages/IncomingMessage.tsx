@@ -1,8 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import MessageWrapper from './MessageWrapperIn';
-import TextMessage from './Message';
+import { MessageWrapperIn } from './MessageWrapperIn';
+import { TextMessage } from './Message';
 
 const IncomingTextMessage = styled.div`
   ${TextMessage}
@@ -15,8 +13,8 @@ type IncomingMessageProps = {
 
 export function IncomingMessage({ incomingText }: IncomingMessageProps) {
   return (
-    <MessageWrapper>
+    <MessageWrapperIn>
       <IncomingTextMessage>{incomingText}</IncomingTextMessage>
-    </MessageWrapper>
+    </MessageWrapperIn>
   );
 }

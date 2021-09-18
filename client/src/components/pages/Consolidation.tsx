@@ -1,13 +1,12 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Crunker from 'crunker';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { uploadAudio } from '../../api/chats';
 import { changeWidthLong } from '../../utils/animations';
 import { LoadingLineLong } from '../misc/LoadingLine';
-import FiddleSmallLogo from '../branding/FiddleSmallLogo';
-import PageFrame from './PageFrame';
+import { FiddleSmallLogo } from '../branding/FiddleSmallLogo';
+import { PageFrame } from './PageFrame';
 
 const ConsolidatingPage = styled(PageFrame)`
   justify-content: center;
@@ -25,17 +24,26 @@ const ConsolidationLoadingLine = styled(LoadingLineLong)`
   animation: ${changeWidthLong} 15s ease-out 1;
 `;
 
-export function Consolidation(props) {
-  const oldAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${props.match.params.oldFile}`;
-  const newAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${props.match.params.newFile}`;
-  const [consolidatedAudioFileName, setConsolidatedAudioFileName] = React.useState('');
-  const [consolidationDone, setConsolidationDone] = React.useState(false);
-  const chatId = props.match.params.id;
+type ConsolidationProps = {
+  match: {
+    params: {
+      id: string;
+      oldFile: string;
+      newFile: string;
+    };
+  };
+};
+export function Consolidation({ match }: ConsolidationProps) {
+  const oldAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${match.params.oldFile}`;
+  const newAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${match.params.newFile}`;
+  const [consolidatedAudioFileName, setConsolidatedAudioFileName] = useState('');
+  const [consolidationDone, setConsolidationDone] = useState(false);
+  const chatId = match.params.id;
   const author = sessionStorage.getItem('userName');
 
-  const crunkerRef = React.useRef();
+  const crunkerRef = useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (crunkerRef.current) {
       let audio = new Crunker();
       audio
@@ -53,8 +61,10 @@ export function Consolidation(props) {
             setConsolidationDone(true);
           };
         })
-        .catch(error => {
-          throw new Error(error);
+        .catch((error: Error) => {
+          throw new Error(
+            `${error.message} - Consolidation of ${oldAudioFileUrl} and ${newAudioFileUrl} failed`
+          );
         });
     }
   }, [chatId, author, newAudioFileUrl, oldAudioFileUrl]);
@@ -71,7 +81,3 @@ export function Consolidation(props) {
     </ConsolidatingPage>
   );
 }
-
-Consolidation.propTypes = {
-  match: PropTypes.object
-};

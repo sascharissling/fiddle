@@ -6,9 +6,9 @@ const NewChat = styled.path`
   fill: ${props => props.theme.primary};
 `;
 
-export function NewChatButton({ onClick }) {
+export function NewChatButton() {
   return (
-    <ProxyButton onClick={onClick}>
+    <ProxyButton>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18.217"

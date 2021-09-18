@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import useGetChatMessages from '../hooks/useGetChatMessages';
-import useGetChatInformation from '../hooks/useGetChatInformation';
-import useScrollIntoView from '../hooks/useScrollIntoView';
+import { useGetChatMessages } from '../hooks/useGetChatMessages';
+import { useGetChatInformation } from '../hooks/useGetChatInformation';
+import { useScrollIntoView } from '../hooks/useScrollIntoView';
 import { BackButton } from '../buttons/BackButton';
 import { HeaderBar } from '../layout/HeaderBar';
 import { PageHeadline } from '../headlines/PageHeadline';
@@ -45,14 +45,14 @@ export function Chat({ match }: ChatProps) {
   const chatId = match.params.id;
   const chatInformation = useGetChatInformation(chatId);
   const userName = sessionStorage.getItem('userName') ?? '';
-  const partnerName = pickPartnerName(
-    userName,
-    chatInformation.userName1 ?? '',
-    chatInformation.userName2 ?? ''
-  );
+
+  const partnerName =
+    chatInformation &&
+    pickPartnerName(userName, chatInformation.userName1, chatInformation.userName2);
+
   const messages = useGetChatMessages(chatId);
-  const chatHistoryRef = useRef();
-  useScrollIntoView(chatHistoryRef, messages);
+  const chatHistoryRef = useRef<HTMLDivElement>(null);
+  useScrollIntoView(chatHistoryRef.current, messages);
 
   return (
     <PageFrame>
@@ -92,7 +92,7 @@ export function Chat({ match }: ChatProps) {
         <div ref={chatHistoryRef} />
       </ChatHistory>
       <FooterBar>
-        <MessageInput chatId={chatId} author={sessionStorage.getItem('userName')} />
+        <MessageInput chatId={chatId} />
         <Link to={`/chats/${chatId}/record`}>
           <FiddleButton />
         </Link>

@@ -3,15 +3,17 @@ import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 
 const Waveform = styled.div<{
-  ref: any;
+  ref: HTMLDivElement;
 }>`
   height: 21.875rem;
   align-items: center;
 `;
 
+//WIP - One Component to delete all other instances
+
 export function WafeSurfer({ audioFileUrl, waveColor, progressColor, onStop, onPlay, onPause }) {
-  const [waveSurfer, setWaveSurfer] = useState();
-  const waveformRef = useRef();
+  const [waveSurfer, setWaveSurfer] = useState<WaveSurfer>();
+  const waveformRef = useRef<HTMLDivElement>();
 
   useEffect(() => {
     if (waveformRef.current) {
@@ -24,7 +26,6 @@ export function WafeSurfer({ audioFileUrl, waveColor, progressColor, onStop, onP
         hideScrollbar: true,
         autoCenter: true,
         responsive: true,
-        width: 100,
         height: 350,
         barHeight: 10,
         interact: true,
@@ -40,12 +41,12 @@ export function WafeSurfer({ audioFileUrl, waveColor, progressColor, onStop, onP
   }, [audioFileUrl]);
 
   function handlePlay() {
-    waveSurfer.play();
+    waveSurfer && waveSurfer.play();
     onPlay();
   }
 
   function handlePause() {
-    waveSurfer.pause();
+    waveSurfer && waveSurfer.pause();
     onPause();
   }
   return <Waveform ref={waveformRef} />;

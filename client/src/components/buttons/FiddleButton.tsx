@@ -1,8 +1,8 @@
 import { ProxyButton } from './ProxyButton';
 
-export function FiddleButton({ onClick }) {
+export function FiddleButton() {
   return (
-    <ProxyButton onClick={onClick}>
+    <ProxyButton>
       <svg xmlns="http://www.w3.org/2000/svg" width="24.5" height="24" viewBox="0 0 24.5 24">
         <defs>
           <linearGradient

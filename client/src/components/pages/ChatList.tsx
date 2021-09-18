@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import useGetUserChats from '../hooks/useGetUserChats.tsx';
+import { useGetUserChats } from '../hooks/useGetUserChats';
 import { fadeIn } from '../../utils/animations';
 import { ChatListItem } from '../layout/ChatListItem';
 import { BackButton } from '../buttons/BackButton';
@@ -34,7 +34,7 @@ function pickPartnerName(userName, userName1, userName2) {
   return partner;
 }
 
-function toLocaleTime(date) {
+function toLocaleTime(date: Date) {
   const newDate = new Date(date);
   const localTime = newDate.toLocaleTimeString();
   const shortTime = localTime.replace(/:\d+ /, ' ');
@@ -43,9 +43,9 @@ function toLocaleTime(date) {
 
 export function ChatList() {
   const userName = sessionStorage.getItem('userName');
-  const userChats = useGetUserChats(userName);
+  const userChats = useGetUserChats(userName ?? '');
   const sortedUserChats = userChats.sort(function(a, b) {
-    return new Date(b.updatedAt) - new Date(a.updatedAt);
+    return b.updatedAt.getTime() - a.updatedAt.getTime();
   });
 
   return (

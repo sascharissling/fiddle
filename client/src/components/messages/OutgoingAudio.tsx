@@ -2,13 +2,12 @@ import { MessageWrapperOut } from './MessageWrapperOut';
 import { ChatWaveFormDisplay } from './ChatWaveFormDisplay';
 
 type OutgoingAudioProps = {
-  onClick: () => void,
-  audioFileUrl: string
+  audioFileUrl: string;
 };
 
-export function OutgoingAudio({ onClick, audioFileUrl }: OutgoingAudioProps) {
+export function OutgoingAudio({ audioFileUrl }: OutgoingAudioProps) {
   return (
-    <MessageWrapperOut onClick={onClick}>
+    <MessageWrapperOut>
       <ChatWaveFormDisplay audioFileUrl={audioFileUrl} />
     </MessageWrapperOut>
   );
