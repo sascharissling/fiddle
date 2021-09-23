@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 
@@ -13,7 +13,7 @@ const Waveform = styled.div<{
 
 export function WafeSurfer({ audioFileUrl, waveColor, progressColor, onStop, onPlay, onPause }) {
   const [waveSurfer, setWaveSurfer] = useState<WaveSurfer>();
-  const waveformRef = useRef<HTMLDivElement>();
+  const waveformRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
     if (waveformRef.current) {
@@ -40,14 +40,10 @@ export function WafeSurfer({ audioFileUrl, waveColor, progressColor, onStop, onP
     }
   }, [audioFileUrl]);
 
-  function handlePlay() {
-    waveSurfer && waveSurfer.play();
-    onPlay();
-  }
-
-  function handlePause() {
-    waveSurfer && waveSurfer.pause();
-    onPause();
-  }
-  return <Waveform ref={waveformRef} />;
+  if (!waveSurfer) return;
+  return {
+    play: waveSurfer.play(),
+    pause: waveSurfer.pause(),
+    stop: waveSurfer.stop()
+  };
 }

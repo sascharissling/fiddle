@@ -17,6 +17,6 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["./src/**/*"],
-  "exclude": ["/node_modules/"]
+  "include": ["./src/**/*", "./custom.d.ts"],
+  "exclude": ["node_modules"]
 }

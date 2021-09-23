@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 
@@ -18,7 +18,7 @@ const ConsolidatedContainer = styled.div`
 `;
 
 const Waveform = styled.div<{
-  ref: HTMLDivElement;
+  ref: RefObject<HTMLDivElement>;
 }>`
   height: 21.875rem;
   align-items: center;

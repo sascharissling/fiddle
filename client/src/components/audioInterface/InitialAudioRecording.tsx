@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState, RefObject, MutableRefObject } from 'react';
 import { ReactMic } from 'react-mic';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
@@ -19,7 +19,7 @@ const Mic = styled(ReactMic)`
 
 const Waveform = styled.div<{
   showWavesurfer: boolean;
-  ref: any;
+  ref: RefObject<HTMLDivElement>;
 }>`
   width: 90vw;
   height: 21.875rem;
@@ -28,14 +28,14 @@ const Waveform = styled.div<{
 `;
 
 export function InitialAudioRecording({ handleStop }) {
-  const [noAudioYet, setNoAudioYet] = React.useState(true);
-  const [isRecording, setIsRecording] = React.useState(false);
-  const [isProcessing, setIsProcessing] = React.useState(false);
-  const [waveSurfer, setWaveSurfer] = React.useState();
-  const [showWavesurfer, setShowWavesurfer] = React.useState(false);
-  const waveformRef = React.useRef();
+  const [noAudioYet, setNoAudioYet] = useState(true);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [waveSurfer, setWaveSurfer] = useState<WaveSurfer>();
+  const [showWavesurfer, setShowWavesurfer] = useState(false);
+  const waveformRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (waveformRef.current) {
       const themeGradient = getThemeGradient();
       const wavesurfer = WaveSurfer.create({
@@ -48,7 +48,7 @@ export function InitialAudioRecording({ handleStop }) {
         autoCenter: false,
         responsive: true,
         interact: false,
-        width: 100,
+
         height: 350,
         maxCanvasWidth: 2000,
         fillParent: true,
@@ -65,7 +65,7 @@ export function InitialAudioRecording({ handleStop }) {
   }, []);
 
   function startRecording() {
-    waveSurfer.microphone.start();
+    waveSurfer && waveSurfer.microphone.start();
     setShowWavesurfer(true);
     setNoAudioYet(false);
     setIsRecording(true);
@@ -75,8 +75,8 @@ export function InitialAudioRecording({ handleStop }) {
     console.log('chunk of real-time data is: ', recordedBlob);
   }
 
-  async function stopRecording() {
-    await waveSurfer.microphone.stop();
+  function stopRecording() {
+    waveSurfer && waveSurfer.microphone.stop();
     setIsRecording(false);
     setIsProcessing(true);
     setShowWavesurfer(false);

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { MutableRefObject, RefObject, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 
@@ -7,7 +7,7 @@ import { PlayButton } from '../buttons/PlayButton';
 import { RecordButton } from '../buttons/RecordButton';
 
 const Waveform = styled.div<{
-  ref: HTMLDivElement;
+  ref: RefObject<HTMLDivElement>;
 }>`
   width: 90vw;
   height: 21.875rem;
@@ -23,7 +23,7 @@ const PlayRecord = styled.div`
 export function FiddleDisplay({ audioFileUrl, onClick }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [waveSurfer, setWaveSurfer] = useState<WaveSurfer>();
-  const waveformRef = useRef<HTMLDivElement>();
+  const waveformRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
     if (waveformRef.current) {

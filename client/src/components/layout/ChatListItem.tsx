@@ -52,7 +52,7 @@ export function ChatListItem({
 }: ChatListItemProps) {
   return (
     <Wrapper>
-      <img src={userImgSrc} alt={'default user'} />
+      <img src={userImgSrc} alt="default user" />
       <ChatDetails>
         <PartnerName>{partnerName}</PartnerName>
         <LastMessage>{lastMessage}</LastMessage>

@@ -8,7 +8,7 @@ import { HeaderBar } from '../layout/HeaderBar';
 import { PageHeadline } from '../headlines/PageHeadline';
 import { HeadlineBar } from '../layout/HeadlineBar';
 import { NewChatButton } from '../buttons/NewChatButton';
-import { DefaultUserAvatar } from '../icons/DefaultUserAvatar.svg';
+import DefaultUserAvatar from '../icons/DefaultUserAvatar.svg';
 
 const ChatListPage = styled.main`
   height: 100vh;

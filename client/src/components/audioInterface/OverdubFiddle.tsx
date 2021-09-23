@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { MutableRefObject, RefObject, useEffect, useRef, useState } from 'react';
 import { ReactMic } from 'react-mic';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
@@ -11,13 +11,17 @@ import { getThemeGradient } from '../../utils/getThemeGradient';
 import { RecordButton } from '../buttons/RecordButton';
 import { StopButton } from '../buttons/StopButton';
 
-const PlaybackWaveform = styled.div`
+type WaveFormType = {
+  ref: RefObject<HTMLDivElement>;
+};
+
+const PlaybackWaveform = styled.div<WaveFormType>`
   width: 90vw;
   height: 6.25rem;
   border-radius: 1rem;
 `;
 
-const RecordingWaveform = styled.div`
+const RecordingWaveform = styled.div<WaveFormType>`
   width: 90vw;
   height: 16.25rem;
   border-radius: 1rem;
@@ -31,16 +35,16 @@ const Mic = styled(ReactMic)`
 
 export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
   const author = sessionStorage.getItem('userName');
-  const [playbackWaveSurfer, setPlaybackWaveSurfer] = React.useState();
-  const [recordingWaveSurfer, setRecordingWaveSurfer] = React.useState();
-  const [isRecording, setIsRecording] = React.useState(false);
-  const [newAudioFileUrl, setNewAudioFileUrl] = React.useState('');
-  const [twoRecordings, setTwoRecordings] = React.useState(false);
+  const [playbackWaveSurfer, setPlaybackWaveSurfer] = useState<WaveSurfer>();
+  const [recordingWaveSurfer, setRecordingWaveSurfer] = useState<WaveSurfer>();
+  const [isRecording, setIsRecording] = useState(false);
+  const [newAudioFileUrl, setNewAudioFileUrl] = useState('');
+  const [twoRecordings, setTwoRecordings] = useState(false);
 
   //PLAYBACK WaveSurfer
-  const playbackWaveformRef = React.useRef();
+  const playbackWaveformRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (playbackWaveformRef.current) {
       const activeWaveColor = '#f5f5f5';
       const playedWaveColor = '#707070';
@@ -53,7 +57,6 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
         hideScrollbar: true,
         autoCenter: false,
         responsive: true,
-        width: 100,
         barHeight: 10,
         height: 80,
         interact: true,
@@ -68,9 +71,9 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
   }, [originalAudioFileUrl]);
 
   //RECORDING WaveSurfer
-  const recordingWaveformRef = React.useRef();
+  const recordingWaveformRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (recordingWaveformRef.current) {
       const themeGradient = getThemeGradient();
       const wavesurfer = WaveSurfer.create({
@@ -83,7 +86,6 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
         autoCenter: true,
         responsive: true,
         interact: false,
-        width: 100,
         height: 260,
         maxCanvasWidth: 2000,
         fillParent: true,
@@ -104,13 +106,13 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
   }
 
   function startRecording() {
-    playbackWaveSurfer.play();
-    recordingWaveSurfer.microphone.start();
+    playbackWaveSurfer && playbackWaveSurfer.play();
+    recordingWaveSurfer && recordingWaveSurfer.microphone.start();
     setIsRecording(true);
   }
 
-  async function stopRecording() {
-    await recordingWaveSurfer.microphone.stop();
+  function stopRecording() {
+    recordingWaveSurfer && recordingWaveSurfer.microphone.stop();
     setIsRecording(false);
   }
 
