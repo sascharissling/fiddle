@@ -16,7 +16,8 @@
     "lint:type-check": "tsc --pretty --noEmit",
     "test": "cd client && npm test",
     "postinstall": "cd client && npm install",
-    "start": "node server.js"
+    "start": "node server.js",
+    "run client": "cd client && npm start"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import { UserNameInput } from '../inputs/UserNameInput';
 import { PageFrame } from './PageFrame';

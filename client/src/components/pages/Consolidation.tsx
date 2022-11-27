@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Crunker from 'crunker';
 import styled from 'styled-components';

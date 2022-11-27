@@ -1,3 +1,4 @@
+import React from 'react';
 import { ProxyButton } from './ProxyButton';
 
 export function PlayButton({ onClick }) {

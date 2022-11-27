@@ -1,4 +1,4 @@
-import { MutableRefObject, RefObject, useEffect, useRef, useState } from 'react';
+import React, { MutableRefObject, RefObject, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 
@@ -50,7 +50,7 @@ export function FiddleDisplay({ audioFileUrl, onClick }) {
       });
       setWaveSurfer(wavesurfer);
     }
-  }, [audioFileUrl]);
+  }, [audioFileUrl, waveformRef]);
 
   function handlePlay() {
     waveSurfer && waveSurfer.play();

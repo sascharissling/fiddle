@@ -68,7 +68,7 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
       });
       setPlaybackWaveSurfer(wavesurfer);
     }
-  }, [originalAudioFileUrl]);
+  }, [originalAudioFileUrl, playbackWaveformRef]);
 
   //RECORDING WaveSurfer
   const recordingWaveformRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -99,7 +99,7 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
       });
       setRecordingWaveSurfer(wavesurfer);
     }
-  }, []);
+  }, [playbackWaveformRef, recordingWaveformRef]);
 
   function handleData(recordedBlob) {
     console.log('chunk of real-time data is: ', recordedBlob);

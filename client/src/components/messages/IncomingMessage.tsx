@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import { MessageWrapperIn } from './MessageWrapperIn';
 import { TextMessage } from './Message';

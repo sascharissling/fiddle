@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef, useState } from 'react';
+import React, { RefObject, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
 

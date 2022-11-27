@@ -1,3 +1,4 @@
+import React from 'react';
 import { MessageWrapperOut } from './MessageWrapperOut';
 import { ChatWaveFormDisplay } from './ChatWaveFormDisplay';
 

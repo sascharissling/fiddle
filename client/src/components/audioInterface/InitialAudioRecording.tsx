@@ -62,7 +62,7 @@ export function InitialAudioRecording({ handleStop }) {
       });
       setWaveSurfer(wavesurfer);
     }
-  }, []);
+  }, [waveformRef]);
 
   function startRecording() {
     waveSurfer && waveSurfer.microphone.start();
