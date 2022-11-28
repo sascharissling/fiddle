@@ -52,11 +52,14 @@ export function PlayConsolidatedAudio({ match }: PlayConsolidatedAudioProps) {
 
   return (
     <PageFrame>
-      <HeaderBar>
-        <Link to={`/chats/${chatId}`}>
-          <BackButton />
-        </Link>
-      </HeaderBar>
+      <HeaderBar
+        items={[
+          {
+            link: `/chats/${chatId}`,
+            icon: <BackButton />
+          }
+        ]}
+      />
       <AudioInterfaceWrapper>
         {visualizing && <NoAudioYet systemMessage={'visualizing audio.'} />}
         {!visualizing && (

@@ -57,11 +57,14 @@ export function Chat({ match }: ChatProps) {
 
   return (
     <PageFrame>
-      <HeaderBar>
-        <Link to={'/chatslist'}>
-          <BackButton />
-        </Link>
-      </HeaderBar>
+      <HeaderBar
+        items={[
+          {
+            link: '/chatslist',
+            icon: <BackButton />
+          }
+        ]}
+      />
       <HeadlineBar>
         <PageHeadline headline={partnerName} />
       </HeadlineBar>

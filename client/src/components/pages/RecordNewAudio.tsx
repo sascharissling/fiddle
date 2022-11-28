@@ -61,11 +61,14 @@ export function RecordNewAudio({ match }: RecordNewAudioProps) {
 
   return (
     <PageFrame>
-      <HeaderBar>
-        <Link to={`/chats/${chatId}`}>
-          <BackButton />
-        </Link>
-      </HeaderBar>
+      <HeaderBar
+        items={[
+          {
+            link: `/chats/${chatId}`,
+            icon: <BackButton />
+          }
+        ]}
+      />
       {!recordingDone && <InitialAudioRecording handleStop={handleStop} />}
 
       {recordingDone && (

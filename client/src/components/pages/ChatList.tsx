@@ -51,14 +51,18 @@ export function ChatList() {
 
   return (
     <ChatListPage>
-      <HeaderBar>
-        <Link to={'/login'}>
-          <BackButton />
-        </Link>
-        <Link to={'/chats/new'}>
-          <NewChatButton />
-        </Link>
-      </HeaderBar>
+      <HeaderBar
+        items={[
+          {
+            link: '/login',
+            icon: <BackButton />
+          },
+          {
+            link: '/chats/new',
+            icon: <NewChatButton />
+          }
+        ]}
+      />
       <HeadlineBar>
         <PageHeadline headline={'Chats'} />
       </HeadlineBar>

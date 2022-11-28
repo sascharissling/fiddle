@@ -22,11 +22,14 @@ export function OverdubAudio({ match }: OverdubAudioProps) {
 
   return (
     <PageFrame>
-      <HeaderBar>
-        <Link to={`/chats/${chatId}`}>
-          <BackButton />
-        </Link>
-      </HeaderBar>
+      <HeaderBar
+        items={[
+          {
+            link: `/chats/${chatId}`,
+            icon: <BackButton />
+          }
+        ]}
+      />
       <AudioInterfaceWrapper>
         <OverdubFiddle originalAudioFileUrl={audioFileUrl} chatId={chatId} />
       </AudioInterfaceWrapper>

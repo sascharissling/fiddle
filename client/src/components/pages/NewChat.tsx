@@ -34,11 +34,14 @@ const ChoosePartner = styled.div`
 export function NewChat() {
   return (
     <NewChatPage>
-      <HeaderBar>
-        <Link to={'/chatslist'}>
-          <BackButton />
-        </Link>
-      </HeaderBar>
+      <HeaderBar
+        items={[
+          {
+            link: '/chatslist',
+            icon: <BackButton />
+          }
+        ]}
+      />
       <ChoosePartner>
         <PageHeadline>Who do you want to create with?</PageHeadline>
         <PartnerNameInput />

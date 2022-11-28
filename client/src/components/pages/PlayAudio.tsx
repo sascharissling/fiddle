@@ -24,11 +24,14 @@ export function PlayAudio({ match }: PlayAudioProps) {
 
   return (
     <PageFrame>
-      <HeaderBar>
-        <Link to={`/chats/${chatId}`}>
-          <BackButton />
-        </Link>
-      </HeaderBar>
+      <HeaderBar
+        items={[
+          {
+            link: `/chats/${chatId}`,
+            icon: <BackButton />
+          }
+        ]}
+      />
       <AudioInterfaceWrapper>
         <FiddleDisplay audioFileUrl={audioUrl} onClick={() => setRedirectToOverdub(true)} />
         {redirectToOverdub && <Redirect to={`/chats/${chatId}/overdub/${fileName}`} />}

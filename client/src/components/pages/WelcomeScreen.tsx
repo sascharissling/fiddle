@@ -14,6 +14,7 @@ export function WelcomeScreen() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
+    // Todo: actual loading logic that isnt mocked
     setTimeout(() => {
       setRedirect(true);
     }, 2000);
