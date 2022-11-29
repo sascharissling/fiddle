@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { WelcomeScreen } from './components/pages/WelcomeScreen';
 import { UserLogin } from './components/pages/UserLogin';
 import { ChatList } from './components/pages/ChatList';
 import { Chat } from './components/pages/Chat';
@@ -27,7 +26,6 @@ export function App() {
       <ThemeProvider theme={defaultTheme}>
         <Router>
           <Switch>
-            <Route path="/" exact component={WelcomeScreen} />
             <Route path="/login" exact component={UserLogin} />
             <Route path="/chatslist" exact component={ChatList} />
             <Route path="/chats/new" component={NewChat} />

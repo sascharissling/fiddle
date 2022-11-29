@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { sendChatMessage } from '../../api/chats';
 import { ConsolidatedFiddle } from '../audioInterface/ConsolidatedFiddle';
 import { HeaderBar } from '../layout/HeaderBar';
