@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 const NameInput = styled.input`
   background: transparent;
-  border: none;
+  border: 1px solid pink;
   font-size: 1.875rem;
   font-weight: bold;
   color: ${props => props.theme.tertiary};

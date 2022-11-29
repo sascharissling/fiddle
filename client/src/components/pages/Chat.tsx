@@ -6,7 +6,6 @@ import { useGetChatInformation } from '../hooks/useGetChatInformation';
 import { useScrollIntoView } from '../hooks/useScrollIntoView';
 import { BackButton } from '../buttons/BackButton';
 import { HeaderBar } from '../layout/HeaderBar';
-import { PageHeadline } from '../headlines/PageHeadline';
 import { HeadlineBar } from '../layout/HeadlineBar';
 import { MessageInput } from '../inputs/MessageInput';
 import { FooterBar } from '../layout/FooterBar';
@@ -66,7 +65,7 @@ export function Chat({ match }: ChatProps) {
         ]}
       />
       <HeadlineBar>
-        <PageHeadline headline={partnerName} />
+        <h1>{partnerName}</h1>
       </HeadlineBar>
       <LoadingLineChat />
       <ChatHistory>

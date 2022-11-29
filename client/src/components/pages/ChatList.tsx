@@ -6,7 +6,6 @@ import { fadeIn } from '../../utils/animations';
 import { ChatListItem } from '../layout/ChatListItem';
 import { BackButton } from '../buttons/BackButton';
 import { HeaderBar } from '../layout/HeaderBar';
-import { PageHeadline } from '../headlines/PageHeadline';
 import { HeadlineBar } from '../layout/HeadlineBar';
 import { NewChatButton } from '../buttons/NewChatButton';
 import DefaultUserAvatar from '../icons/DefaultUserAvatar.svg';
@@ -45,9 +44,12 @@ function toLocaleTime(date: Date) {
 export function ChatList() {
   const userName = sessionStorage.getItem('userName');
   const userChats = useGetUserChats(userName ?? '');
-  const sortedUserChats = userChats.sort(function(a, b) {
-    return b.updatedAt.getTime() - a.updatedAt.getTime();
-  });
+  const sortedUserChats =
+    userChats !== null
+      ? userChats.sort(function(a, b) {
+          return b.updatedAt.getTime() - a.updatedAt.getTime();
+        })
+      : null;
 
   return (
     <ChatListPage>
@@ -64,20 +66,22 @@ export function ChatList() {
         ]}
       />
       <HeadlineBar>
-        <PageHeadline headline={'Chats'} />
+        <h1>Chats</h1>
       </HeadlineBar>
-      <Chats>
-        {sortedUserChats.map(chat => (
-          <ChatLink key={chat._id} to={`/chats/${chat._id}`}>
-            <ChatListItem
-              partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
-              userImgSrc={DefaultUserAvatar}
-              lastMessage={chat.messages[chat.messages.length - 1].body}
-              lastMessageDate={toLocaleTime(chat.updatedAt)}
-            />
-          </ChatLink>
-        ))}
-      </Chats>
+      {sortedUserChats && (
+        <Chats>
+          {sortedUserChats.map(chat => (
+            <ChatLink key={chat._id} to={`/chats/${chat._id}`}>
+              <ChatListItem
+                partnerName={pickPartnerName(userName, chat.userName1, chat.userName2)}
+                userImgSrc={DefaultUserAvatar}
+                lastMessage={chat.messages[chat.messages.length - 1].body}
+                lastMessageDate={toLocaleTime(chat.updatedAt)}
+              />
+            </ChatLink>
+          ))}
+        </Chats>
+      )}
     </ChatListPage>
   );
 }

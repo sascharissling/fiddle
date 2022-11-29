@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { sendChatMessage, uploadAudio } from '../../api/chats';
 import { HeaderBar } from '../layout/HeaderBar';
 import { BackButton } from '../buttons/BackButton';

@@ -6,8 +6,8 @@ import { Redirect } from 'react-router-dom';
 import { uploadAudio } from '../../api/chats';
 import { changeWidthLong } from '../../utils/animations';
 import { LoadingLineLong } from '../misc/LoadingLine';
-import { FiddleSmallLogo } from '../branding/FiddleSmallLogo';
 import { PageFrame } from './PageFrame';
+import { FiddleLogo } from '../branding/FiddleLogo';
 
 const ConsolidatingPage = styled(PageFrame)`
   justify-content: center;
@@ -74,7 +74,7 @@ export function Consolidation({ match }: ConsolidationProps) {
     <ConsolidatingPage>
       <Consolidating>Consolidating</Consolidating>
       <ConsolidationLoadingLine />
-      <FiddleSmallLogo />
+      <FiddleLogo size="small" />
       {!consolidationDone && <div ref={crunkerRef} />}
       {consolidationDone && (
         <Redirect to={`/chats/${chatId}/playbackconsolidated/${consolidatedAudioFileName}`} />

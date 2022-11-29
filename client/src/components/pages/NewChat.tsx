@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { PartnerNameInput } from '../inputs/PartnerNameInput';
 import { BackButton } from '../buttons/BackButton';
 import { HeaderBar } from '../layout/HeaderBar';
@@ -11,15 +10,6 @@ const NewChatPage = styled(PageFrame)`
   align-content: center;
   align-items: center;
   flex-basis: 0;
-`;
-
-const PageHeadline = styled.h3`
-  text-align: left;
-  max-width: 13.75rem;
-  font-size: 1.25rem;
-  font-weight: 300;
-  color: ${props => props.theme.secondary};
-  margin: 0;
 `;
 
 const ChoosePartner = styled.div`
@@ -43,7 +33,7 @@ export function NewChat() {
         ]}
       />
       <ChoosePartner>
-        <PageHeadline>Who do you want to create with?</PageHeadline>
+        <h2>Who do you want to create with?</h2>
         <PartnerNameInput />
       </ChoosePartner>
     </NewChatPage>
