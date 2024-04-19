@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState, RefObject, MutableRefObject } from 'react';
-import { ReactMic } from 'react-mic';
+// import { ReactMic } from 'react-mic';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
-import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
+// import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
 
 import { getThemeGradient } from '../../utils/getThemeGradient';
 import { RecordButton } from '../buttons/RecordButton';
@@ -11,11 +11,11 @@ import { NoAudioYet } from '../headlines/NoAudioYet';
 import { LoadingLineLong } from '../misc/LoadingLine';
 import { AudioInterfaceWrapper } from './AudioInterfaceWrapper';
 
-const Mic = styled(ReactMic)`
-  opacity: 0;
-  height: 0;
-  width: 0;
-`;
+// const Mic = styled(ReactMic)`
+//   opacity: 0;
+//   height: 0;
+//   width: 0;
+// `;
 
 const Waveform = styled.div<{
   showWavesurfer: boolean;
@@ -46,26 +46,26 @@ export function InitialAudioRecording({ handleStop }) {
         waveColor: themeGradient,
         hideScrollbar: true,
         autoCenter: false,
-        responsive: true,
+        // responsive: true,
         interact: false,
 
         height: 350,
-        maxCanvasWidth: 2000,
-        fillParent: true,
-        plugins: [MicrophonePlugin.create()]
+        // maxCanvasWidth: 2000,
+        fillParent: true
+        // plugins: [MicrophonePlugin.create()]
       });
-      wavesurfer.microphone.on('deviceReady', function(stream) {
-        console.log('Device ready!', stream);
-      });
-      wavesurfer.microphone.on('deviceError', function(code) {
-        console.warn('Device error: ' + code);
-      });
+      // wavesurfer.microphone.on('deviceReady', function(stream) {
+      //   console.log('Device ready!', stream);
+      // });
+      // wavesurfer.microphone.on('deviceError', function(code) {
+      //   console.warn('Device error: ' + code);
+      // });
       setWaveSurfer(wavesurfer);
     }
   }, [waveformRef]);
 
   function startRecording() {
-    waveSurfer && waveSurfer.microphone.start();
+    // waveSurfer && waveSurfer.microphone.start();
     setShowWavesurfer(true);
     setNoAudioYet(false);
     setIsRecording(true);
@@ -76,7 +76,7 @@ export function InitialAudioRecording({ handleStop }) {
   }
 
   function stopRecording() {
-    waveSurfer && waveSurfer.microphone.stop();
+    // waveSurfer && waveSurfer.microphone.stop();
     setIsRecording(false);
     setIsProcessing(true);
     setShowWavesurfer(false);
@@ -91,7 +91,7 @@ export function InitialAudioRecording({ handleStop }) {
       )}
       {!noAudioYet && (
         <>
-          <Mic record={isRecording} onStop={handleStop} onData={handleData} mimeType="audio/webm" />
+          {/*<Mic record={isRecording} onStop={handleStop} onData={handleData} mimeType="audio/webm" />*/}
           {isProcessing && <LoadingLineLong />}
         </>
       )}

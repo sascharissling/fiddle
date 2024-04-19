@@ -1,5 +1,5 @@
-import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { redirect, useParams } from 'react-router-dom';
 import { sendChatMessage, uploadAudio } from '../../api/chats';
 import { HeaderBar } from '../layout/HeaderBar';
 import { BackButton } from '../buttons/BackButton';
@@ -55,6 +55,12 @@ export function RecordNewAudio() {
     setRedirectToChat(true);
   }
 
+  useEffect(() => {
+    if (redirectToChat) {
+      setTimeout(() => redirect(`/chats/${chatId}`), 2000);
+    }
+  }, [redirectToChat]);
+
   return (
     <PageFrame>
       <HeaderBar
@@ -75,7 +81,6 @@ export function RecordNewAudio() {
           chatId={chatId}
         />
       )}
-      {redirectToChat && <Redirect to={`/chats/${chatId}`} />}
     </PageFrame>
   );
 }

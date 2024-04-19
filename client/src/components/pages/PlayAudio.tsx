@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { redirect, useParams } from 'react-router-dom';
 import { FiddleDisplay } from '../audioInterface/FiddleDisplay';
 import { HeaderBar } from '../layout/HeaderBar';
 import { BackButton } from '../buttons/BackButton';
@@ -17,6 +17,12 @@ export function PlayAudio() {
   const { id: chatId, fileName } = useParams<PlayAudioParams>();
   const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
 
+  useEffect(() => {
+    if (redirectToOverdub) {
+      setTimeout(() => redirect(`/chats/${chatId}/overdub/${fileName}`), 2000);
+    }
+  }, [redirectToOverdub]);
+
   return (
     <PageFrame>
       <HeaderBar
@@ -29,7 +35,6 @@ export function PlayAudio() {
       />
       <AudioInterfaceWrapper>
         <FiddleDisplay audioFileUrl={audioUrl} onClick={() => setRedirectToOverdub(true)} />
-        {redirectToOverdub && <Redirect to={`/chats/${chatId}/overdub/${fileName}`} />}
       </AudioInterfaceWrapper>
     </PageFrame>
   );

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
 const NameInput = styled.input`
   background: transparent;
@@ -29,13 +29,17 @@ export function UserNameInput() {
     sessionStorage.setItem('userName', `${userName}`);
     setDefinedUsername(true);
   }
+  useEffect(() => {
+    if (definedUsername) {
+      setTimeout(() => redirect('/chatslist'), 2000);
+    }
+  }, [definedUsername]);
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <NameInput autoFocus type="text" value={userName} onChange={handleChange} />
       </form>
-      {definedUsername && <Redirect to={'/chatslist'} />}
     </>
   );
 }

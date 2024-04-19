@@ -1,8 +1,7 @@
-import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Crunker from 'crunker';
 import styled from 'styled-components';
-import { Redirect, useParams } from 'react-router-dom';
+import { redirect, useParams } from 'react-router-dom';
 import { uploadAudio } from '../../api/chats';
 import { changeWidthLong } from '../../utils/animations';
 import { LoadingLineLong } from '../misc/LoadingLine';
@@ -66,15 +65,21 @@ export function Consolidation() {
     }
   }, [chatId, author, newAudioFileUrl, oldAudioFileUrl]);
 
+  useEffect(() => {
+    if (consolidationDone) {
+      setTimeout(
+        () => redirect(`/chats/${chatId}/playbackconsolidated/${consolidatedAudioFileName}`),
+        2000
+      );
+    }
+  }, [consolidationDone]);
+
   return (
     <ConsolidatingPage>
       <Consolidating>Consolidating</Consolidating>
       <ConsolidationLoadingLine />
       <FiddleLogo size="small" />
-      {!consolidationDone && <div ref={crunkerRef} />}
-      {consolidationDone && (
-        <Redirect to={`/chats/${chatId}/playbackconsolidated/${consolidatedAudioFileName}`} />
-      )}
+      <div ref={crunkerRef} />
     </ConsolidatingPage>
   );
 }

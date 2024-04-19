@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import { initiateNewChat, getChatId } from '../../api/chats';
 
 const NameInput = styled.input`
@@ -51,12 +51,17 @@ export function PartnerNameInput() {
     }
   }
 
+  useEffect(() => {
+    if (definedPartnerName) {
+      setTimeout(() => redirect(`/chats/${chatId}`), 2000);
+    }
+  }, [definedPartnerName]);
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <NameInput autoFocus type="text" value={partnerName} onChange={handleChange} />
       </form>
-      {definedPartnerName && <Redirect to={`/chats/${chatId}`} />}
     </>
   );
 }

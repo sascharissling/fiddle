@@ -1,5 +1,5 @@
-import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { redirect, useParams } from 'react-router-dom';
 import { sendChatMessage } from '../../api/chats';
 import { ConsolidatedFiddle } from '../audioInterface/ConsolidatedFiddle';
 import { HeaderBar } from '../layout/HeaderBar';
@@ -16,8 +16,8 @@ type PlayConsolidatedAudioProps = {
 
 export function PlayConsolidatedAudio() {
   const { id: chatId, fileName } = useParams<PlayConsolidatedAudioProps>();
-  const [visualizing, setVisualizing] = React.useState(true);
-  const [redirectToChat, setRedirectToChat] = React.useState(false);
+  const [visualizing, setVisualizing] = useState(true);
+  const [redirectToChat, setRedirectToChat] = useState(false);
   const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
   const type = 'audio';
   const body = audioUrl;
@@ -29,9 +29,15 @@ export function PlayConsolidatedAudio() {
     date: Date.now()
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => setVisualizing(false), 2000);
   }, []);
+
+  useEffect(() => {
+    if (redirectToChat) {
+      setTimeout(() => redirect(`/chats/${chatId}`), 2000);
+    }
+  }, [redirectToChat]);
 
   function handleSend() {
     sendChatMessage(body, author, type, chatId);
@@ -64,7 +70,6 @@ export function PlayConsolidatedAudio() {
           </>
         )}
       </AudioInterfaceWrapper>
-      {redirectToChat && <Redirect to={`/chats/${chatId}`} />}
     </PageFrame>
   );
 }
