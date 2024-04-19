@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { UserLogin } from './components/pages/UserLogin';
 import { ChatList } from './components/pages/ChatList';
 import { Chat } from './components/pages/Chat';
@@ -25,24 +25,18 @@ export function App() {
       <FiddleGlobalStyles />
       <ThemeProvider theme={defaultTheme}>
         <Router>
-          <Switch>
-            <Route path="/login" exact component={UserLogin} />
-            <Route path="/chatslist" exact component={ChatList} />
-            <Route path="/chats/new" component={NewChat} />
-            <Route path="/chats/:id" exact component={Chat} />
-            <Route path="/chats/:id/record" exact component={RecordNewAudio} />
-            <Route path="/chats/:id/playback/:fileName" exact component={PlayAudio} />
-            <Route path="/chats/:id/overdub/:originalFileName" exact component={OverdubAudio} />
-            <Route
-              path="/chats/:id/consolidate/:oldFile/:newFile"
-              exact
-              component={Consolidation}
-            />
-            <Route
-              path="/chats/:id/playbackconsolidated/:fileName"
-              component={PlayConsolidatedAudio}
-            />
-          </Switch>
+          <Route path="/login" Component={UserLogin} />
+          <Route path="/chatslist" Component={ChatList} />
+          <Route path="/chats/new" Component={NewChat} />
+          <Route path="/chats/:id" Component={Chat} />
+          <Route path="/chats/:id/record" Component={RecordNewAudio} />
+          <Route path="/chats/:id/playback/:fileName" Component={PlayAudio} />
+          <Route path="/chats/:id/overdub/:originalFileName" Component={OverdubAudio} />
+          <Route path="/chats/:id/consolidate/:oldFile/:newFile" Component={Consolidation} />
+          <Route
+            path="/chats/:id/playbackconsolidated/:fileName"
+            Component={PlayConsolidatedAudio}
+          />
         </Router>
       </ThemeProvider>
     </AppContainer>

@@ -4,20 +4,16 @@ import { BackButton } from '../buttons/BackButton';
 import { AudioInterfaceWrapper } from '../audioInterface/AudioInterfaceWrapper';
 import { OverdubFiddle } from '../audioInterface/OverdubFiddle';
 import { PageFrame } from './PageFrame';
+import { useParams } from 'react-router-dom';
 
 type OverdubAudioProps = {
-  match: {
-    params: {
-      id: string;
-      originalFileName: string;
-    };
-  };
+  id: string;
+  originalFileName: string;
 };
 
-export function OverdubAudio({ match }: OverdubAudioProps) {
-  const chatId = match.params.id;
-  const fileName = match.params.originalFileName;
-  const audioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
+export function OverdubAudio() {
+  const { id: chatId, originalFileName } = useParams<OverdubAudioProps>();
+  const audioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${originalFileName}`;
 
   return (
     <PageFrame>

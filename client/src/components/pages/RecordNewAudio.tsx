@@ -1,5 +1,5 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { redirect, useParams } from 'react-router-dom';
 import { sendChatMessage, uploadAudio } from '../../api/chats';
 import { HeaderBar } from '../layout/HeaderBar';
 import { BackButton } from '../buttons/BackButton';
@@ -8,15 +8,11 @@ import { InitialAudioRecording } from '../audioInterface/InitialAudioRecording';
 import { PageFrame } from './PageFrame';
 
 type RecordNewAudioProps = {
-  match: {
-    params: {
-      id: string;
-    };
-  };
+  id: string;
 };
 
-export function RecordNewAudio({ match }: RecordNewAudioProps) {
-  const chatId = match.params.id;
+export function RecordNewAudio() {
+  const { id: chatId } = useParams<RecordNewAudioProps>();
   const [recordingDone, setRecordingDone] = React.useState(false);
   const [redirectToChat, setRedirectToChat] = React.useState(false);
   const [audioFileUrl, setAudioFileUrl] = React.useState('');
@@ -59,6 +55,12 @@ export function RecordNewAudio({ match }: RecordNewAudioProps) {
     setRedirectToChat(true);
   }
 
+  useEffect(() => {
+    if (redirectToChat) {
+      setTimeout(() => redirect(`/chats/${chatId}`), 2000);
+    }
+  }, [redirectToChat]);
+
   return (
     <PageFrame>
       <HeaderBar
@@ -79,7 +81,6 @@ export function RecordNewAudio({ match }: RecordNewAudioProps) {
           chatId={chatId}
         />
       )}
-      {redirectToChat && <Redirect to={`/chats/${chatId}`} />}
     </PageFrame>
   );
 }

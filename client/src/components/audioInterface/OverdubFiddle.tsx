@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { MutableRefObject, RefObject, useEffect, useRef, useState } from 'react';
-import { ReactMic } from 'react-mic';
-import { Redirect } from 'react-router-dom';
+// import { ReactMic } from 'react-mic';
+import { redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import WaveSurfer from 'wavesurfer.js';
-import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
+// import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js';
 
 import { uploadAudio } from '../../api/chats';
 import { getThemeGradient } from '../../utils/getThemeGradient';
@@ -27,11 +27,11 @@ const RecordingWaveform = styled.div<WaveFormType>`
   border-radius: 1rem;
 `;
 
-const Mic = styled(ReactMic)`
-  opacity: 0;
-  height: 0;
-  width: 0;
-`;
+// const Mic = styled(ReactMic)`
+//   opacity: 0;
+//   height: 0;
+//   width: 0;
+// `;
 
 export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
   const author = sessionStorage.getItem('userName');
@@ -56,11 +56,11 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
         progressColor: playedWaveColor,
         hideScrollbar: true,
         autoCenter: false,
-        responsive: true,
+        // responsive: true,
         barHeight: 10,
         height: 80,
-        interact: true,
-        maxCanvasWidth: 2000
+        interact: true
+        // maxCanvasWidth: 2000
       });
       wavesurfer.load(originalAudioFileUrl);
       wavesurfer.on('finish', function() {
@@ -84,19 +84,19 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
         waveColor: themeGradient,
         hideScrollbar: true,
         autoCenter: true,
-        responsive: true,
+        // responsive: true,
         interact: false,
         height: 260,
-        maxCanvasWidth: 2000,
-        fillParent: true,
-        plugins: [MicrophonePlugin.create()]
+        // maxCanvasWidth: 2000,
+        fillParent: true
+        // plugins: [MicrophonePlugin.create()]
       });
-      wavesurfer.microphone.on('deviceReady', function(stream) {
-        console.log('Device ready!', stream);
-      });
-      wavesurfer.microphone.on('deviceError', function(code) {
-        console.warn('Device error: ' + code);
-      });
+      // wavesurfer.microphone.on('deviceReady', function(stream) {
+      //   console.log('Device ready!', stream);
+      // });
+      // wavesurfer.microphone.on('deviceError', function(code) {
+      //   console.warn('Device error: ' + code);
+      // });
       setRecordingWaveSurfer(wavesurfer);
     }
   }, [playbackWaveformRef, recordingWaveformRef]);
@@ -107,14 +107,28 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
 
   function startRecording() {
     playbackWaveSurfer && playbackWaveSurfer.play();
-    recordingWaveSurfer && recordingWaveSurfer.microphone.start();
+    // recordingWaveSurfer && recordingWaveSurfer.microphone.start();
     setIsRecording(true);
   }
 
   function stopRecording() {
-    recordingWaveSurfer && recordingWaveSurfer.microphone.stop();
+    // recordingWaveSurfer && recordingWaveSurfer.microphone.stop();
     setIsRecording(false);
   }
+
+  useEffect(() => {
+    if (twoRecordings) {
+      setTimeout(
+        () =>
+          redirect(
+            `/chats/${chatId}/consolidate/${originalAudioFileUrl.slice(47)}/${newAudioFileUrl.slice(
+              47
+            )}`
+          ),
+        2000
+      );
+    }
+  }, [twoRecordings]);
 
   async function handleStop(recordedBlob) {
     const file_reader = new FileReader();
@@ -135,16 +149,9 @@ export function OverdubFiddle({ originalAudioFileUrl, chatId }) {
     <>
       <PlaybackWaveform ref={playbackWaveformRef} />
       <RecordingWaveform ref={recordingWaveformRef} />
-      <Mic record={isRecording} onStop={handleStop} onData={handleData} mimeType="audio/webm" />
+      {/*<Mic record={isRecording} onStop={handleStop} onData={handleData} mimeType="audio/webm" />*/}
       {!isRecording && <RecordButton onClick={startRecording} />}
       {isRecording && <StopButton onClick={stopRecording} />}
-      {twoRecordings && (
-        <Redirect
-          to={`/chats/${chatId}/consolidate/${originalAudioFileUrl.slice(
-            47
-          )}/${newAudioFileUrl.slice(47)}`}
-        />
-      )}
     </>
   );
 }
