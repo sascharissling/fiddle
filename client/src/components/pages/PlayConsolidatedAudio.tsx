@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { sendChatMessage } from '../../api/chats';
 import { ConsolidatedFiddle } from '../audioInterface/ConsolidatedFiddle';
 import { HeaderBar } from '../layout/HeaderBar';
@@ -10,19 +10,14 @@ import { NoAudioYet } from '../headlines/NoAudioYet';
 import { PageFrame } from './PageFrame';
 
 type PlayConsolidatedAudioProps = {
-  match: {
-    params: {
-      id: string;
-      fileName: string;
-    };
-  };
+  id: string;
+  fileName: string;
 };
 
-export function PlayConsolidatedAudio({ match }: PlayConsolidatedAudioProps) {
+export function PlayConsolidatedAudio() {
+  const { id: chatId, fileName } = useParams<PlayConsolidatedAudioProps>();
   const [visualizing, setVisualizing] = React.useState(true);
   const [redirectToChat, setRedirectToChat] = React.useState(false);
-  const chatId = match.params.id;
-  const fileName = match.params.fileName;
   const audioUrl = `https://res.cloudinary.com/fiddle/video/upload/${fileName}`;
   const type = 'audio';
   const body = audioUrl;

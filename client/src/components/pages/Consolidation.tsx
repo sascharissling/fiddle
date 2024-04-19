@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Crunker from 'crunker';
 import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { uploadAudio } from '../../api/chats';
 import { changeWidthLong } from '../../utils/animations';
 import { LoadingLineLong } from '../misc/LoadingLine';
@@ -26,20 +26,16 @@ const ConsolidationLoadingLine = styled(LoadingLineLong)`
 `;
 
 type ConsolidationProps = {
-  match: {
-    params: {
-      id: string;
-      oldFile: string;
-      newFile: string;
-    };
-  };
+  id: string;
+  oldFile: string;
+  newFile: string;
 };
-export function Consolidation({ match }: ConsolidationProps) {
-  const oldAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${match.params.oldFile}`;
-  const newAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${match.params.newFile}`;
+export function Consolidation() {
+  const { oldFile, newFile, id: chatId } = useParams<ConsolidationProps>();
+  const oldAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${oldFile}`;
+  const newAudioFileUrl = `https://res.cloudinary.com/fiddle/video/upload/${newFile}`;
   const [consolidatedAudioFileName, setConsolidatedAudioFileName] = useState('');
   const [consolidationDone, setConsolidationDone] = useState(false);
-  const chatId = match.params.id;
   const author = sessionStorage.getItem('userName');
 
   const crunkerRef = useRef<HTMLDivElement>(null);

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useGetChatMessages } from '../hooks/useGetChatMessages';
 import { useGetChatInformation } from '../hooks/useGetChatInformation';
 import { useScrollIntoView } from '../hooks/useScrollIntoView';
@@ -29,20 +29,18 @@ const ChatHistory = styled.div`
 `;
 
 function pickPartnerName(userName: string, userName1: string, userName2: string) {
-  const partner = userName === userName1 ? userName2 : userName1;
-  return partner;
+  return userName === userName1 ? userName2 : userName1;
 }
 
 type ChatProps = {
-  match: {
-    params: {
-      id: string;
-    };
-  };
+  id: string;
 };
 
-export function Chat({ match }: ChatProps) {
-  const chatId = match.params.id;
+export function Chat() {
+  const { id: chatId } = useParams<ChatProps>();
+
+  if (!chatId) return null;
+
   const chatInformation = useGetChatInformation(chatId);
   const userName = sessionStorage.getItem('userName') ?? '';
 
